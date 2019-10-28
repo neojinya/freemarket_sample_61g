@@ -2,13 +2,17 @@
 ## usersテーブル
 |Column|Type|Options|説明|
 |------|----|-------|----|
-|name|string|null: false,unique: true||
+|first_name|string|null: false||
+|last_name|string|null: false||
+|first_name_kata|string|null: false||
+|last_name_kata|string|null: false||
 |nickname|string|null: false,unique: true||
 |image|text|null: true||
 |profiel_message|text|null: true|プロフィールメッセージ|
 |num_of_exihibits|integer|null:false|出品数|
 |phone_number|string|null:false||
 |email|string|null: false||
+|post_code|string|null: false|郵便番号|
 |prefecture|string|null: false|都道府県|
 |city_village_town|string|null: false||
 |house_number|string|null: false|番地|
