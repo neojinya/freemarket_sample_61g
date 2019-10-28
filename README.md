@@ -4,9 +4,15 @@
 |------|----|-------|
 |name|string|null: false,unique: true|
 |nickname|string|null: false,unique: true|
+|image|text|null: true|
+|profiel_message|text|null: true|
+|num_of_exihibits|integer|null:false|
+|phone_number|string|null:false|
 |email|string|null: false|
-|region|string|null: false|
-|adress|string|null: false|
+|prefecture|string|null: false|
+|city_village_town|string|null: false|
+|house_number|string|null: false|
+|building|string|null: false|
 |birthday|date|null: false|
 |shipping_date|string|null: true|
 
@@ -15,6 +21,18 @@
 - has_many :products
 - has_many :user_ratings
 - has_many :favorites
+- has_many :points
+
+## pointsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|date|date|null :false|
+|point|integer|null :false|
+|effective_period|date|null :false|
+
+
+### Association
+belongs_to :user
 
 ## creditsテーブル
 |Column|Type|Options|
@@ -22,6 +40,7 @@
 |number|integer|null :false|
 |expiration_date|date|null :false|
 |security_code|integer|null :false|
+|user_id|integer|null: false|
 
 ### Association
 belongs_to :user
@@ -29,8 +48,8 @@ belongs_to :user
 ## user_ratingsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
 |rating|integer|null: true|
+|user_id|integer|null: false|
 <!-- raiting 0 => bad ,1 => soso, 2 => good -->
 
 ### Association
@@ -54,7 +73,7 @@ has_many :products
 |product_id|integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :users
+belongs_to :user
 belongs_to :product
 
 ## productsテーブル
@@ -70,8 +89,9 @@ belongs_to :product
 |region|string|null: false|
 |delivery_date|integer|null: false|
 |explanation|text|null: false|
+|buy_date|date|null: true|
 |buyer_id|integer|null: true|
-|seller_id|integer|null: true|
+|seller_id|integer|null: false|
 |bland_id|integer|null: false|
 |category_id|integer|null: false|
 
