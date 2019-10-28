@@ -29,7 +29,7 @@
 |date|date|null :false||
 |point|integer|null :false||
 |expiration_date|date|null :false|有効期限|
-
+|user_id|integer|null: false,foreign_key: true||
 
 ### Association
 belongs_to :user
@@ -40,7 +40,7 @@ belongs_to :user
 |number|integer|null :false||
 |expiration_date|date|null :false|有効期限|
 |security_code|integer|null :false||
-|user_id|integer|null: false||
+|user_id|integer|null: false,foreign_key: true||
 
 ### Association
 belongs_to :user
@@ -49,7 +49,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |rating|integer|null: true|
-|user_id|integer|null: false|
+|user_id|integer|null: false,foreign_key: true|
 <!-- raiting 0 => bad ,1 => soso, 2 => good -->
 
 ### Association
@@ -59,7 +59,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false|
-|user_id|integer|null: false|
+|user_id|integer|null: false,foreign_key: true|
 
 ### Association
 has_many :users
@@ -90,10 +90,10 @@ belongs_to :product
 |delivery_date|integer|null: false||
 |explanation|text|null: false|商品説明|
 |buy_date|date|null: true|購入日|
-|buyer_id|integer|null: true||
-|seller_id|integer|null: false||
-|bland_id|integer|null: false||
-|category_id|integer|null: false||
+|buyer_id|integer|null: true,foreign_key: true||
+|seller_id|integer|null: false,foreign_key: true||
+|bland_id|integer|null: false,foreign_key: true||
+|category_id|integer|null: false,foreign_key: true||
 |shipping_date|string|null: true||
 
 ### Association
