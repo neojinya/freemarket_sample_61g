@@ -5,7 +5,7 @@
 |name|string|null: false,unique: true||
 |nickname|string|null: false,unique: true||
 |image|text|null: true||
-|profiel_message|text|null: true|プロフールメッセージ|
+|profiel_message|text|null: true|プロフィールメッセージ|
 |num_of_exihibits|integer|null:false|出品数|
 |phone_number|string|null:false||
 |email|string|null: false||
@@ -32,7 +32,7 @@
 |user_id|integer|null: false,foreign_key: true||
 
 ### Association
-belongs_to :user
+- belongs_to :user
 
 ## creditsテーブル
 |Column|Type|Options|説明|
@@ -43,7 +43,7 @@ belongs_to :user
 |user_id|integer|null: false,foreign_key: true||
 
 ### Association
-belongs_to :user
+- belongs_to :user
 
 ## user_ratingsテーブル
 |Column|Type|Options|
@@ -53,7 +53,7 @@ belongs_to :user
 <!-- raiting 0 => bad ,1 => soso, 2 => good -->
 
 ### Association
-belongs_to :user
+- belongs_to :user
 
 ## favoritesテーブル
 |Column|Type|Options|
@@ -62,8 +62,8 @@ belongs_to :user
 |user_id|integer|null: false,foreign_key: true|
 
 ### Association
-has_many :users
-has_many :products
+- has_many :users
+- has_many :products
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -73,8 +73,8 @@ has_many :products
 |product_id|integer|null: false, foreign_key: true|
 
 ### Association
-belongs_to :user
-belongs_to :product
+- belongs_to :user
+- belongs_to :product
 
 ## productsテーブル
 |Column|Type|Options|説明|
@@ -108,7 +108,7 @@ belongs_to :category
 |name|string|null: false|
 
 ### Association
-has_many :products
+- has_many :products
 
 ## categorysテーブル
 |Column|Type|Options|
@@ -116,4 +116,4 @@ has_many :products
 |name|string|null: false|
 
 ### Association
-has_many :products
+- has_many :products
