@@ -102,6 +102,10 @@
           a {
             @include search;
           }
+
+          &__pulldown {
+            display: none;
+          }
         }
 
         &__brands {

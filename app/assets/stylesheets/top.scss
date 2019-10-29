@@ -90,7 +90,7 @@
       position: relative;
 
       &__top {
-        height: 290px;
+        height: 390px;
         left: 50%;
         margin-left: -50vw;
         position: relative;
@@ -102,6 +102,15 @@
           color: inherit;
           text-decoration: none;
 
+          .main__contents__top__image {
+            height: 390px;
+            background-size: auto;
+            position: relative;
+            background-image: url(mercari_camp.jpg);
+            background-size:  cover;
+            background-repeat: no-repeat; 
+            background-position: center;
+          }
           .slider {
             display: block;
             height: auto;
@@ -334,5 +343,14 @@
         }
       }
     }
+  }
+
+  aside {
+    color: rgb(255, 255, 255);
+    margin-top: auto;
+    background-image: url(mercari_bottom_image.jpg);
+    background-repeat: no-repeat; 
+    background-position: center;
+    height: 250px;
   }
 }
