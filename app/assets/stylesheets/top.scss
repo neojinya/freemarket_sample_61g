@@ -75,10 +75,6 @@
   position: relative;
 }
 
-@mixin exhibit {
-
-}
-
 .container {
   background-color: rgb(245, 245, 245);
   display: flex;
@@ -120,12 +116,12 @@
       &__categories {
         @include belt;
 
-        &--top {
+        &__top {
           @include heading;
           @include style_heading;
         }
 
-        &--low {
+        &__low {
           @include popular_categories;
 
           ul {
@@ -145,9 +141,9 @@
       &__new-categories {
         padding: 42px 0px 100px;
 
-        &--top {
+        &__top {
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -161,10 +157,10 @@
           }
         }
 
-        &--second {
+        &__second {
           @include item_index;
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -178,10 +174,10 @@
           }
         }
 
-        &--third {
+        &__third {
           @include item_index;
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -195,10 +191,10 @@
           }
         }
 
-        &--bottom {
+        &__bottom {
           @include item_index;
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -216,12 +212,12 @@
       &__brands {
         @include belt;
 
-        &--top {
+        &__top {
           @include heading;
           @include style_heading;
         }
 
-        &--low {
+        &__low {
           @include popular_categories;
 
           ul {
@@ -241,9 +237,9 @@
       &__new-brands {
         padding: 42px 0px 100px;
 
-        &--top {
+        &__top {
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -257,10 +253,10 @@
           }
         }
 
-        &--second {
+        &__second {
           @include item_index;
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -274,10 +270,10 @@
           }
         }
 
-        &--third {
+        &__third {
           @include item_index;
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -291,10 +287,10 @@
           }
         }
 
-        &--bottom {
+        &__bottom {
           @include item_index;
 
-          &--heading {
+          &__heading {
             @include index_heading;
 
             h3 {
@@ -332,7 +328,7 @@
         background-color: rgb(234, 53, 45);
         border-radius: 50%;
 
-        &--text {
+        &__text {
           font-size: 22px;
           color: rgb(255, 255, 255);
         }
