@@ -69,14 +69,21 @@ body {
   color: #fff;
 }
 
-.btn__sns i {
-  position: absolute;
-  top: 25%;
-  left: 16px;
-}
-
 .btn__sns {
   position: relative;
+  i {
+    position: absolute;
+    top: 25%;
+    left: 16px;
+  }
+  &__google {
+  margin: 16px 0 0;
+  background-color: #fff;
+  background-image: url("https://www.mercari.com/jp/assets/img/common/common/google.svg");
+  background-repeat: no-repeat;
+  border: #979797 solid 1px;
+  color: #333;
+  }
 }
 
 .btn__default {
@@ -84,19 +91,19 @@ body {
   width: 100%;
   line-height: 48px;
   font-size: 14px;
-  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+.btn__default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out 0.3s;
   cursor: pointer;
   text-align: center;
 }
 
-.btn__sns__google {
-  margin: 16px 0 0;
-  background-color: #fff;
-  background-image: url("https://www.mercari.com/jp/assets/img/common/common/google.svg");
-  background-repeat: no-repeat;
-  border: #979797 solid 1px;
-  color: #333;
-}
 
 .login__menu__form {
   &:first-child {
@@ -146,15 +153,7 @@ body {
   color: #fff;
 }
 
-.btn__default {
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  transition: all ease-out 0.3s;
-  cursor: pointer;
-  text-align: center;
-}
+
 
 .login__menu a {
   display: block;
