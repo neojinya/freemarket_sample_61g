@@ -1,0 +1,150 @@
+@mixin list {
+  line-height: 1.4em;
+  margin: 16px 0px 0px;
+}
+
+@mixin heading {
+  font-size: 16px;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+@mixin top-contents {
+  display: inline-block;
+  margin-top: 18px;
+  vertical-align: top;
+  width: 50%;
+  padding: 0 10px;
+}
+
+@mixin middle-contents {
+  vertical-align: top;
+  width: 50%;
+}
+
+@mixin box {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 35px;
+  width: 100%;
+}
+
+@mixin link {
+  color: rgb(255, 255, 255);
+  opacity: 0.7;
+}
+
+.footer {
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 0px 20px 10px;
+
+  &__top {
+    width: 700px;
+    margin: 0px auto;
+
+    &__wrapper {
+      display: flex;
+
+      &__left {
+        padding-left: 0px;
+        @include top-contents;
+  
+        &--heading {
+          @include heading;
+        }
+  
+        &--list {
+          @include list;
+
+          a {
+            @include link;
+          }
+        }
+      }
+      &__right {
+        @include top-contents;
+  
+        &--heading {
+          @include heading;
+        }
+  
+        &--list {
+          @include list;
+
+          a {
+            @include link;
+          }
+        }
+      }
+    }
+
+
+
+    &__middle {
+      @include box;
+
+      &--heading {
+        @include heading;
+      }
+
+      &--wrapper {
+        display: flex;
+
+        &--left {
+          padding-right: 10px;
+          @include middle-contents;
+  
+          &--list {
+            @include list;
+  
+            a {
+              @include link;
+            }
+          }
+        }
+  
+        &--right {
+          padding-left: 10px;
+          @include middle-contents;
+  
+          &--list {
+            @include list;
+  
+            a {
+              @include link;
+            }
+          }
+        }
+      }
+    }
+
+    &__low {
+      @include box;
+
+      &--heading {
+        @include heading;
+      }
+
+      &--list {
+        @include list;
+
+        a {
+          @include link;
+        }
+      }
+    }
+  }
+
+  &__low {
+    width: 700px;
+    margin: 55px auto 10px;
+
+    &__copyright {
+      text-align: center;
+      padding-left: 15px;
+      width: 75%;
+    }
+  }
+}
+
