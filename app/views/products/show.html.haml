@@ -1,0 +1,38 @@
+-# = render 'shared/header'
+.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+  #mypage-wrapper
+    // 左側コンテンツ
+    = render "mypage/left-content"
+    / 右側コンテンツ
+    .right-content
+      / renderで表示
+      / ユーザープロフィール (お知らせ&やることリストBOXと連結)
+      = render "mypage/right-content"
+      
+      / 共通tab
+      / renderで表示
+      / お知らせ＆やることリストBOX (お知らせ　やることリスト　各々で遷移)
+
+      / renderで表示
+      / いいね！一覧
+      
+      / renderで表示
+      / 部品: ページネーションボタン (出品した商品BOX、いいね！一覧、評価一覧と連結)
+      
+      / renderで表示
+      / 出品した商品BOX (出品中　取引中　売却済み　各々で遷移)
+      
+      
+      
+      / renderで表示
+      / 購入した商品BOX (取引中　過去の取引　各々で遷移)
+      
+      
+      / renderで表示
+      / ニュース一覧
+
+      / renderで表示
+      / 評価一覧
+      
+      / renderで表示
+      / お問い合わせ

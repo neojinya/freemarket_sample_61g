@@ -1,0 +1,10 @@
+.user-profile-content
+  %a.user-profile{href: "#"}
+    %img.user-profile__image{alt: "profile", width: "60", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/
+    %h5.user-profile__name 山田太郎
+    %p.user-profile__rate 評価 
+    %span{style: "margin-left: 8px;"} 0
+    %p.user-profile__sell-count 出品数 
+    %span{style: "margin-left: 8px;"} 0
+= render "mypage/notice"
+= render "mypage/purchase"
