@@ -183,5 +183,70 @@ a {
         @include not-found-tab-show;
       }
     }
+
+    @mixin form_parts {
+      font-size: 16px;
+      line-height: 1.5;
+      border: 1px solid #ccc;
+    }
+
+    .profile-content {
+      width: 700px;
+      background-color: #fff;
+      .profile-heading {
+        padding: 8px 24px;
+        font-size: 24px;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .update-profile-field {
+        background-image: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?12295559");
+        .profile-icons-field {
+          padding: 72px 16px 24px;
+          text-align: center;
+          &__icon {
+            border-radius: 50%;
+            vertical-align: middle;
+          }
+          &__input-name {
+            width: 220px;
+            height: 48px;
+            margin-left: 8px;
+            padding: 10px 16px 8px;
+            vertical-align: middle;
+            @include form_parts;
+            border-radius: 4px;
+            // outline-width: 1px;
+            outline: none;
+          }
+          &__input-name:focus {
+            border-radius: 4px;
+            border: 1px solid skyblue;
+          }
+        }
+      }
+      .update-textarea-field {
+        padding: 40px 16px;
+        textarea {
+          width: 100%;
+          min-height: 216px;
+          max-width: 100%;
+          padding: 10px;
+          @include form_parts;
+          outline-width: 1px;
+        }
+        .btn-submit {
+          width: 100%;
+          background-color: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          font-size: 14px;
+          line-height: 48px;
+          cursor: pointer;
+          margin-top: 16px;
+          outline: none;
+        }
+      }
+    }
   }
 }

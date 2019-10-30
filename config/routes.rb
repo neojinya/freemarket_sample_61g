@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
 
-  get '/mypage', to: "products#show"
+  # 仮置き
+  get '/mypage', to: "products#mypage"
+  get '/mypage/profile', to: "products#profile"
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
