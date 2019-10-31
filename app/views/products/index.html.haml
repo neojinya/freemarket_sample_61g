@@ -1,2 +1,101 @@
-%h1 Products#index
-%p Find me in app/views/products/index.html.erb
+.top
+  .container
+    = render 'shared/header'
+    .main
+      .main__contents
+        .main__contents__top
+          = link_to do
+            .main__contents__top__image
+          .slider
+        .main__contents__categories
+          %h2.main__contents__categories__top 人気のカテゴリー
+          .main__contents__categories__low
+            %ul
+              %li
+                = link_to do
+                  hallo
+              %li
+                = link_to do
+                  hallo
+              %li
+                = link_to do
+                  hallo
+              %li
+                = link_to do
+                  hallo
+        .main__contents__new-categories
+          .main__contents__new-categories__top
+            .main__contents__new-categories__top__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-categories__top__contents
+              %ul
+          .main__contents__new-categories-__second
+            .main__contents__new-categories__second__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-categories__second__contents
+              %ul
+          .main__contents__new-categories__third
+            .main__contents__new-categories__third__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-categories__third__contents
+              %ul
+          .main__contents__new-categories__bottom
+            .main__contents__new-categories__bottom__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-categories__bottom__contents
+              %ul
+        .main__contents__brands
+          %h2.main__contents__brands__top 人気のブランド
+          .main__contents__brands__low
+            %ul
+              %li
+                = link_to do
+                  hallo
+              %li
+                = link_to do
+                  hallo
+              %li
+                = link_to do
+                  hallo
+              %li
+                = link_to do
+                  hallo
+        .main__contents__new-brands
+          .main__contents__new-brands__top
+            .main__contents__new-brands__top__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-brands__top__contents
+          .main__contents__new-brands__second
+            .main__contents__new-brands__second__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-brands__second__contents
+          .main__contents__new-brands__third
+            .main__contents__new-brands__third__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-brands__third__contents
+          .main__contents__new-brands__bottom
+            .main__contents__new-brands__bottom__heading
+              %h3 新着アイテム
+              = link_to do
+                もっと見る
+            .main__contents__new-brands__bottom__contents
+    .exhibit
+      = link_to do
+        .exhibit__content
+          .exhibit__content__text 出品
+    %aside
+    = render 'shared/footer'
