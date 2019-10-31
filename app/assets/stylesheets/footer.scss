@@ -5,6 +5,7 @@
 
 @mixin heading {
   font-size: 16px;
+  line-height: 1.4em;
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 
@@ -12,20 +13,13 @@
   display: inline-block;
   margin-top: 18px;
   vertical-align: top;
-  width: 50%;
-  padding: 0 10px;
+  width: auto;
+  padding: 0px 40px 0px 0px;
 }
 
 @mixin middle-contents {
   vertical-align: top;
   width: 50%;
-}
-
-@mixin box {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 35px;
-  width: 100%;
 }
 
 @mixin link {
@@ -40,41 +34,38 @@
   padding: 0px 20px 10px;
 
   &__top {
-    width: 700px;
+    width: 1020px;
     margin: 0px auto;
+    display: flex;
 
-    &__wrapper {
-      display: flex;
+    &__left {
+      padding-left: 0px;
+      @include top-contents;
 
-      &__left {
-        padding-left: 0px;
-        @include top-contents;
-  
-        &__heading {
-          @include heading;
-        }
-  
-        &__list {
-          @include list;
+      &__heading {
+        @include heading;
+      }
 
-          a {
-            @include link;
-          }
+      &__list {
+        @include list;
+
+        a {
+          @include link;
         }
       }
-      &__right {
-        @include top-contents;
-  
-        &__heading {
-          @include heading;
-        }
-  
-        &__list {
-          @include list;
+    }
+    &__right {
+      @include top-contents;
 
-          a {
-            @include link;
-          }
+      &__heading {
+        @include heading;
+      }
+
+      &__list {
+        @include list;
+
+        a {
+          @include link;
         }
       }
     }
@@ -82,7 +73,11 @@
 
 
     &__middle {
-      @include box;
+      margin-top: 18px;
+      padding-right: 40px;
+      width: 43%;
+      display: inline-block;
+      vertical-align: top;
 
       &__heading {
         @include heading;
@@ -120,7 +115,11 @@
     }
 
     &__low {
-      @include box;
+      margin-top: 18px;
+      width: auto;
+      padding: 0px 40px 0px 0px;
+      display: inline-block;
+      vertical-align: top;
 
       &__heading {
         @include heading;
@@ -131,14 +130,23 @@
 
         a {
           @include link;
+          display: block;
+          margin: 16px 0px 0px;
         }
       }
     }
   }
 
   &__low {
-    width: 700px;
-    margin: 55px auto 10px;
+    width: 1020px;
+    margin: 30px auto 20px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+
+    a {
+      text-align: center;
+    }
 
     &__copyright {
       text-align: center;
