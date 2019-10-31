@@ -1,0 +1,115 @@
+
+.form-group:first-child {
+  margin: 0;
+}
+.form-group {
+  margin: 40px 0 0;
+  label {
+    font-weight: 600;
+  }
+  .input-default {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+}
+
+.container {
+  padding: 0 0 220px;
+}
+
+.simple-header {
+  height: 128px;
+  text-align: center;
+  h1 {
+    margin: 40px 0 0;
+    display: inline-block;
+  }
+  a {
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+    display: inline-block;
+    margin: 0 8px 0 0;
+  }
+  img{
+    width: 185px;
+    height: 49px;
+  }
+}
+.buy-item-container{
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.sell-head{
+  padding: 32px 16px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.sell-form {
+  border-top: 1px solid #eee;
+  &__upload-box{
+    width: 620px;
+    padding: 40px;
+    h3{
+      font-size: 16px;
+    }
+    p{
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+  }
+  &__content{
+    padding: 40px;
+    border-top: 1px solid #eee;
+  }
+}
+
+.upload-box{
+  width: 620px;
+  margin: 16px auto 0;
+  &__items-container{
+    float: left;
+    display: block;
+    .upload-items{
+      display: inline;
+      ul{
+        width: 100%;
+      }
+    }
+  }
+  &__drop-box{
+    width: 100%;
+    margin-left: 0;
+    float: right;
+    padding: 40px;
+    position: relative;
+    min-height: 162px;
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+    font-size: 0;
+    text-align: center;
+    pre{
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      right: 16px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      display: block;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
