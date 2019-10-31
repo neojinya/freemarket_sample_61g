@@ -6,10 +6,14 @@
   margin: 40px 0 0;
   label {
     font-weight: 600;
+    margin-bottom:10px;
   }
   .input-default {
     width: 100%;
     margin: 8px 0 0;
+  }
+  select{
+    width: 100%;
   }
 }
 
@@ -68,6 +72,19 @@
   }
 }
 
+.sell-form__content{
+  .sell-sub-head{
+    color: #888;
+    font-size: 14px;
+    float: left;
+  }
+  .sell-form-box{
+    float:right;
+    width: 400px;
+    margin: 0;
+  }
+}
+
 .upload-box{
   width: 620px;
   margin: 16px auto 0;
@@ -104,6 +121,78 @@
     }
   }
 }
+
+.sell-price{
+  &__input{
+    width: 50%;
+    float: right;
+    display:flex;
+    line-height: 48px;
+    .input-default{
+      margin: 0;
+      margin-left:10px;
+      text-align: right;  
+    }
+  }
+  li {
+    padding: 24px 0;
+    border-top: 1px solid #ccc;
+  }
+  .clearfix.bold{
+    .l-left{
+      font-size: 16px;
+    }
+  }
+}
+.sell-form__content.sell-btn-box{
+  div{
+    p{
+      line-height: 1.5;
+    }
+  }
+  .btn-red {
+    margin: 40px 0 0;
+  }
+  .btn-gray {
+    width: 45%;
+    margin: 24px auto 0;
+  }
+}
+
+.simple-footer{
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+  ul{
+    font-size: 0;
+    li{
+      margin: 10px;
+      display: inline-block;
+      font-size: 12px;
+      a{
+        color: #333;
+      }
+    }
+  }
+  &__logo{
+    img{
+      margin-top: 20px;
+    }
+  }
+  p{
+    margin-top: 10px;
+  }
+}
+
+
 
 
 
