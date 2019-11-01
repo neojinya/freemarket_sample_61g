@@ -1,4 +1,10 @@
 
+@mixin clearfix_after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 .form-group:first-child {
   margin: 0;
 }
@@ -17,7 +23,7 @@
   }
 }
 
-.container {
+.products-new-container {
   padding: 0 0 220px;
 }
 

@@ -33,7 +33,7 @@ div ,main,section,form{
   display: block;
 }
 
-a {
+@mixin a-default {
   color: #0099e8;
   text-decoration: none;
 }
