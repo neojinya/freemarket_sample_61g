@@ -3,14 +3,16 @@
     .header__contents__top
       .header__contents__top__left
         = link_to do
-          = image_tag 'mercari_logo_horizontal.png'
+          = image_tag '/images/mercari_logo_horizontal.png'
       %form.header__contents__top__right
         %input{type: "search", placeholder: "何かお探しですか？"}/
         %button
+          %i.fas.fa-search
     .header__contents__low
       .header__contents__low__left
         .header__contents__low__left__categories
           = link_to do
+            %i.fas.fa-list-ul
             カテゴリーから探す
           %div.header__contents__low__left__categories__pulldown
             %ul

@@ -27,6 +27,81 @@
   opacity: 0.7;
 }
 
+.advertisement {
+  color: rgb(255, 255, 255);
+  margin-top: auto;
+  background-image: url(/images/mercari_bottom_image.jpg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  height: 250px;
+
+  &__wrapper {
+
+    &__contents {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      width: 750px;
+      margin: 0px auto;
+
+      &__left {
+        display: flex;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+
+        &__top {
+          color: rgb(255, 255, 255);
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+
+        &__middle {
+          color: rgb(255, 255, 255);
+          font-size: 35px;
+          margin-bottom: 20px;
+        }
+
+        &__bottom {
+
+          img {
+            height: 68px;
+            margin-right: 20px;
+            width: 68px;
+          }
+
+          .apple {
+
+            &__image {
+              height: 40px;
+              margin-right: 8px;
+              width: 144px;
+            }
+          }
+
+          .google {
+
+            &__image {
+              height: 40px;
+              width: 144px;
+            }
+          }
+        }
+      }
+
+      &__right {
+        margin: 0;
+
+        img {
+          height: 260px;
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
 .footer {
   background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
@@ -51,6 +126,36 @@
 
         a {
           @include link;
+        }
+      }
+
+      .twitter {
+
+        display: inline-block;
+        margin-top: 30px;
+
+        .fa-twitter {
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+          width: 30px;
+          margin-right: 20px;
+          color: white;
+          font-size: 30px;
+        }
+      }
+
+      .facebook {
+        display: inline-block;
+        margin-top: 30px;
+
+        .fa-facebook-square {
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+          width: 26px;
+          color: white;
+          font-size: 30px;
         }
       }
     }
@@ -146,6 +251,11 @@
 
     a {
       text-align: center;
+
+      img {
+        height: 33px;
+        width: 124px;
+      }
     }
 
     &__copyright {
