@@ -10,15 +10,17 @@ body {
 
 .header__container {
   text-align: center;
+  height: 128px;
 
   h1 {
     display: inline-block;
     margin: 11px 0 12px;
+    margin: 40px 0 0;
   }
 
   img {
-    width: 120px;
-    height: 33px;
+    width: 185px;
+    height: 49px;
   }
 }
 
@@ -33,7 +35,7 @@ body {
 }
 
 .login__menu__account {
-  padding: 24px 32px;
+  padding: 40px 32px;
   text-align: center;
 
   p {
