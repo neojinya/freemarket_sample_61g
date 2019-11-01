@@ -128,5 +128,5 @@ belongs_to :category
 |image|text|null: false, index: true|
 
 ### Association
-- has_many :products
+- belongs_to :product
 
