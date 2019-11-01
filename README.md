@@ -84,7 +84,7 @@
 |Column|Type|Options|説明|
 |------|----|-------|----|
 |name|string|null: false||
-|image_id|integer|foreign_key: true||
+|product_id|integer|foreign_key: true||
 |price|integer|null: false||
 |size|integer|null: false||
 |condition|string|null: false||
