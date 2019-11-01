@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+  end
 
   # -------------- 仮置き -----------------
   def mypage
