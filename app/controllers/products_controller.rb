@@ -10,5 +10,6 @@ class ProductsController < ApplicationController
   end
 
   def profile
+    
   end
 end

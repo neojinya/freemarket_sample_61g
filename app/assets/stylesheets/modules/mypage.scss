@@ -83,6 +83,7 @@ a {
       }
     }
     &__options {
+      
       ul {
         margin-top: 8px;
         @include left-content-lists;
@@ -216,7 +217,7 @@ a {
             vertical-align: middle;
             @include form_parts;
             border-radius: 4px;
-            // outline-width: 1px;
+            background-color: #fff;
             outline: none;
           }
           &__input-name:focus {
