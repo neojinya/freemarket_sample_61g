@@ -408,40 +408,7 @@ code, kbd, pre, samp {
 }
 
 
-.simple-footer{
-  width: 456px;
-  height: 220px;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  height: 250px;
-  padding: 40px 0;
-  text-align: center;
-  ul{
-    font-size: 0;
-    li{
-      margin: 10px;
-      display: inline-block;
-      font-size: 12px;
-      a{
-        color: #333;
-        text-decoration: none;
-      }
-    }
-  }
-  &__logo{
-    img{
-      vertical-align: middle;
-      margin-top: 20px;
-    }
-  }
-  p{
-    margin-top: 10px;
-  }
-}
+
 
 
 
