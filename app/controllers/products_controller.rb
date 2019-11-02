@@ -11,4 +11,8 @@ class ProductsController < ApplicationController
 
   def profile
   end
+
+  def credit
+  end
 end
+
