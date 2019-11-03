@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index, :new]
+  resources :products, only: [:index, :new, :show]
 
   # 仮置き
   get '/mypage', to: "products#mypage"
