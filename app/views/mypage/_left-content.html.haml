@@ -2,7 +2,6 @@
   .left-content__mypage-list
     %ul
       %li
-        -# %a#mypage.active{href: "/mypage"} マイページ
         = link_to "マイページ", mypage_path, id: "mypage", class: "active"
       %li
         %a#notice{href: "#"} お知らせ
