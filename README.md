@@ -84,7 +84,6 @@
 |Column|Type|Options|説明|
 |------|----|-------|----|
 |name|string|null: false||
-|image|text|null: false||
 |price|integer|null: false||
 |size|integer|null: false||
 |condition|string|null: false||
@@ -118,6 +117,17 @@ belongs_to :category
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|category_id|integer|null: false|
 
 ### Association
 - has_many :products
+
+## imageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false, index: true|
+|product_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :product
+

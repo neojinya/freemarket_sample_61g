@@ -83,6 +83,7 @@ a {
       }
     }
     &__options {
+      
       ul {
         margin-top: 8px;
         @include left-content-lists;
@@ -208,7 +209,7 @@ a {
             border-radius: 50%;
             vertical-align: middle;
           }
-          &__input-name {
+          &__nickname {
             width: 220px;
             height: 48px;
             margin-left: 8px;
@@ -216,10 +217,10 @@ a {
             vertical-align: middle;
             @include form_parts;
             border-radius: 4px;
-            // outline-width: 1px;
+            background-color: #fff;
             outline: none;
           }
-          &__input-name:focus {
+          &__nickname:focus {
             border-radius: 4px;
             border: 1px solid skyblue;
           }

@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def profile
+    
   end
 
   def credit
