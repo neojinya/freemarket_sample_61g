@@ -1,0 +1,164 @@
+
+@mixin textarea-default {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@mixin input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+@mixin select-default {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+
+@mixin clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@mixin form-group {
+  margin: 40px 0 0;
+  label {
+    font-weight: 600;
+    margin-bottom:10px;
+  }
+  input{
+    @include input-default;
+    width: 100%;
+    margin: 8px 0 0;
+  }
+  select{
+    width: 100%;
+  }
+}
+
+@mixin form-require{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+@mixin  sell-form__content {
+  padding: 40px;
+  border-top: 1px solid #eee;
+}
+
+@mixin sell-sub-head{
+  color: #888;
+  font-size: 14px;
+  float: left;
+}
+
+@mixin btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+#credit-wrapper{
+  width: 700px;
+  background: #fff;
+  .header{
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+  }
+  .card-form{
+    padding: 24px 16px 40px;
+    .form-content{
+      margin: 0 auto;
+      max-width: 343px;
+      &__card-num{
+        @include form-group;
+        .require{
+          @include form-require;
+        }
+        .number-input{
+          @include input-default;
+        }
+        .card-list{
+          .card-list__img{
+            display: inline-block;
+            margin-top: 3px;
+            margin-right:3px;
+          }
+        }
+      }
+      &__expiration-date{
+        @include form-group;
+        .require{
+          @include form-require;
+        }
+        div{
+          display: flex;
+          .select-wrap{
+            display: flex;
+            align-items: center; 
+            width: calc(50% - 2px);
+            padding:3px;
+            margin:3px;
+            select{
+              @include select-default;
+            }
+          }
+        }
+      }
+      &__security-code{
+        @include form-group;
+        .require{
+          @include form-require;
+        }
+        .abaut-seqcode{
+          margin: 8px 0 0;
+          .abaut-seqcode__text{
+            text-align: right;
+            color: #0099e8;
+          }
+        }
+      }
+      .submit{
+        @include btn-default;
+        margin: 40px 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+      }
+    }
+  }
+}
