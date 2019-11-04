@@ -1,8 +1,8 @@
-%header.header
+.header
   .header__contents
     .header__contents__top
       .header__contents__top__left
-        = link_to do
+        = link_to '/' do
           = image_tag '/images/mercari_logo_horizontal.png'
       %form.header__contents__top__right
         %input{type: "search", placeholder: "何かお探しですか？"}/
@@ -615,6 +615,7 @@
                   カテゴリー一覧
         .header__contents__low__left__brands
           = link_to do
+            %i.fas.fa-tag
             ブランドから探す
       .header__contents__low__right
         .header__contents__low__right__registration

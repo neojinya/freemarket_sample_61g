@@ -1,0 +1,29 @@
+.simple-footer{
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  background-color: whitesmoke;
+  color: #333;
+  ul{
+    font-size: 0;
+    li{
+      margin: 10px;
+      display: inline-block;
+      font-size: 12px;
+    }
+  }
+  &__logo{
+    img{
+      margin-top: 20px;
+    }
+  }
+  p{
+    margin-top: 10px;
+  }
+  small {
+    font-size: 13px;
+  }
+}

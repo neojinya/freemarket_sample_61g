@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index, :new]
+  resources :products, only: [:index, :new, :show]
 
   # 仮置き
   get '/mypage', to: "products#mypage"
   get '/mypage/profile', to: "products#profile"
- 
+  get '/mypage/credit', to: "products#credit"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
