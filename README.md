@@ -117,6 +117,7 @@ belongs_to :category
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|category_id|integer|null: false|
 
 ### Association
 - has_many :products
@@ -126,7 +127,6 @@ belongs_to :category
 |------|----|-------|
 |image|text|null: false, index: true|
 |product_id|integer|null: false, foreign_key: true|
-
 
 ### Association
 - belongs_to :product
