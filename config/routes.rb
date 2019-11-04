@@ -9,11 +9,9 @@ Rails.application.routes.draw do
   # 仮置き
   get '/mypage', to: "products#mypage"
   get '/mypage/profile', to: "products#profile"
-
   get '/sign_up/registration', to: "users#registration"
-
   get '/mypage/credit', to: "products#credit"
-
+  get '/products/buy', to: "products#buy"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
