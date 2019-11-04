@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   def new
   end
 
+  def show
+  end
+
   # -------------- 仮置き -----------------
   def mypage
   end
@@ -12,4 +15,8 @@ class ProductsController < ApplicationController
   def profile
     
   end
+
+  def credit
+  end
 end
+
