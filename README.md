@@ -113,7 +113,7 @@ belongs_to :category
 ### Association
 - has_many :products
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
