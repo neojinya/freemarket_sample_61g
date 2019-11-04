@@ -4,9 +4,11 @@
     %h1#product-show__item BELLISSIMA 光脱毛器 フラッシュ＆ゴープラス
     %p#product-show__text
       『BELLISSIMA 光脱毛器 フラッシュ＆ゴープラス』は、18回の取引実績を持つ
-      %a{href: '/'} なる
+      = link_to do
+        なる
       さんから出品されました。
-      %a{href: '/'} 美容機器/家電・スマホ・カメラ
+      = link_to do
+        美容機器/家電・スマホ・カメラ
       の商品で、北海道から2~3日で発送されます。
     #product-show__content
       #product-show__photo
@@ -21,7 +23,8 @@
           %tr
             %th 出品者
             %td
-              %a{href: '/'} なる
+              = link_to do
+                なる
               %div
                 .product-show__rating
                   %i.fas.fa-laugh
@@ -35,12 +38,12 @@
           %tr
             %th カテゴリー
             %td
-              %a{href: '/'}
+              = link_to do
                 %div 家電・スマホ・カメラ
-              %a{href: '/'}
+              = link_to do
                 %div
                   %i.fas.fa-chevron-right 美容・健康
-              %a{href: '/'}
+              = link_to do
                 %div
                   %i.fas.fa-chevron-right 美容機器
           %tr
@@ -58,7 +61,8 @@
           %tr
             %th 配送元地域
             %td
-              %a{href: '/'} 北海道
+              = link_to do
+                北海道
           %tr
             %th 発送日の目安
             %td 2~3日で発送
@@ -85,15 +89,15 @@
         家庭用 脱毛器
     #product-show__buttons
       #product-show__left-button
-        %a{href: '/', id: 'product-show__like'}
+        = link_to '/', id: "product-show__like" do
           %i.far.fa-heart
           %span いいね！
           %span 2
-        %a{href: '/', id: 'product-show__report'}
+        = link_to '/', id: "product-show__report" do
           %i.far.fa-flag
           %span 不適切な商品の報告
       #product-show__right-button
-        %a{href: '/'}
+        = link_to do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
       .product-show__clear
@@ -104,11 +108,11 @@
           %li
   %ul#item-link
     %li#item-link__prev
-      %a{href: '/'}
+      = link_to do
         %i.fas.fa-chevron-left
         JUNK STORE ベスト＆パンツ90
     %li#item-link__next
-      %a{href: '/'}
+      = link_to do
         %i.fas.fa-chevron-right
         土瓶
     .product-show__clear
@@ -116,29 +120,31 @@
     #media-box__text-center
     %ul#media-box__social
       %li
-        %a{href: 'https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fshare.php%3Fu%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ja_JP'}
+        = link_to 'https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fshare.php%3Fu%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ja_JP' do
           %i.fab.fa-facebook-square
       %li
-        %a{href: 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm15270664905%2F&text=BELLISSIMA%20%E5%85%89%E8%84%B1%E6%AF%9B%E5%99%A8%E2%80%A6%20%28%C2%A58%2C500%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm15270664905%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89&url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm15270664905%2F'}
+        = link_to 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm15270664905%2F&text=BELLISSIMA%20%E5%85%89%E8%84%B1%E6%AF%9B%E5%99%A8%E2%80%A6%20%28%C2%A58%2C500%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm15270664905%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89&url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm15270664905%2F' do
           %i.fab.fa-twitter
       %li
-        %a{href: 'https://www.pinterest.jp/login/?next=/pin/create/button/%3Furl%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F%26media%3Dhttps%253A%252F%252Fstatic.mercdn.net%252Fitem%252Fdetail%252Forig%252Fphotos%252Fm15270664905_1.jpg%253F1568261349%26description%3D%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%25E5%2595%2586%25E5%2593%2581%253A%2520BELLISSIMA%2520%25E5%2585%2589%25E8%2584%25B1%25E6%25AF%259B%25E5%2599%25A8%2520%25E3%2583%2595%25E3%2583%25A9%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25EF%25BC%2586%25E3%2582%25B4%25E3%2583%25BC%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25B9%2520%2523%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA'}
+        = link_to 'https://www.pinterest.jp/login/?next=/pin/create/button/%3Furl%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F%26media%3Dhttps%253A%252F%252Fstatic.mercdn.net%252Fitem%252Fdetail%252Forig%252Fphotos%252Fm15270664905_1.jpg%253F1568261349%26description%3D%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%25E5%2595%2586%25E5%2593%2581%253A%2520BELLISSIMA%2520%25E5%2585%2589%25E8%2584%25B1%25E6%25AF%259B%25E5%2599%25A8%2520%25E3%2583%2595%25E3%2583%25A9%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25EF%25BC%2586%25E3%2582%25B4%25E3%2583%25BC%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25B9%2520%2523%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA' do
           %i.fab.fa-pinterest-square
   #user-items
     %section#user-items__upper-container
       %h2.user-items__head
-        %a{href: '/'} なるさんのその他の出品
+        = link_to do
+          なるさんのその他の出品
       .user-items__contents
         %section.user-items__box
     %section#user-items__lower-container
       %h2.user-items__head
-        %a{href: '/'} 美容機器 （家電・スマホ・カメラ） その他の商品
+        = link_to do
+          美容機器 （家電・スマホ・カメラ） その他の商品
       .user-items__contents
         %section.user-items__box
   %nav#pos-bottom
     %ul
       %li
-        %a{href: '/'}
+        = link_to do
           %span メルカリ
           %i.fas.fa-chevron-right
       %li
