@@ -1,0 +1,20 @@
+.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+  #mypage-wrapper
+    // right-content
+    = render "mypage/left-content"
+
+    // left-content
+    .right-content
+      #user-info-content
+        %h2.header
+        %form.user-info_form
+          %div
+            %p
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p
+              %a
+                本人確認書類のアップロードについて
+                %i.icon-array
+                
