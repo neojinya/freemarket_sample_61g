@@ -29,7 +29,7 @@
                 %div{:style => "width: 304px; height: 78px;"}
                   %div
                 %button.login__menu__submit.btn__default.btn__red{:type => "submit"} ログイン
-                %input{:type => "hidden"}/
+                %input{:type => "hidden", :name =>"authenticity_token", :value =>form_authenticity_token}/
                 %a{:href => "/password/reset/start/"} パスワードをお忘れの方
               %form#login_form_facebook{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
                 %input{:name => "nickname", :type => "hidden", :value => ""}/
