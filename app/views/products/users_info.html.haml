@@ -7,8 +7,9 @@
     .right-content
       #user-info-content
         %h2.header
+          本人情報の登録
         %form.user-info-form
-          %div
+          .user-info-form__top
             %p
               お客さまの本人情報をご登録ください。
               %br
@@ -106,16 +107,16 @@
               番地
             %span
               任意
-            %input{placeholder:"例) 青山1−1−1"}
+            %input.input-default{placeholder:"例) 青山1−1−1"}
           .user-info-form__building
             %label
               建物名
             %span
               任意
-            %input{placeholder:"例) 柳ビル103"}
+            %input.input-default{placeholder:"例) 柳ビル103"}
           %buttton.registration{type: "submit"}
             登録する
-          %div
+          .user-info-form__end
             %p
               %a
                 本人情報の登録について
