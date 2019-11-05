@@ -29,6 +29,8 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    binding.pry
+    @products = Product.find(params[:id])
   end
 
 end
