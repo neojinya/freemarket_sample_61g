@@ -1,0 +1,60 @@
+= render "layouts/simple-header"
+#products-buy
+  %main
+    %section.container
+      %h2.container-head
+        購入内容の確認
+      %section.buy-content1
+        .buy-content-inner
+          %h3
+            = image_tag 'プログラマー本.jpg', class:"item-image"
+          %p.item-name
+            テスト 達人プログラマー テスト
+          %form.buy-form
+            %p.buy-form__price
+              ¥2,000
+              %span
+                送料込み
+            %ul.buy-form__points
+              %li
+                %div
+                  ポイントはありません
+            %ul.buy-form__price-table
+              %li
+                .buy-price-cell
+                  支払い金額
+                .buy-price-cell
+                  %span
+                    ¥2,000
+            %p.has-error-text
+              配送先と支払い方法の入力を完了してください。
+            %button.buy-btn.disabled
+              購入する
+      %section.buy-content2
+        .buy-content-inner
+          %h3
+            配送先
+          %address.buy-user-info-text
+            〒000-0000
+            %br
+            北海道豊富町
+            %br
+            ほげほげ
+          %p.buy-user-info-text
+          %a.buy-user-info-fix
+            %span
+              変更する
+            %i.icon-arrow-right
+      %section.buy-content3
+        .buy-content-inner
+          %h3
+            支払い方法
+          %p.buy-user-info-text
+          %figure
+            = image_tag ''
+          %p
+          %a.buy-user-info-fix
+            %span
+              変更する
+            %i.icon-arrow-right
+= render "layouts/simple-footer"

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # 仮置き
   get '/mypage', to: "products#mypage"
   get '/mypage/profile', to: "products#profile"
+  get '/sign_up/registration', to: "users#registration"
+  get '/mypage/credit', to: "products#credit"
+  get '/products/buy', to: "products#buy"
   get '/mypage/users_info', to: "products#users_info"
   get '/sign_up/registration', to: "users#registration"
   get '/mypage/credit', to: "products#credit"
