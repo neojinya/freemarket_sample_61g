@@ -18,6 +18,9 @@ class ProductsController < ApplicationController
   def credit
   end
 
+  def users_info
+  end
+
   def buy
   end
 

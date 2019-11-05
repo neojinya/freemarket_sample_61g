@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/sign_up/registration', to: "users#registration"
   get '/mypage/credit', to: "products#credit"
   get '/products/buy', to: "products#buy"
+  get '/mypage/users_info', to: "products#users_info"
+  get '/sign_up/registration', to: "users#registration"
+  get '/mypage/credit', to: "products#credit"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
