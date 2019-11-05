@@ -32,10 +32,10 @@
             .main__contents__new-categories__top__contents
               %ul
                 - @products.each do |product|
-                  .item-box{href: "#"}
-                    %a{href: "#"}
+                  .item-box
+                    = link_to do
                       .price-label
-                        %span ¥ 
+                        %span ¥
                         = generate_three_digits_separator(product.price)
                       %li
                         - if product.images.exists?
