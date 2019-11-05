@@ -1,5 +1,12 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.all.limit(10)
+
+
+    # 仮実装
+    # @image = Image.new(image: "", product_id: 2)
+    # @image.save
+
   end
 
   def new
