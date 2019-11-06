@@ -33,7 +33,7 @@
               %ul
                 - @products.each do |product|
                   .item-box
-                    = link_to products_buy_path(id: product.id) do
+                    = link_to products_show_path(id: product.id) do
                       .price-label
                         %span ¥
                         = generate_three_digits_separator(product.price)
