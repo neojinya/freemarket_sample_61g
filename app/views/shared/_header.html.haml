@@ -619,7 +619,7 @@
         .header__contents__low__right__login
           %ul.header__low__right
             %li.header__low__right__notice
-              = link_to"お知らせ"
+              = link_to"ログアウト", destroy_user_session_path, method: :delete
             %li.header__contents__low__right__todolist
               = link_to"やることリスト"
             %li.header__contents__low__right__mypage

@@ -1,10 +1,10 @@
-%body
+.body
   .container
     %header.header__container
       %h1
         %a{:href => "/jp/"}
           %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
-    %main{:clas => "main"}
+    .main{:clas => "main"}
       .login__menu
         .login__menu__account
           %p
@@ -18,33 +18,36 @@
           %button#google__login.btn__default.btn__sns.btn__sns__google
             %i
             Googleでログイン
-        %form{:action => "", :method => "POST", :novalidate => "novalidate"}
+        = form_for(resource, as: resource_name, url: new_user_session_path) do |f|
           .login__menu__form
-            .form__group
-              %input.login__input.input__default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
-            .form__group
-              %input.login__input.input__default{:name => "password", :placeholder => "パスワード", :type => "password"}/
+            .field-input
+              = f.email_field :email, class: 'input__default', placeholder: "メールアドレス"
+            .field-input
+              = f.password_field :password, class: 'input__default',placeholder: "パスワード", autocomplete: "off"
             .form__group
               .login__menu__captcha{"data-sitekey" => ""}
                 %div{:style => "width: 304px; height: 78px;"}
-                  %div
-                %button.login__menu__submit.btn__default.btn__red{:type => "submit"} ログイン
-                %input{:type => "hidden", :name =>"authenticity_token", :value =>form_authenticity_token}/
+                .login__menu__submit
+                = f.submit "ログイン", class: 'btn__default , btn__red'
+                -# ↓sns認証のソースですが、ログインの邪魔をしていたため一旦コメントアウトしておきます
+                -#   %div
+                -# %button.login__menu__submit.btn__default.btn__red{:type => "submit"} ログイン
+                -# %input{:type => "hidden", :name =>"authenticity_token", :value =>form_authenticity_token}/
                 %a{:href => "/password/reset/start/"} パスワードをお忘れの方
-              %form#login_form_facebook{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
-                %input{:name => "nickname", :type => "hidden", :value => ""}/
-                %input{:name => "email", :type => "hidden", :value => ""}/
-                %input{:name => "facebook_user_id", :type => "hidden", :value => ""}/
-                %input{:name => "facebook_access_token", :type => "hidden", :value => ""}/
-                %input{:name => "login_type", :type => "hidden", :value => "facebook"}/
-                %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
-              %form#login_form_google{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
-                %input{:name => "nickname", :type => "hidden", :value => ""}/
-                %input{:name => "email", :type => "hidden", :value => ""}/
-                %input{:name => "google_user_id", :type => "hidden", :value => ""}/
-                %input{:name => "google_access_token", :type => "hidden", :value => ""}/
-                %input{:name => "login_type", :type => "hidden", :value => "google"}/
-                %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+              -# %form#login_form_facebook{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
+              -#   %input{:name => "nickname", :type => "hidden", :value => ""}/
+              -#   -# %input{:name => "email", :type => "hidden", }/
+              -#   %input{:name => "facebook_user_id", :type => "hidden", :value => ""}/
+              -#   %input{:name => "facebook_access_token", :type => "hidden", :value => ""}/
+              -#   %input{:name => "login_type", :type => "hidden", :value => "facebook"}/
+              -#   %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+              -# %form#login_form_google{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
+              -#   %input{:name => "nickname", :type => "hidden", :value => ""}/
+              -#   -# %input{:name => "email", :type => "hidden", :value => ""}/
+              -#   %input{:name => "google_user_id", :type => "hidden", :value => ""}/
+              -#   %input{:name => "google_access_token", :type => "hidden", :value => ""}/
+              -#   %input{:name => "login_type", :type => "hidden", :value => "google"}/
+              -#   %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
     %footer.footer__main
       %nav
         %ul.clearfix

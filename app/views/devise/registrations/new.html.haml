@@ -2,6 +2,60 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+  .field
+    = f.label :first_name_kata
+    %br/
+    = f.text_field :first_name_kata
+  .field
+    = f.label :last_name_kata
+    %br/
+    = f.text_field :last_name_kata
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname
+  .field
+    = f.label :num_of_exihibits
+    %br/
+    = f.number_field :num_of_exihibits
+  .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  .field
+    = f.label :post_code
+    %br/
+    = f.text_field :post_code
+  .field
+    = f.label :prefecture
+    %br/
+    = f.text_field :prefecture
+  .field
+    = f.label :city_village_town
+    %br/
+    = f.text_field :city_village_town
+  .field
+    = f.label :house_number
+    %br/
+    = f.text_field :house_number
+  .field
+    = f.label :building
+    %br/
+    = f.text_field :building
+  .field
+    = f.label :birthday
+    %br/
+    = f.date_field :birthday
+  
+
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
