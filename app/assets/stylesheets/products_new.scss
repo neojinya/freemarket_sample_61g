@@ -258,7 +258,11 @@ code, kbd, pre, samp {
             span{
               @include form-require;
             }
-            .select-default{
+            #product_category_id{
+              @include select-default;
+            }
+
+            #product_condition {
               @include select-default;
             }
           }
@@ -278,7 +282,15 @@ code, kbd, pre, samp {
             span{
               @include form-require;
             }
-            .select-default{
+            #product_region {
+              @include select-default;
+            }
+
+            #product_delivery_fee_pay {
+              @include select-default;
+            }
+
+            #product_delivery_date {
               @include select-default;
             }
           }
