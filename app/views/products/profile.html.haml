@@ -1,0 +1,18 @@
+= render 'shared/header'
+.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+  #mypage-wrapper
+    // right-content
+    = render "mypage/left-content"
+
+    // left-content
+    .right-content
+      .profile-content
+        %h2.profile-heading プロフィール
+        .update-profile-field
+          %form{name: "nickname", action: "/mypage/profile", method: "post"}
+            .profile-icons-field
+              %img.profile-icons-field__icon{alt: "profile", width: "60", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/
+              %input.profile-icons-field__nickname{name: "nickname", placeholder: "ほげ太郎"}
+        .update-textarea-field
+          %textarea{name: "message", placeholder: "テキスト入れてね!"}
+          %button.btn-submit{type: "submit"} 変更する

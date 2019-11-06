@@ -1,0 +1,149 @@
+@mixin buy-content{
+  margin: 40px 0 0;
+  padding: 24px 12.5% 0;
+  border-top: 1px solid #f5f5f5;
+}
+
+@mixin btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+@mixin buy-content-inner{
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@mixin buy-user-info-fix{
+  display: block;
+  text-align: right;
+}
+
+#products-buy{
+  .container{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    .container-head{
+      text-align: center;
+      font-weight:bold;
+      line-height: 1.5;
+      text-align: center;
+      padding: 16px;
+      font-size: 22px;
+    }
+    .buy-content1{
+      @include buy-content;
+      text-align: center;
+      margin:0;
+      .buy-content-inner{
+        display: flex;
+        flex-wrap: wrap;
+        @include buy-content-inner;
+        .item-image{
+          width:62px;
+        }
+        .item-name{
+          width: calc(100% - 80px);
+          margin: 0 0 0 16px;
+          text-align: left;
+          font-size: 16px;
+          line-height: 1.5;
+          font-weight: 600;
+        }
+        .buy-form{
+          width: 100%;
+          &__price{
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 22px;
+            font-weight: 600;
+            span{
+              margin: 0 0 0 8px;
+              font-size: 14px;
+              font-weight: 400;
+            }
+          }
+          &__points{
+            margin: 16px 0 0;
+            background: #ccc;
+            div{
+              padding: 16px;
+              position: relative;
+              border: 1px solid #ccc;
+            }
+          }
+          &__price-table{
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            .buy-price-cell:first-child {
+              text-align: left;
+              font-size:18px;
+            }
+            .buy-price-cell{
+              display: table-cell;
+              padding: 16px 0;
+              width: 100%;
+              text-align: right;
+              font-weight: 600;
+              font-size:28px;
+            }
+          }
+          .has-error-text{
+            color: #ea352d;
+            font-size: 14px;
+          }
+          .buy-btn{
+            @include btn-default;
+            font-weight: 600;
+            height: 48px;
+            margin-top:8px;
+          }
+          .disabled{
+            border: 1px solid #888;
+            background: #888;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .buy-content2{
+      @include buy-content;
+      .buy-content-inner{
+        @include buy-content-inner;
+        h3{
+          font-size: 14px;
+        }
+        .buy-user-info-text{
+          margin: 8px 0 0;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        .buy-user-info-fix{
+          @include buy-user-info-fix;
+        }
+      }
+    }
+    .buy-content3{
+      @include buy-content;
+      padding: 24px 12.5% 40px;
+      .buy-content-inner{
+        @include buy-content-inner;
+        h3{
+          font-size: 14px;
+        }
+        .buy-user-info-fix{
+          @include buy-user-info-fix;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,322 @@
+#registration-new {
+  background-color: #f5f5f5;
+  color: #333;
+  .signup-panel {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__title {
+      text-align: center;
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+    .form-content{
+      max-width: 343px;
+      margin:0 auto;
+      label {
+        display: inline-block;
+      }
+      .form-require{
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .field__input {
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .field__input--left {
+        width: calc(100% - 200px);
+        margin-right: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        line-height: 1,5;
+        font-size: 16px;
+      }
+      .field__input--right {
+        width: calc(100% - 200px);
+        margin-right: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        line-height: 1,5;
+        font-size: 16px;
+      }
+      .btn-submit{
+        margin: 24px 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .signup-header {
+//   height: 128px;
+//   text-align: center;
+// }
+// .__container {
+//   display: inline-flex;
+//   h1 {
+//     padding: 40px 35px 0;
+//     a {
+//       width: 185px;
+//       height: 49px;
+//       line-height: 49px;
+//       img {
+//         width: 185px;
+//         height: 49px;
+//         margin: 0 auto;
+//       }
+//     }
+//   }
+//   .progress {
+//     padding: 40px 0 0 44px;
+//     border: 0;
+//     display: inline-block;
+//     vertical-align: top;
+//     font-size: 0;
+//     text-align: right;
+//     &-bar {
+//       margin: 0;
+//       li{
+//         margin:0 40px 0 0;
+//         padding: 0;
+//         position: relative;
+//         z-index: 40px;
+//         display: inline-block;
+//         min-width: 60px;
+//         font-size: 12px;
+//         color: gray;
+//         .progress-status {
+//           position: absolute;
+//           left: 40%;
+//           width: 12px;
+//           height: 12px;
+//           margin: 8px auto 0;
+//           background: gray;
+//           border-radius: 50%;
+//           z-index: 30;
+//         }
+//       }
+//     }
+//   }
+//   .progress-status_bar {
+//     position: absolute;
+//     left: 50%;
+//     top: 25px;
+//     bottom: 5px;
+//     display: block;
+//     width: 130px;
+//     height: 2px;
+//     background-color: gray;
+//     z-index: 10;
+//   }
+//   .end .progress-status_bar {
+//     width: 0px;
+//   }
+//   .payment .progress-status-bar {
+//     width: 100px;
+//   }
+//   #through {
+//     color: #ea352d;
+//     .progress-status {
+//       background: #ea352d;
+//     }
+//   }
+//   #through .progress-status_bar {
+//     background: #ea352d;
+//   }
+//   #active {
+//     color: #ea352d;
+//     .progress-status {
+//       background: #8f7776;
+//     }
+//   }
+//   .progress-status_bar {
+//     position: absolute;
+//     bottom: 5px;
+//     right: 0%;
+//     display: block;
+//     content: '';
+//     width: 100%;
+//     height: 2px;
+//     background: gray;
+//   }
+// }
+
+// .main {
+//   text-align: center;
+//   background-color: #f5f5f5;
+//   color: #333;
+//   .signup-panel {
+//     max-width: 700px;
+//     margin: 0 auto;
+//     background-color: #fff;
+//     &__title {
+//       font-size: 22px;
+//       padding: 32px;
+//       font-weight: bold;
+//       border-bottom: 1px solid #eee;
+//     }
+//     .form-group {
+//       padding: 24px 0 32px;
+//       font-weight: 600;
+//       label {
+//         // display: inline-block;
+//       }
+//       .form-require {
+//         background-color: #ea352d;
+//         margin: 0 0 0 8px;
+//         padding: 2px 4px;
+//         color: #fff;
+//         font-size: 12px;
+//         width: 30px;
+//         vertical-align: top;
+//       }
+//       .field__input {
+//         width: calc(100% - 350px);
+//         height: 45px;
+//         margin: 8px 0 0;
+//         padding: 2px 10px;
+//         line-height: 1.5; 
+//         font-weight: 100;
+//         font-size: 14px;
+//         opacity: 0.5;
+//         border-radius: 4px;
+//         border: 1px solid #ccc;
+//       }
+//       .form-require--gray {
+//         background-color: #d3d3d3;
+//         margin: 0 0 0 8px;
+//         padding: 2px 4px;
+//         color: #fff;
+//         font-size: 12px;
+//       }
+//       h3 {
+//         font-size: 16px;
+//         font-weight: 700;
+//       }
+//       .form-info {
+//         margin: 8px 0 0;
+//         line-height: 1.5;
+//         font-weight: 100;
+//         font-size: 14px;
+//         opacity: 0.5;
+//       }
+//       .form-info--tell {
+//         margin: 8px 0 0;
+//         line-height: 1.5;
+//         font-weight: 100;
+//         font-size: 14px;
+//       }
+//       .field__input--left {
+//         width: calc(50% - 230px);
+//         margin-right: 8px;
+//         height: 30px;
+//         padding: 10px 16px 8px;
+//         border-radius: 4px;
+//         border: 1px solid #ccc;
+//         line-height: 1,5;
+//         font-size: 16px;
+//       }
+//       .field__input--right {
+//         width: calc(50% - 230px);
+//         margin-right: 8px;
+//         height: 30px;
+//         padding: 10px 16px 8px;
+//         border-radius: 4px;
+//         border: 1px solid #ccc;
+//         line-height: 1,5;
+//         font-size: 16px;
+//       }
+//       .select-wrap {
+//         display: inline-block;
+//         padding: 10px 0 0 0;
+//         font-weight: 100;
+//         select {
+//           position: relative;
+//           padding: 0 10px;
+//           margin: 8px 0 0;
+//           height: 48px;
+//           border: 1px solid #ccc;
+//           font-size: 16px;
+//           cursor: pointer;
+//         }
+//         span {
+//           margin: 0 2px;
+//         }
+//         ul {
+//           padding: 1px 0 0 50px;
+//           display: block;
+//           img {
+//             width: 32px;
+//             height: 32px;
+//             display: inline-block;
+//             margin: 0 auto;
+//             }
+//             .btn-submit {
+//             margin-top: 32px;
+//             margin: 24px 0 0;
+//             background-color: #ea352d;
+//             border: 1px solid #ea352d;
+//             color: #fff;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+

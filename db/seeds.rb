@@ -27,3 +27,14 @@ user = User.new(
   ]
 )
 user.save!
+
+if Rails.env == "development"
+  10.times do |i|
+    Product.create!(
+      name: "ほげほげ#{i + 1}",
+      price: 8600,
+      size: 25,
+      condition: "きれい"
+    )
+  end
+end

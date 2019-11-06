@@ -1,10 +1,10 @@
 .top
-  .container
+  .top__container
     = render 'shared/header'
     .main
       .main__contents
         .main__contents__top
-          = link_to "https://www.mercari.com/jp/featured/camp/" do
+          = link_to do
             .main__contents__top__image
           .slider
         .main__contents__categories
@@ -13,16 +13,16 @@
             %ul
               %li
                 = link_to do
-                  hallo
+                  レディース
               %li
                 = link_to do
-                  hallo
+                  メンズ
               %li
                 = link_to do
-                  hallo
+                  家電・スマホ・カメラ
               %li
                 = link_to do
-                  hallo
+                  おもちゃ・ホビー・グッズ
         .main__contents__new-categories
           .main__contents__new-categories__top
             .main__contents__new-categories__top__heading
@@ -31,7 +31,21 @@
                 もっと見る
             .main__contents__new-categories__top__contents
               %ul
-          .main__contents__new-categories-__second
+                - @products.each do |product|
+                  .item-box
+                    = link_to products_show_path(id: product.id) do
+                      .price-label
+                        %span ¥
+                        = generate_three_digits_separator(product.price)
+                      %li
+                        - if product.images.exists?
+                          - product.images.each do |image|
+                            = image_tag image.image
+                          %p= product.name
+                        - else
+                          = image_tag "rails-logo.png"
+                          %p= product.name
+          .main__contents__new-categories__second
             .main__contents__new-categories__second__heading
               %h3 新着アイテム
               = link_to do
@@ -58,16 +72,16 @@
             %ul
               %li
                 = link_to do
-                  hallo
+                  シャネル
               %li
                 = link_to do
-                  hallo
+                  ルイヴィトン
               %li
                 = link_to do
-                  hallo
+                  シュプリーム
               %li
                 = link_to do
-                  hallo
+                  ナイキ
         .main__contents__new-brands
           .main__contents__new-brands__top
             .main__contents__new-brands__top__heading
@@ -94,8 +108,8 @@
                 もっと見る
             .main__contents__new-brands__bottom__contents
     .exhibit
-      = link_to "/jp/sell/" do
+      = link_to "/products/new/" do
         .exhibit__content
           .exhibit__content__text 出品
-    %aside
+          %i.fas.fa-camera
     = render 'shared/footer'

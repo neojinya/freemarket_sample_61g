@@ -1,0 +1,411 @@
+@mixin table-content {
+  padding: 8px;
+  border-collapse: collapse;
+  border: 1px solid #f5f5f5;
+}
+
+
+#product-show {
+  padding: 24px 40px 40px;
+  background: #fff;
+  margin: 40px auto 0;
+  width: 700px;
+  a {
+    color: #0099e8;
+  }
+
+  &__item {
+    font-size: 24px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+
+  &__text {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+
+    a {
+      color: currentColor;
+    }
+  }
+
+  &__content {
+    margin: 16px 0 0;
+  }
+
+  &__photo {
+    float: left;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 375px;
+    margin: 0 auto;
+    background: #fafafa;
+    position: relative;
+    img{
+      width:100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__images {
+    position: relative;
+  }
+
+  &__image-show {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__image-list {
+    line-height: 0;
+  }
+
+  &__sold-out {
+
+    div {
+    top: 24px;
+    font-size: 28px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    }
+  }
+
+  &__table {
+    float: right;
+    max-width: 300px;
+    height: 420px;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+
+    a {
+      display: block;
+    }
+
+    th {
+      width: 39%;
+      text-align: left;
+      font-weight: 400;
+      background: #fafafa;
+      @include table-content;
+    }
+
+    td {
+      @include table-content;
+      width: 61%;
+      background: #fff;
+
+      .product-show__rating:first-child {
+        margin: 0;
+    }    
+
+      .product-show__rating {
+        display: inline-block;
+        margin: 8px 0 0 16px;
+
+        i {
+          font-size: 16px;
+          vertical-align: middle;
+        }
+
+        span {
+          vertical-align: middle;
+        }
+
+        .fa-laugh {
+          color: #ef5185;
+        }
+
+        .fa-meh {
+          color: #fba933;
+        }
+
+        .fa-frown {
+          color: #6ab5d8;
+        }
+      }
+    }
+  }
+
+  &__price {
+    margin: 24px 0 0;
+    text-align: center;
+  }
+
+  &__yen {
+    margin: 0 16px 0 0;
+    font-size: 50px;
+    font-weight: 600;
+  }
+
+  &__tax {
+    font-size: 10px;
+  }
+
+  &__fee {
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  &__btn {
+    background: #888;
+    cursor: not-allowed;
+    font-size: 24px;
+    line-height: 60px;
+    display: block;
+    margin-top: 16px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    transition: all ease-out .3s;
+  }
+
+  &__description {
+    padding: 32px 0 0;
+    line-height: 1.5;
+    font-size: 18px;
+
+    p {
+      white-space: pre-wrap;
+    }
+  }
+
+  &__buttons {
+    margin: 16px 0 0;
+    font-size: 0;
+
+    i {
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    span {
+      font-size: 14px;
+      display: inline-block;
+      margin: 1px 0 0 8px;
+      vertical-align: middle;
+    }
+  }
+
+  &__left-button {
+    float: left;
+
+    a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 40px;
+      transition: all ease-out .3s;
+    }
+  }
+
+  &__like {
+    color: #333;
+    border: 1px solid #f5f5f5;
+    background: #f5f5f5;
+  }
+
+  &__report {
+    color: #333;
+    background: #f5f5f5;
+  }
+
+  &__right-button {
+    margin: 8px 0 0;
+    float: right;
+  }
+}
+
+.product-show__image-content {
+  width: 60px;
+  height: 60px;
+  max-height: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  opacity: .4;
+  cursor: pointer;
+}
+
+.product-show__clear {
+  clear: both;
+}
+
+#show-messages {
+  width: 700px;
+  margin: 8px auto;
+
+  &__content {
+    padding: 24px;
+    background: #fff;
+    display: none;
+  }
+
+  &__items {
+    margin: 0;
+
+    li {
+      margin: 60px 0 0;
+    }
+  }
+}
+
+#item-link {
+  margin: 24px auto 0;
+  width: 700px;
+
+  li {
+    width: 45%;
+    word-wrap: break-word;
+    position: relative;
+  }
+
+  &__prev {
+    float: left;
+    padding: 0 0 0 14px;
+
+    .fa-chevron-left {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &__next {
+    float: right;
+    padding: 0 14px 0 0;
+    text-align: right;
+
+    .fa-chevron-right {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+#media-box {
+  margin: 24px auto;
+  padding: 32px 0 24px;
+  width: 700px;
+  background: #fff;
+
+  &__text-center {
+    text-align: center;
+  }
+
+  &__social {
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      vertical-align: middle;
+      text-align: center;
+
+      a {
+        display: block;
+      }
+    }
+
+    i {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      line-height: 44px;
+    }
+
+    .fa-facebook-square {
+      color: #fff;
+      background: #385185;
+      font-size: 26px;
+    }
+    
+    .fa-twitter {
+      font-size: 24px;
+      color: #fff;
+      background: #5d9dc9;
+    }
+    
+    .fa-pinterest-square {
+      color: #fff;
+      background: #aa262a;
+      font-size: 18px;
+    }
+  }
+}
+
+#user-items {
+  width: 700px;
+  margin: 0 auto;
+
+  &__lower-container {
+    margin-bottom: 40px;
+  }
+}
+
+.user-items__head {
+  font-size: 22px;
+  margin: 24px 0 8px;
+}
+
+.user-items__contents {
+  width: auto;
+  margin: 0 auto;
+}
+
+.user-items__box {
+  width: 220px;
+  margin: 0 20px 20px 0;
+}
+
+#pos-bottom {
+  background: #f5f5f5;
+  box-shadow: none;
+  position: relative;
+  border-top: 1px solid #eee;
+
+  ul {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+    overflow: visible;
+    font-size: 0;
+  }
+
+  li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  li:last-child {
+    font-weight: 600;
+  }
+
+  a {
+    color: #333;
+  }
+
+  i {
+    margin: 0 8px;
+    font-size: 9px;
+    color: #888;
+  }
+}
+
