@@ -71,9 +71,7 @@
             %td 2~3日で発送
       .product-show__clear
     #product-show__price
-      %span#product-show__yen
-        ¥ 
-        = generate_three_digits_separator(@product.price)
+      %span#product-show__yen ¥8,500
       %span#product-show__tax (税込)
       %span#product-show__fee 送料込み
     = link_to products_buy_path(id: @product.id),id: "product-show__btn" do
