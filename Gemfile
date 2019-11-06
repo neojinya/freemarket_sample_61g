@@ -60,7 +60,6 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'ancestry'
-gem 'pry-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

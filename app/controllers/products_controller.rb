@@ -35,9 +35,30 @@ class ProductsController < ApplicationController
   def credit
   end
 
+  def users_info
+  end
+
+  def buy
+    @product = Product.find(params[:id])
+    @images = images(@product)
+  end
+
   private
   def product_params
     params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []})
   end
+
+  def images(product)
+    images = []
+    if product.images.exists?
+      product.images.each do |image|
+        images << image
+      end
+    else
+      images << 'rails-logo.png'
+    end
+    return images
+  end
+
 end
 
