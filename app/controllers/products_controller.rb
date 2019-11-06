@@ -1,5 +1,11 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.all.limit(10)
+
+    # 仮実装
+    # @image = Image.new(image: "", product_id: 2)
+    # @image.save
+
   end
 
   def new
@@ -22,6 +28,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @images = images(@product)
   end
 
   # -------------- 仮置き -----------------
@@ -29,11 +37,11 @@ class ProductsController < ApplicationController
   end
 
   def profile
-    
   end
 
   def credit
   end
+
 
   def users_info
   end
