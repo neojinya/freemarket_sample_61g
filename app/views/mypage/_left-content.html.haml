@@ -2,54 +2,100 @@
   .left-content__mypage-list
     %ul
       %li
-        = link_to "マイページ", mypage_path, id: "mypage", class: "active"
+        = link_to mypage_path, id: "mypage", class: "active" do
+          マイページ
+          %i.fas.fa-chevron-right
       %li
-        = link_to "お知らせ", "#", id: "notice"
+        = link_to "#", id: "notice" do
+          お知らせ
+          %i.fas.fa-chevron-right
       %li
-        = link_to "やることリスト", "#", id: "todo"
+        = link_to "#", id: "todo" do
+          やることリスト
+          %i.fas.fa-chevron-right
       %li
-        = link_to "いいね！一覧", "#", id: "like"
+        = link_to "#", id: "like" do
+          いいね！一覧
+          %i.fas.fa-chevron-right
       %li
-        = link_to "出品する", "#", id: "sell"
+        = link_to "#", id: "sell" do
+          出品する
+          %i.fas.fa-chevron-right
       %li
-        = link_to "出品した商品 - 出品中", "#", id: "selling"
+        = link_to "#", id: "selling" do
+          出品した商品 - 出品中
+          %i.fas.fa-chevron-right
       %li
-        = link_to "出品した商品 - 取引中", "#", id: "dealing"
+        = link_to "#", id: "dealing" do
+          出品した商品 - 取引中
+          %i.fas.fa-chevron-right
       %li
-        = link_to "出品した商品 - 売却済み", "#", id: "selled"
+        = link_to "#", id: "selled" do
+          出品した商品 - 売却済み
+          %i.fas.fa-chevron-right
       %li
-        = link_to "購入した商品 - 取引中", "#", id: "purchase-dealing"
+        = link_to "#", id: "purchase-dealing" do
+          購入した商品 - 取引中
+          %i.fas.fa-chevron-right
       %li
-        = link_to "購入した商品 - 過去の取引", "#", id: "purchase-dealed"
+        = link_to "#", id: "purchase-dealed" do
+          購入した商品 - 過去の取引
+          %i.fas.fa-chevron-right
       %li
-        = link_to "ニュース一覧", "#", id: "news"
+        = link_to "#", id: "news" do
+          ニュース一覧
+          %i.fas.fa-chevron-right
       %li
-        = link_to "評価一覧", "#", id: "rate-list"
+        = link_to "#", id: "rate-list" do
+          評価一覧
+          %i.fas.fa-chevron-right
       %li
-        = link_to "ガイド", "#", id: "guid"
+        = link_to "#", id: "guid" do
+          ガイド
+          %i.fas.fa-chevron-right
       %li
-        = link_to "お問い合わせ", "#", id: "contact"
+        = link_to "#", id: "contact" do
+          お問い合わせ
+          %i.fas.fa-chevron-right
   .left-content__merpay
     %h4.heading メルペイ
     %ul
       %li
-        = link_to "売上・振込申請", "#", id: "sales"
+        = link_to "#", id: "sales" do
+          売上・振込申請
+          %i.fas.fa-chevron-right
       %li
-        = link_to "ポイント", "#", id: "point"
+        = link_to "#", id: "point" do
+          ポイント
+          %i.fas.fa-chevron-right
   .left-content__options
     %h4.heading 設定
     %ul
       %li
-        = link_to "プロフィール", mypage_profile_path, id: "profile" 
+        = link_to mypage_profile_path, id: "profile" do
+          プロフィール
+          %i.fas.fa-chevron-right
       %li
-        = link_to "発送元・お届け先住所変更", "#", id: "deliver-address"
+        = link_to "#", id: "deliver-address" do
+          発送元・お届け先住所変更
+          %i.fas.fa-chevron-right
       %li
-        = link_to "支払い方法", "#", id: "payment"
+        = link_to "#", id: "payment" do
+          支払い方法
+          %i.fas.fa-chevron-right
       %li
-        = link_to "メール/パスワード", "#", id: "email-password"
+        = link_to "#", id: "email-password" do
+          メール/パスワード
+          %i.fas.fa-chevron-right
       %li
-        = link_to "本人情報", "#", id: "identification"
+        = link_to "#", id: "identification" do
+          本人情報
+          %i.fas.fa-chevron-right
       %li
-        = link_to "電話番号の確認", "#", id: "tel-confirmation"
+        = link_to "#", id: "tel-confirmation" do
+          電話番号の確認
+          %i.fas.fa-chevron-right
       %li
-        = link_to "ログアウト", "#", id: "logout"
+        = link_to "#", id: "logout" do
+          ログアウト
+          %i.fas.fa-chevron-right

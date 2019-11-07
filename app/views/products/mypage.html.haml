@@ -1,8 +1,8 @@
 = render 'shared/header'
-.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+.container-damy{style: "width: 1020px; margin: 0 auto 0;"}
   #mypage-wrapper
     // 左側コンテンツ
-    = render "mypage/left-content"
+    = render "mypage/left-content", locals: {active: "active"}
     / 右側コンテンツ
     .right-content
       / renderで表示
@@ -36,3 +36,4 @@
       
       / renderで表示
       / お問い合わせ
+= render 'shared/exhibit-btn'
