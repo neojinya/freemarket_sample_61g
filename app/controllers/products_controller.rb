@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     images = []
     if product.images.exists?
       product.images.each do |image|
-        images << image
+        images << image.image
       end
     else
       images << 'rails-logo.png'
