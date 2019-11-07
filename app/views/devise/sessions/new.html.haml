@@ -3,14 +3,14 @@
     %header.header__container
       %h1
         = link_to '/' do
-          %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
-    .main{:clas => "main"}
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195", alt: "mercari"
+    .main
       .login__menu
         .login__menu__account
           %p
             アカウントをお持ちでない方はこちら
-          %a#button--margin{:href => "/users/sign_up"}
-            新規会員登録
+          = link_to '新規会員登録', '/users/sign_up', id: "button--margin"
+            
         .login__menu__inner
           %button#facebook__login.btn__default.btn__sns.btn__sns__facebook
             %i.fab.fa-facebook-square.fa-2x
@@ -25,29 +25,29 @@
             .field-input
               = f.password_field :password, class: 'input__default',placeholder: "パスワード", autocomplete: "off"
             .form__group
-              .login__menu__captcha{"data-sitekey" => ""}
-                %div{:style => "width: 304px; height: 78px;"}
+              .login__menu__captcha{"data-sitekey": ""}
+                .login__menu__captcha__space 
                 .login__menu__submit
                 = f.submit "ログイン", class: 'btn__default , btn__red'
                 -# ↓sns認証のソースですが、ログインの邪魔をしていたため一旦コメントアウトしておきます
                 -#   %div
-                -# %button.login__menu__submit.btn__default.btn__red{:type => "submit"} ログイン
-                -# %input{:type => "hidden", :name =>"authenticity_token", :value =>form_authenticity_token}/
-                %a{:href => "/password/reset/start/"} パスワードをお忘れの方
-              -# %form#login_form_facebook{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
-              -#   %input{:name => "nickname", :type => "hidden", :value => ""}/
-              -#   -# %input{:name => "email", :type => "hidden", }/
-              -#   %input{:name => "facebook_user_id", :type => "hidden", :value => ""}/
-              -#   %input{:name => "facebook_access_token", :type => "hidden", :value => ""}/
-              -#   %input{:name => "login_type", :type => "hidden", :value => "facebook"}/
-              -#   %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
-              -# %form#login_form_google{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
-              -#   %input{:name => "nickname", :type => "hidden", :value => ""}/
-              -#   -# %input{:name => "email", :type => "hidden", :value => ""}/
-              -#   %input{:name => "google_user_id", :type => "hidden", :value => ""}/
-              -#   %input{:name => "google_access_token", :type => "hidden", :value => ""}/
-              -#   %input{:name => "login_type", :type => "hidden", :value => "google"}/
-              -#   %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+                -# %button.login__menu__submit.btn__default.btn__red{type:  "submit"} ログイン
+                -# %input{type: "hidden", name: "authenticity_token", value: form_authenticity_token}/
+                = link_to 'パスワードをお忘れの方', '/password/reset/start/'
+              -# %form#login_form_facebook{action: "/jp/login/", method: "POST", novalidate:  "novalidate"}
+              -#   %input{name: "nickname", type: "hidden", value: ""}/
+              -#   -# %input{name: "email", type: "hidden", }/
+              -#   %input{name: "facebook_user_id", type: "hidden", value: ""}/
+              -#   %input{name: "facebook_access_token", type: "hidden", value: ""}/
+              -#   %input{name: "login_type", type: "hidden", value: "facebook"}/
+              -#   %input{name: "login_callback", type: "hidden", value: "/jp/"}/
+              -# %form#login_form_google{action: "/jp/login/", method: "POST", novalidate: "novalidate"}
+              -#   %input{name: "nickname", type: "hidden", value: ""}/
+              -#   -# %input{name: "email", type: "hidden", value: ""}/
+              -#   %input{name: "google_user_id", type: "hidden", value: ""}/
+              -#   %input{name: "google_access_token", type: "hidden", value: ""}/
+              -#   %input{name: "login_type", type: "hidden", value: "google"}/
+              -#   %input{name: "login_callback", type: "hidden", value: "/jp/"}/
 
     = render "layouts/simple-footer"
 
