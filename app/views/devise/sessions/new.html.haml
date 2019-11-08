@@ -1,16 +1,16 @@
-%body
+.body
   .container
     %header.header__container
       %h1
         = link_to '/' do
-          %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195"}/
-    %main{:clas => "main"}
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?465897195", alt: "mercari"
+    .main
       .login__menu
         .login__menu__account
           %p
             アカウントをお持ちでない方はこちら
-          %a#button--margin{:href => "/users/sign_up"}
-            新規会員登録
+          = link_to '新規会員登録', new_user_registration_path, id: "button--margin"
+            
         .login__menu__inner
           %button#facebook__login.btn__default.btn__sns.btn__sns__facebook
             %i.fab.fa-facebook-square.fa-2x
@@ -18,32 +18,18 @@
           %button#google__login.btn__default.btn__sns.btn__sns__google
             %i
             Googleでログイン
-        %form{:action => "", :method => "POST", :novalidate => "novalidate"}
+        = form_for(resource, as: resource_name, url: new_user_session_path) do |f|
           .login__menu__form
+            .field-input
+              = f.email_field :email, class: 'input__default', placeholder: "メールアドレス"
+            .field-input
+              = f.password_field :password, class: 'input__default',placeholder: "パスワード", autocomplete: "off"
             .form__group
-              %input.login__input.input__default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
-            .form__group
-              %input.login__input.input__default{:name => "password", :placeholder => "パスワード", :type => "password"}/
-            .form__group
-              .login__menu__captcha{"data-sitekey" => ""}
-                %div{:style => "width: 304px; height: 78px;"}
-                  %div
-                %button.login__menu__submit.btn__default.btn__red{:type => "submit"} ログイン
-                %input{:type => "hidden"}/
-                %a{:href => "/password/reset/start/"} パスワードをお忘れの方
-              %form#login_form_facebook{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
-                %input{:name => "nickname", :type => "hidden", :value => ""}/
-                %input{:name => "email", :type => "hidden", :value => ""}/
-                %input{:name => "facebook_user_id", :type => "hidden", :value => ""}/
-                %input{:name => "facebook_access_token", :type => "hidden", :value => ""}/
-                %input{:name => "login_type", :type => "hidden", :value => "facebook"}/
-                %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
-              %form#login_form_google{:action => "/jp/login/", :method => "POST", :novalidate => "novalidate"}
-                %input{:name => "nickname", :type => "hidden", :value => ""}/
-                %input{:name => "email", :type => "hidden", :value => ""}/
-                %input{:name => "google_user_id", :type => "hidden", :value => ""}/
-                %input{:name => "google_access_token", :type => "hidden", :value => ""}/
-                %input{:name => "login_type", :type => "hidden", :value => "google"}/
-                %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+              .login__menu__captcha{"data-sitekey": ""}
+                .login__menu__captcha__space 
+                .login__menu__submit
+                = f.submit "ログイン", class: 'btn__default , btn__red'
+                = link_to 'パスワードをお忘れの方', '/password/reset/start/'
+
     = render "layouts/simple-footer"
 

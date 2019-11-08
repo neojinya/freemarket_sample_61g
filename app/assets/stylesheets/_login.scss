@@ -145,6 +145,20 @@ body {
   box-sizing: border-box;
 }
 
+.field-input .input__default {
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.field-input {
+  margin: 24px 0;
+}
+
+.login__menu__captcha__space {
+  width: 304px;
+  height: 78px;
+}
+
 .submit {
   margin: 24px 0 0;
 }
