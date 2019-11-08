@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
+  get '/products/search', to: "products#search"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
