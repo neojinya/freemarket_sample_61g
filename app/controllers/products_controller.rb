@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :move_to_index, except: :index
+
   def index
     @products = Product.all.limit(10)
 
@@ -60,7 +62,7 @@ class ProductsController < ApplicationController
     images = []
     if product.images.exists?
       product.images.each do |image|
-        images << image
+        images << image.image
       end
     else
       images << 'rails-logo.png'

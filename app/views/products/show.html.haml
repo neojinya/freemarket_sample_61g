@@ -13,13 +13,13 @@
       の商品で、#{@product.region}から#{@product.delivery_date}されます。
     #product-show__content
       #product-show__photo
-        = image_tag @images[0], class:"item-image"
+        = image_tag @images[0][0], class:"item-image"
         #product-show__images
           #product-show__image-show
           #product-show__image-list
             .product-show__image-content
         #product-show__sold-out
-          %div SOLD
+          -# %div SOLD
       %table#product-show__table
         %tbody
           %tr
@@ -74,7 +74,7 @@
       .product-show__clear
     #product-show__price
       %span#product-show__yen
-        ¥#{@product.price}
+        ¥#{generate_three_digits_separator(@product.price)} 
       %span#product-show__tax (税込)
       %span#product-show__fee
         - if @product.delivery_fee_pay == "送料込み(出品者負担)"

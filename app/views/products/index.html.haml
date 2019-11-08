@@ -6,7 +6,7 @@
         .main__contents__top
           = link_to do
             .main__contents__top__image
-          .slider
+
         .main__contents__categories
           %h2.main__contents__categories__top 人気のカテゴリー
           .main__contents__categories__low
@@ -40,10 +40,10 @@
                       %li
                         - if product.images.exists?
                           - product.images.each do |image|
-                            = image_tag image.image
+                            = image_tag image.image[0], class: "item-box-img"
                           %p= product.name
                         - else
-                          = image_tag "rails-logo.png"
+                          = image_tag "rails-logo.png", class: "item-box-img"
                           %p= product.name
           .main__contents__new-categories__second
             .main__contents__new-categories__second__heading
@@ -107,9 +107,5 @@
               = link_to do
                 もっと見る
             .main__contents__new-brands__bottom__contents
-    .exhibit
-      = link_to "/products/new/" do
-        .exhibit__content
-          .exhibit__content__text 出品
-          %i.fas.fa-camera
+    = render 'shared/exhibit-btn'
     = render 'shared/footer'
