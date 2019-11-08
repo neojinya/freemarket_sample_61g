@@ -4,14 +4,13 @@
     %h1#product-show__item 
       = @product.name
     %p#product-show__text
-      = @product.name
-      は、18回の取引実績を持つ
+      『#{@product.name}』は、18回の取引実績を持つ
       = link_to do
         なる
       さんから出品されました。
       = link_to do
         美容機器/家電・スマホ・カメラ
-      の商品で、北海道から2~3日で発送されます。
+      の商品で、#{@product.region}から#{@product.delivery_date}されます。
     #product-show__content
       #product-show__photo
         = image_tag @images[0], class:"item-image"
@@ -54,10 +53,12 @@
             %td
           %tr
             %th 商品の状態
-            %td やや傷や汚れあり
+            %td
+              = @product.condition
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @product.delivery_fee_pay
           %tr
             %th 配送の方法
             %td らくらくメルカリ便
@@ -65,32 +66,26 @@
             %th 配送元地域
             %td
               = link_to do
-                北海道
+                = @product.region
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              = @product.delivery_date
       .product-show__clear
     #product-show__price
-      %span#product-show__yen ¥8,500
+      %span#product-show__yen
+        ¥#{@product.price}
       %span#product-show__tax (税込)
-      %span#product-show__fee 送料込み
+      %span#product-show__fee
+        - if @product.delivery_fee_pay == "送料込み(出品者負担)"
+          送料込み
+        - else
+          着払い
     = link_to products_buy_path(id: @product.id),id: "product-show__btn" do
       購入画面に進む
     #product-show__description
       %p
-        Flash＆Go Plus（ フラッシュ＆ゴー プラス ）
-
-        120000回照射可能ですが、数回使用しただけなのでまだまだ照射可能です( ^ω^ )♡
-
-        写真にも載せていますが、少し汚れと言うよりかは焼けたような跡があります。
-        中古品ですので、ご理解いただける方のご購入をお願いします。
-
-
-        エステサロンでも使われている業務用の光脱毛器・IPL機器を家庭用にアレンジしつつ、より高い脱毛効果を得られるよう音響効果をプラスしたスグレモノです( ^ω^ )
-
-        特許申請中の「 HPL 」技術で毛根に働きかけ、痛みやお肌に余計な負担をかけずに脱毛してくれますよ♡
-
-        家庭用 脱毛器
+        = @product.explanation
     #product-show__buttons
       #product-show__left-button
         = link_to '/', id: "product-show__like" do
