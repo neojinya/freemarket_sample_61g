@@ -40,10 +40,10 @@
                       %li
                         - if product.images.exists?
                           - product.images.each do |image|
-                            = image_tag image.image
+                            = image_tag image.image[0], class: "item-box-img"
                           %p= product.name
                         - else
-                          = image_tag "rails-logo.png"
+                          = image_tag "rails-logo.png", class: "item-box-img"
                           %p= product.name
           .main__contents__new-categories__second
             .main__contents__new-categories__second__heading
