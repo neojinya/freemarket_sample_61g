@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
   root 'products#index'
+  get 'products' => 'products#index'
+  post 'products/pay' => 'products#pay'
 
   resources :products, only: [:index, :new, :create]
   resources :users, only: [:index, :show, :create, :edit, :update]
@@ -30,5 +32,6 @@ Rails.application.routes.draw do
   get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
 
+  resources :cards
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
