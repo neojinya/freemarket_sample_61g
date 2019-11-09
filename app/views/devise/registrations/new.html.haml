@@ -167,7 +167,7 @@
 
             .signup-panel
               %p.signup-panel__title 支払い方法
-            = form_tag(products_pay_path, method: :post, html: {id: "card_form"}) do
+            = form_tag(pay_card_index_path, method: :post, html: {id: "card_form"}) do
               .form-group
                 %label{for: "card_number"} カード番号
                 %span.form-require 必須
