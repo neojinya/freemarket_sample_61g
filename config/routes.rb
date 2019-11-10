@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :products, only: [:index, :new, :create]
-  resources :users, only: [:index, :show, :create, :edit, :update]
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
 
 
   # 仮置き
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
+
+  get '/logout', to: "users#destroy"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

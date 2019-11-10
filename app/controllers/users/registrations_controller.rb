@@ -6,9 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @user = User.find(1).nickname
-    @area = Area.where(params[:id])
-
+    
     super
   end
 
