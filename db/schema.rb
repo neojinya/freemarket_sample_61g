@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20191107085146) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "parent_id"
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
@@ -31,17 +32,17 @@ ActiveRecord::Schema.define(version: 20191107085146) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "image",      limit: 65535, null: false
     t.integer  "product_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.text     "image",      limit: 65535
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                           null: false
     t.integer  "price",                          null: false
-    t.integer  "size"
+    t.integer  "size",                           null: false
     t.integer  "condition",                      null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -58,21 +59,21 @@ ActiveRecord::Schema.define(version: 20191107085146) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string   "first_name",                                        null: false
-    t.string   "last_name",                                         null: false
-    t.string   "first_name_kata",                                   null: false
-    t.string   "last_name_kata",                                    null: false
-    t.string   "nickname",                                          null: false
+    t.string   "first_name",                           default: "", null: false
+    t.string   "last_name",                            default: "", null: false
+    t.string   "first_name_kata",                      default: "", null: false
+    t.string   "last_name_kata",                       default: "", null: false
+    t.string   "nickname",                             default: "", null: false
     t.text     "image",                  limit: 65535
     t.text     "profiel_message",        limit: 65535
-    t.integer  "num_of_exihibits",                                  null: false
-    t.string   "phone_number",                                      null: false
-    t.string   "post_code",                                         null: false
-    t.string   "prefecture",                                        null: false
-    t.string   "city_village_town",                                 null: false
-    t.string   "house_number",                                      null: false
-    t.string   "building",                                          null: false
-    t.date     "birthday",                                          null: false
+    t.integer  "num_of_exihibits"
+    t.string   "phone_number",                         default: "", null: false
+    t.string   "post_code",                            default: "", null: false
+    t.string   "prefecture",                           default: "", null: false
+    t.string   "city_village_town",                    default: "", null: false
+    t.string   "house_number",                         default: "", null: false
+    t.string   "building",                             default: ""
+    t.date     "birthday"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -61,6 +61,7 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'ancestry'
+gem 'payjp'
 
 group :production do
   gem 'unicorn', '5.4.1'

@@ -299,4 +299,6 @@ Devise.setup do |config|
 
   config.secret_key = '702bdc23d8c934861bef7aefd3537cd63e6c49b64d07405d2cd0c67d005d7f9c37a3728bc8de20de426c139c3f8e768468480ae7070aaa00c3274d0d6cbeaa04'
 
+  ENV['SECRET_KEY']
+
 end
