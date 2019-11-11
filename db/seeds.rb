@@ -364,7 +364,8 @@ if Rails.env == "development"
       price: 8600, 
       size: 25, 
       condition: 3, 
-      category_id: 1
+      category_id: 1,
+      seller_id: 1
       )
   end
 end
