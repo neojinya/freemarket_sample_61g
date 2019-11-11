@@ -90,6 +90,7 @@
             }
             .buy-price-cell{
               display: table-cell;
+              white-space: nowrap;
               padding: 16px 0;
               width: 100%;
               text-align: right;
