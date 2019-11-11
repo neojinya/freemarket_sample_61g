@@ -4,11 +4,13 @@
   .signup-panel {
     max-width: 700px;
     margin: 0 auto;
+    padding: 24px 16px 40px;
     background-color: #fff;
     &__title {
       text-align: center;
       font-size: 22px;
       padding: 32px;
+      margin: 20px;
       font-weight: bold;
       border-bottom: 1px solid #eee;
     }
@@ -17,6 +19,10 @@
       margin:0 auto;
       label {
         display: inline-block;
+        font-weight: 700;
+      }
+      .form-group {
+        margin: 24px 0 0 ;
       }
       .form-require{
         background: #ea352d;
@@ -29,7 +35,7 @@
       }
       .field__input {
         width: 100%;
-        margin: 8px 0 0;
+        margin: 10px 0px 10px;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
@@ -38,9 +44,32 @@
         line-height: 1.5;
         font-size: 16px;
       }
+      .form-require--gray {
+        background-color: #d3d3d3;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        color: #fff;
+        font-size: 12px;
+      }
+      h3 {
+        font-size: 14px;
+        font-weight: 700;
+        margin: 8px 0 0 ;
+      }
+      p {
+        margin: 8px 0 0;
+        line-height: 20px
+      }
+      .form-info {
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-weight: 100;
+        font-size: 14px;
+        opacity: 0.5;
+      }
       .field__input--left {
         width: calc(100% - 200px);
-        margin-right: 8px 0 0;
+        margin: 10px 0 10px;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
@@ -50,7 +79,7 @@
       }
       .field__input--right {
         width: calc(100% - 200px);
-        margin-right: 8px 0 0;
+        margin: 10px 0 10px;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
@@ -58,25 +87,38 @@
         line-height: 1,5;
         font-size: 16px;
       }
-      .btn-submit{
-        margin: 24px 0 0;
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        border: 1px solid transparent;
-        -webkit-transition: all ease-out .3s;
-        transition: all ease-out .3s;
-        cursor: pointer;
-        text-align: center;
+      .select-wrap {
+        padding: 10px 0 0 0;
+        font-weight: 100;
+        select {
+          position: relative;
+          padding: 0 10px;
+          margin: 8px 0 0;
+          height: 48px;
+          width: 78px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+          cursor: pointer;
+          }
+          .btn-submit{
+            margin: 24px 0 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
       }
     }
   }
-}
-
 
 
 
