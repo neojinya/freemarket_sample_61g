@@ -26,6 +26,7 @@
     font-size: 14px;
     color: #888;
     line-height: 1.5;
+    display: none;
 
     a {
       color: currentColor;
@@ -158,23 +159,25 @@
     font-size: 16px;
   }
 
-  &__btn {
-    background: #888;
-    cursor: not-allowed;
-    font-size: 24px;
-    line-height: 60px;
-    display: block;
-    margin-top: 16px;
-    color: #fff;
-    text-align: center;
-    font-weight: 600;
-    transition: all ease-out .3s;
+  .product-show__link-to {
+    #product-show__btn {
+      background: #ea352d;
+      font-size: 24px;
+      line-height: 60px;
+      display: block;
+      margin-top: 16px;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      transition: all ease-out .3s;
+    }
   }
 
   &__description {
     padding: 32px 0 0;
     line-height: 1.5;
     font-size: 18px;
+    word-break: break-all;
 
     p {
       white-space: pre-wrap;
@@ -274,11 +277,15 @@
     float: left;
     padding: 0 0 0 14px;
 
-    .fa-chevron-left {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate(0, -50%);
+    a {
+      color: #0099e8;
+
+      .fa-chevron-left {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+      }
     }
   }
 
@@ -287,11 +294,15 @@
     padding: 0 14px 0 0;
     text-align: right;
 
-    .fa-chevron-right {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translate(0, -50%);
+    a {
+      color: #0099e8;
+
+      .fa-chevron-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+      }
     }
   }
 }
@@ -361,6 +372,10 @@
 .user-items__head {
   font-size: 22px;
   margin: 24px 0 8px;
+
+  a {
+    color: #0099e8;
+  }
 }
 
 .user-items__contents {
