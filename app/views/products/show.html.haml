@@ -13,11 +13,15 @@
       の商品で、#{@product.region}から#{@product.delivery_date}されます。
     #product-show__content
       #product-show__photo
-        = image_tag @images[0][0], class:"item-image"
+        .photo_field
+          - @images.length.times do |i|
+            = image_tag @images.reverse[i][0], class:"item-image"
         #product-show__images
           #product-show__image-show
           #product-show__image-list
-            .product-show__image-content
+            - @images.length.times do |i|
+              .product-show__image-content
+                = image_tag @images[i][0], class: "item-image"
         #product-show__sold-out
           -# %div SOLD
       %table#product-show__table
