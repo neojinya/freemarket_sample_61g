@@ -28,8 +28,10 @@
                     ¥ #{generate_three_digits_separator(@product.price)}
             %p.has-error-text
               配送先と支払い方法の入力を完了してください。
-            %button.buy-btn.disabled
-              購入する
+          = form_tag(products_pay_path) do
+            = hidden_field_tag "id", @product.id
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,
+            "data-text" => "購入する" ,"data-key" => "pk_test_1f5ed906b6c7aba13187ce2a"}
       %section.buy-content2
         .buy-content-inner
           %h3

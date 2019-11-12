@@ -54,13 +54,22 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @product = Product.find(params[:id])
+    Payjp.api_key = 'sk_test_19defe34a00d9dc47b8c355b'
     charge = Payjp::Charge.create(
-    amount: 3500,
+    amount: @product.price,
     card: params['payjp-token'],
-    currency: 'jpy',
+    currency: 'jpy'
     )
+    if @product.update(buyer_id: current_user.id)
+      flash[:notice] = '購入しました。'
+      redirect_to controller: "products", action: 'show',id: @product.id
+    else
+      flash[:alert] = '購入に失敗しました。'
+      redirect_to controller: "products", action: 'show',id: @product.id
+    end
   end
+
 
   private
   def product_params

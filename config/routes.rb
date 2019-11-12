@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions =>'users/sessions'
   }
-  
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
@@ -30,6 +29,7 @@ Rails.application.routes.draw do
   get '/products/buy', to: "products#buy"
 
   get '/logout', to: "users#destroy"
+  post 'products/pay', to:'products#pay'
 
   resources :card, only: [:new, :show] do
     collection do
@@ -38,6 +38,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
