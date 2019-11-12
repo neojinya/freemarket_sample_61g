@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions =>'users/sessions'
   }
-  
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
-
+  post 'products/pay', to:'products#pay'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
