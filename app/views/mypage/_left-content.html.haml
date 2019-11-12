@@ -2,7 +2,7 @@
   .left-content__mypage-list
     %ul
       %li
-        = link_to mypage_path, id: "mypage", class: "active" do
+        = link_to mypage_path, id: "mypage" do
           マイページ
           %i.fas.fa-chevron-right
       %li
@@ -96,6 +96,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right
       %li
-        = link_to "#", id: "logout" do
+        = link_to logout_path, id: "logout" do
           ログアウト
           %i.fas.fa-chevron-right
