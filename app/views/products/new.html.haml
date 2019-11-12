@@ -18,9 +18,9 @@
                 .upload-box__items-container
                   .upload-items
                     %ul
-                .upload-box__drop-box
+                %label.upload-box__drop-box{for: "up-file"}
                   = f.fields_for :images do |image|
-                    = image.file_field :image, type: "file", multiple: true
+                    = image.file_field :image, type: "file", id: "up-file", multiple: true
                   %pre
                     ドラッグアンドドロップ
                     またはクリックしてファイルを アップロード
