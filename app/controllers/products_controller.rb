@@ -44,11 +44,14 @@ class ProductsController < ApplicationController
   def credit
   end
 
-
   def users_info
   end
 
   def buy
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
     @product = Product.find(params[:id])
     @images = images(@product)
   end
