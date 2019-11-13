@@ -133,18 +133,90 @@
         = link_to 'https://www.pinterest.jp/login/?next=/pin/create/button/%3Furl%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F%26media%3Dhttps%253A%252F%252Fstatic.mercdn.net%252Fitem%252Fdetail%252Forig%252Fphotos%252Fm15270664905_1.jpg%253F1568261349%26description%3D%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%25E5%2595%2586%25E5%2593%2581%253A%2520BELLISSIMA%2520%25E5%2585%2589%25E8%2584%25B1%25E6%25AF%259B%25E5%2599%25A8%2520%25E3%2583%2595%25E3%2583%25A9%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25EF%25BC%2586%25E3%2582%25B4%25E3%2583%25BC%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25B9%2520%2523%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA' do
           %i.fab.fa-pinterest-square
   #user-items
-    %section#user-items__upper-container
+    %section.user-items__upper-container.crearfix.related-item-column
       %h2.user-items__head
         = link_to do
           なるさんのその他の出品
-      .user-items__contents
+      .user-items__content.crearfix
         %section.user-items__box
-    %section#user-items__lower-container
+          = link_to '/products/show' do
+            %figure.user-items__box__photo
+              = image_tag @images[0][0], class:"item-image"
+            .user-items__box__body
+              %h3.user-items__box--name
+                = @name
+              .user-items__box__num
+                .user-items__box__price.font-5
+                  ¥#{generate_three_digits_separator(@price)}
+                .font2
+                  %i.icon-like-border
+                    \::befor
+                  %span 11
+        %section.user-items__box
+          = link_to '/products/show' do
+            %figure.user-items__box__photo
+              = image_tag @images[0][0], class:"item-image"
+            .user-items__box__body
+              %h2.user-items__box--name
+                = @name
+              .user-items__box__num
+                .user-items__box__price.font-5
+                  ¥#{generate_three_digits_separator(@price)}
+                .font2
+                  %i.icon-like-border
+        %section.user-items__box
+          = link_to '/products/show' do
+            %figure.user-items__box__photo
+              = image_tag @images[0][0], class:"item-image"
+            .user-items__box__body
+              %h3.user-items__box--name
+                = @name
+              .user-items__box__num
+                .user-items__box__price.font-5
+                  ¥#{generate_three_digits_separator(@price)}
+                .font2
+                  %i.icon-like-border
+    %section.user-items__lower-container.crearfix.related-item-column
       %h2.user-items__head
         = link_to do
           美容機器 （家電・スマホ・カメラ） その他の商品
-      .user-items__contents
+      .user-items__content.crearfix
         %section.user-items__box
+          = link_to '/products/show' do
+            %figure.user-items__box__photo
+              = image_tag @images[0][0], class:"item-image"
+            .user-items__box__body
+              %h3.user-items__box--name
+                = @name
+              .user-items__box__num
+                .user-items__box__price.font-5
+                  ¥#{generate_three_digits_separator(@price)}
+                .font-2
+                  %i.icon-like-border
+        %section.user-items__box
+          = link_to '/products/show' do
+            %figure.user-items__box__photo
+              = image_tag @images[0][0], class:"item-image"
+            .user-items__box__body
+              %h3.user-items__box--name
+                = @name
+              .user-items__box__num
+                .user-items__box__price.font-5
+                  ¥#{generate_three_digits_separator(@price)}
+                .font2
+                  %i.icon-like-border
+        %section.user-items__box
+          = link_to '/products/show' do
+            %figure.user-items__box__photo
+              = image_tag @images[0][0], class:"item-image"
+            .user-items__box__body
+              %h3.user-items__box--name
+                = @name
+              .user-items__box__num
+                .user-items__box__price.font-5
+                  ¥#{generate_three_digits_separator(@price)}
+                .font2
+                  %i.icon-like-border
   %nav#pos-bottom
     %ul
       %li
