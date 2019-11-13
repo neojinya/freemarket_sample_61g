@@ -31,7 +31,7 @@
           = form_tag(products_pay_path) do
             = hidden_field_tag "id", @product.id
             %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,
-            "data-text" => "購入する" ,"data-key" => "pk_test_1f5ed906b6c7aba13187ce2a"}
+            "data-text" => "購入する" ,"data-key" => ENV["PAY_JP_TEST_PK"]}
       %section.buy-content2
         .buy-content-inner
           %h3

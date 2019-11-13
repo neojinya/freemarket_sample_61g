@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
 
   def pay
     @product = Product.find(params[:id])
-    Payjp.api_key = 'sk_test_19defe34a00d9dc47b8c355b'
+    Payjp.api_key = ENV["PAY_JP_TEST_SK"]
     charge = Payjp::Charge.create(
       amount: @product.price,
       card: params['payjp-token'],
