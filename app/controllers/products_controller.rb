@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # before_action :move_to_index, except: :index
 
   def index
-    @products = Product.all.limit(10)
+    @products = Product.where(buyer_id: nil).limit(10)
 
     # 仮実装
     # @image = Image.new(image: "", product_id: 2)
@@ -57,10 +57,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     Payjp.api_key = 'sk_test_19defe34a00d9dc47b8c355b'
     charge = Payjp::Charge.create(
-    amount: @product.price,
-    card: params['payjp-token'],
-    currency: 'jpy'
-    )
+      amount: @product.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+      )
     if @product.update(buyer_id: current_user.id)
       flash[:notice] = '購入しました。'
       redirect_to controller: "products", action: 'show',id: @product.id
