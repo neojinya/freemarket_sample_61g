@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # before_action :move_to_index, except: :index
 
   def index
-    @products = Product.where(buyer_id: nil).limit(10)
+    @products = Product.sale.limit(10)
 
     # 仮実装
     # @image = Image.new(image: "", product_id: 2)
