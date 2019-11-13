@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index, except: :index
+  # before_action :move_to_index, except: :index
 
   def index
     @products = Product.all.limit(10)
@@ -31,7 +31,16 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    # # @product = Product.where(id: params[:id])
+    # @same_seller = @product.buyer_id
+    # @same_seller_product = Product.where(seller_id: @seller)
+    # @same_bland = @product.bland_id
+    # # @same_bland_products = Product.where(bland_id: @same_bland)
+    # @same_category = @product.category_id
+    # @related_products = Product.where(bland_id: @same_bland ,category_id: @same_category)
     @images = images(@product)
+    @name = @product.name
+    @price = @product.price
   end
 
   # -------------- 仮置き -----------------
