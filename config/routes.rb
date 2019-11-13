@@ -27,9 +27,10 @@ Rails.application.routes.draw do
 
   get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
-
-  get '/logout', to: "users#destroy"
   post 'products/pay', to:'products#pay'
+  
+  get '/logout', to: "users#destroy"
+  
 
   resources :card, only: [:new, :show] do
     collection do

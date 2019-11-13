@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 user = User.new(
   {
     email: 'karimen@karimen.com',
@@ -26,6 +27,26 @@ user = User.new(
 )
 user.save!
 
+user = User.new(
+  {
+    email: 'karijyun@karimen.com',
+    password: 'karijyun',
+    first_name: 'かりめん',
+    last_name: '純子',
+    first_name_kata: 'カリメン',
+    last_name_kata: 'ジュンコ',
+    nickname:  'kariko',
+    num_of_exihibits: 1,
+    phone_number: '0966622222',
+    post_code: '1111111',
+    prefecture: '東京都',
+    city_village_town: '港区',
+    house_number: '3丁目',
+    building: '3番地',
+    birthday: '1986-12-02'
+  }
+)
+user.save!
 
 # レディース
 lady = Category.create(name: "レディース")
