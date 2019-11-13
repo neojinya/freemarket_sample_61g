@@ -26,7 +26,6 @@
 #     }
 #   ]
 # )
-
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -357,4 +356,15 @@ others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
 
-# 　
+if Rails.env == "development"
+  10.times do |i|
+    Product.create!(
+      name: "ほげほげ#{i + 1}",
+      price: 8600, 
+      size: 25, 
+      condition: 3, 
+      category_id: 1
+      )
+  end
+end
+

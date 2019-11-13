@@ -1,0 +1,12 @@
+= render 'shared/header'
+.container-damy{style: "width: 1020px; margin: 0 auto 0;"}
+  #mypage-wrapper
+    = render "mypage/left-content"
+
+    .right-content
+      .logout-field
+        %form.logout-form{action: "/", method: :delete}
+          .logout-container
+            %button.btn-submit{type: "submit"} ログアウト
+
+

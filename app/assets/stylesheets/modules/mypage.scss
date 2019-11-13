@@ -12,12 +12,14 @@
         position: absolute;
         right: 16px;
         color: #ccc;
+        transition: all .2s ease-in;
       }
     }
     a:hover{
       background-color: rgba(250, 250, 250, 250);
       .fa-chevron-right {
         color: black;
+        right: 10px;
       }
     }
     a.active {
@@ -92,13 +94,6 @@ a {
     margin-right: 40px;
     &__mypage-list {
       @include left-content-lists;
-      // li {
-      //   position: relative;
-      //   .fa-chevron-right {
-      //     position: absolute;
-      //     right: 16px;
-      //   }
-      // }
     }
     &__merpay {
       ul {
@@ -215,6 +210,20 @@ a {
       border: 1px solid #ccc;
     }
 
+    @mixin btn-submit-red {
+      .btn-submit {
+        width: 100%;
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        font-size: 14px;
+        line-height: 48px;
+        cursor: pointer;
+        // margin-top: 16px;
+        outline: none;
+      }
+    }
+
     .profile-content {
       width: 700px;
       background-color: #fff;
@@ -259,19 +268,25 @@ a {
           padding: 10px;
           @include form_parts;
           outline-width: 1px;
+          margin-bottom: 16px;
         }
-        .btn-submit {
-          width: 100%;
-          background-color: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-          font-size: 14px;
-          line-height: 48px;
-          cursor: pointer;
-          margin-top: 16px;
-          outline: none;
+        @include btn-submit-red;
+        
+      }
+    }
+    .logout-field {
+      width: 700px;
+      height: 180px;
+      background-color: #fff;
+      .logout-form {
+        padding: 64px;
+        .logout-container {
+          max-width: 320px;
+          margin: 0 auto;
+          @include btn-submit-red;
         }
       }
+
     }
   }
 }
@@ -314,3 +329,4 @@ a {
     }
   }
 }
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191107085146) do
+ActiveRecord::Schema.define(version: 20191112073410) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -65,14 +65,14 @@ ActiveRecord::Schema.define(version: 20191107085146) do
     t.string   "nickname",                                          null: false
     t.text     "image",                  limit: 65535
     t.text     "profiel_message",        limit: 65535
-    t.integer  "num_of_exihibits",                                  null: false
+    t.string   "num_of_exihibits"
     t.string   "phone_number",                                      null: false
     t.string   "post_code",                                         null: false
     t.string   "prefecture",                                        null: false
     t.string   "city_village_town",                                 null: false
     t.string   "house_number",                                      null: false
     t.string   "building",                                          null: false
-    t.date     "birthday",                                          null: false
+    t.date     "birthday"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

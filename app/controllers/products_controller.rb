@@ -62,6 +62,15 @@ class ProductsController < ApplicationController
     @images = images(@product)
   end
 
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: 3500,
+    card: params['payjp-token'],
+    currency: 'jpy',
+    )
+  end
+
   private
   def product_params
     params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []})
