@@ -2,8 +2,12 @@ class ProductsController < ApplicationController
   # before_action :move_to_index, except: :index
 
   def index
-    @products = Product.sale.limit(10)
-
+    if user_signed_in?
+      @products = Product.sale.where.not(seller_id:current_user.id).limit(10)
+    else
+      @products = Product.sale.limit(10)
+    end
+    
     # 仮実装
     # @image = Image.new(image: "", product_id: 2)
     # @image.save
