@@ -6,9 +6,9 @@
         .advertisement__wrapper__contents__left__middle 今すぐ無料ダウンロード！
         .advertisement__wrapper__contents__left__bottom
           = image_tag '/images/mercari_icon-aside.png'
-          = link_to '#' , class: 'apple' do
+          = link_to 'https://apps.apple.com/jp/app/id667861049?l=ja' , class: 'apple', target: '_blank' do
             = image_tag '/images/app-store.svg', class: 'apple__image'
-          = link_to '#' , class: 'google' do
+          = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' , class: 'google', target: '_blank' do
             = image_tag '/images/google-play.svg', class: 'google__image'
       %figure.advertisement__wrapper__contents__right
         = image_tag '/images/mercari_bottom_image_phone.png' 
@@ -32,9 +32,9 @@
         %li.footer__top__left__list
           = link_to '#' do
             メルカリロゴ利用ガイドライン
-        = link_to '#', class: 'twitter' do
+        = link_to 'https://twitter.com/mercari_jp', class: 'twitter', target: '_blank' do
           %i.fab.fa-twitter
-        = link_to '#', class: 'facebook' do
+        = link_to 'https://www.facebook.com/mercarijp', class: 'facebook', target: '_blank' do
           %i.fab.fa-facebook-square
     .footer__top__right
       %h2.footer__top__right__heading ヘルプ＆ガイド
