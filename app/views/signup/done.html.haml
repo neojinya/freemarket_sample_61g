@@ -7,5 +7,5 @@
           ありがとうございました。
           %br 会員登録が完了しました。
       .signup-btn
-        %input{class: "submit",type:"submit", url:root_path,value:"メルカリをはじめる"}
+        = button_to('メルカリをはじめる', root_path,class: "submit", method: :get,)
 = render 'shared/footer'
