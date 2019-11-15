@@ -25,6 +25,20 @@
   display: block;
   text-align: right;
 }
+.pay-form{
+  width: 100%;
+  #payjp_checkout_box{
+    width: 100%;
+    input[type = "button"]{
+      @include btn-default;
+      font-weight: 600;
+      margin-top:8px;
+      background: #ea352d;
+      color: #fff;
+    }
+  }
+}
+
 
 #products-buy{
   .container{
@@ -111,11 +125,6 @@
           .disabled{
             border: 1px solid #888;
             background: #888;
-            color: #fff;
-          }
-          .enable{
-            border: 1px solid #888;
-            background: #ea352d;
             color: #fff;
           }
         }
