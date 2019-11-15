@@ -84,6 +84,4 @@ group :development, :test do
   gem 'pry-doc'
 end
 
-gem 'payjp'
-
 gem 'dotenv-rails'
