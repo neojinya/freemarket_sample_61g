@@ -68,8 +68,8 @@
         opacity: 0.5;
       }
       .field__input--left {
-        width: calc(100% - 200px);
-        margin: 10px 0 10px;
+        width: calc(100% - 190px);
+        margin: 8px;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
@@ -78,8 +78,8 @@
         font-size: 16px;
       }
       .field__input--right {
-        width: calc(100% - 200px);
-        margin: 10px 0 10px;
+        width: calc(100% - 190px);
+        margin: 8px 0 0;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
@@ -100,7 +100,7 @@
           font-size: 16px;
           cursor: pointer;
         }
-        .btn-submit{
+        .submit{
           margin: 24px 0 0;
           background: #ea352d;
           border: 1px solid #ea352d;
@@ -119,6 +119,7 @@
     }
   }
 }
+
 
 
 

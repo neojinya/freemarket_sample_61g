@@ -29,5 +29,12 @@ Rails.application.routes.draw do
   get '/products/buy', to: "products#buy"
   post 'products/pay', to:'products#pay'
 
+  resources :cards, only: [:new, :show, :create] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

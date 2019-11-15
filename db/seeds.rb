@@ -48,6 +48,7 @@ user = User.new(
 )
 user.save!
 
+
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -390,3 +391,4 @@ if Rails.env == "development"
       )
   end
 end
+
