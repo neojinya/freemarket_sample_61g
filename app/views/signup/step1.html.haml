@@ -1,0 +1,71 @@
+-# TODO:ヘッダー未実装  伊藤  20191115
+%main#registration-new
+  = form_for(@user, url: step2_signup_index_path, method: :get) do |f|
+    
+    .signup-panel
+      %p.signup-panel__title 会員情報入力
+      .form-content
+        .form-group
+          %label ニックネーム
+          %span.form-require 必須
+          = f.text_field :nickname, class: "field__input", autocomplete: "nickname", placeholder: "例) メルカリ太郎"
+        .form-group
+          %label メールアドレス
+          %span.form-require 必須
+          = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+        .form-group
+          %label パスワード
+          %span.form-require 必須
+          = f.password_field :password, class: "field__input", autocomplete: "password", placeholder: "7文字以上"
+        .form-group
+          %label パスワード(確認)
+          %span.form-require 必須
+          = f.password_field :password_confirmation, class: "field__input", autocomplete: "password", placeholder: "7文字以上"
+        .field
+          %h3 本人確認
+          %p 安心・安全にご利用いただくために、お客様の本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .form-group
+          %div
+            %label お名前(全角)
+            %span.form-require 必須
+          = f.text_field :last_name, class: "field__input--left", autocomplete: "last_name", placeholder: "例) 山田"
+          = f.text_field :first_name, class: "field__input--right", autocomplete: "first_name", placeholder: "例) 綾"
+        .form-group
+          %div
+            %label お名前カナ(全角)
+            %span.form-require 必須
+          = f.text_field :last_name, class: "field__input--left", autocomplete: "last_name", placeholder: "例) ヤマダ"
+          = f.text_field :first_name, class: "field__input--right", autocomplete: "last_name", placeholder: "例) アヤ"
+        .form-group
+          %label 生年月日
+          %span.form-require 必須
+          .select-wrap
+            %select
+              %option --
+              = (1900..2019). each do |i|
+                = year = "#{i}"
+                %option{value: i}
+                  = year
+            %span 年
+
+            %select
+              %option --
+              = (1..12). each do |i|
+                = month = "#{i}"
+                %option{value: i}
+                  = month
+            %span 月
+
+            %select
+              %option --
+              = (1..31). each do |i|
+                = day = "#{i}"
+                %option{value: i}
+                  = day
+            %span 日
+
+            %p.form-info
+              * 本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+
+            = f.submit "次へ進む", class: "submit", id: "token_submit"
+= render 'layouts/simple-footer'

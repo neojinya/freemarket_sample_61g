@@ -1,3 +1,19 @@
+@mixin step_submit_button{
+  margin: 24px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
 #registration-new {
   background-color: #f5f5f5;
   color: #333;
@@ -101,26 +117,17 @@
         cursor: pointer;
         }
         .submit{
-          margin: 24px 0 0;
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-          display: block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          border: 1px solid transparent;
-          -webkit-transition: all ease-out .3s;
-          transition: all ease-out .3s;
-          cursor: pointer;
-          text-align: center;
+          @include step_submit_button;
+        }
+      }
+      .signup-btn{
+        .submit{
+          @include step_submit_button;
         }
       }
     }
   }
 }
-
-
 
 
 
