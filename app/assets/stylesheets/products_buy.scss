@@ -25,6 +25,20 @@
   display: block;
   text-align: right;
 }
+.pay-form{
+  width: 100%;
+  #payjp_checkout_box{
+    width: 100%;
+    input[type = "button"]{
+      @include btn-default;
+      font-weight: 600;
+      margin-top:8px;
+      background: #ea352d;
+      color: #fff;
+    }
+  }
+}
+
 
 #products-buy{
   .container{
@@ -90,6 +104,7 @@
             }
             .buy-price-cell{
               display: table-cell;
+              white-space: nowrap;
               padding: 16px 0;
               width: 100%;
               text-align: right;

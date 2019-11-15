@@ -12,8 +12,7 @@
             = @product.name
           %form.buy-form
             %p.buy-form__price 
-              ¥
-              = generate_three_digits_separator(@product.price)
+              ¥ #{generate_three_digits_separator(@product.price)}
               %span
                 送料込み
             %ul.buy-form__points
@@ -26,13 +25,13 @@
                   支払い金額
                 .buy-price-cell
                   %span
-                    ¥
-                  %span
-                    = generate_three_digits_separator(@product.price)
+                    ¥ #{generate_three_digits_separator(@product.price)}
             %p.has-error-text
               配送先と支払い方法の入力を完了してください。
-            %button.buy-btn.disabled
-              購入する
+          = form_tag(products_pay_path, class: "pay-form") do
+            = hidden_field_tag "id", @product.id
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,
+            "data-text" => "購入する" ,"data-key" => ENV["PAY_JP_TEST_PK"]}
       %section.buy-content2
         .buy-content-inner
           %h3

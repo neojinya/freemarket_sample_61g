@@ -2,8 +2,12 @@ class ProductsController < ApplicationController
   # before_action :move_to_index, except: :index
 
   def index
-    @products = Product.all.limit(10)
-
+    if user_signed_in?
+      @products = Product.sale.where.not(seller_id:current_user.id).limit(10)
+    else
+      @products = Product.sale.limit(10)
+    end
+    
     # 仮実装
     # @image = Image.new(image: "", product_id: 2)
     # @image.save
@@ -55,27 +59,42 @@ class ProductsController < ApplicationController
   def credit
   end
 
-
   def users_info
   end
 
   def buy
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
     @product = Product.find(params[:id])
     @images = images(@product)
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @product = Product.find(params[:id])
+    Payjp.api_key = ENV["PAY_JP_TEST_SK"]
     charge = Payjp::Charge.create(
-    amount: amount,
-    card: params['payjp-token'],
-    currency: 'jpy',
-    )
+      amount: @product.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+      )
+    if @product.update(buyer_id: current_user.id)
+      flash[:notice] = '購入しました。'
+      redirect_to controller: "products", action: 'show',id: @product.id
+    else
+      flash[:alert] = '購入に失敗しました。'
+      redirect_to controller: "products", action: 'show',id: @product.id
+    end
   end
+
 
   private
   def product_params
-    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []})
+    params.require(:product).permit(
+      :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay,
+      :region, :price, images_attributes: {image: []}
+      ).merge(seller_id: current_user.id)
   end
 
   def images(product)
