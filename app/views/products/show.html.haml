@@ -141,6 +141,7 @@
         %section.user-items__box
           = link_to '/products/show' do
             %figure.user-items__box__photo
+              -# %img.lazyloaded{alt: "☆デニムアンドダンガリー トレーナー☆未使用", "data-src" => @images[0][0], src: @images[0][0]}/
               = image_tag @images[0][0], class:"item-image"
             .user-items__box__body
               %h3.user-items__box--name
@@ -150,8 +151,8 @@
                   ¥#{generate_three_digits_separator(@price)}
                 .font2
                   %i.icon-like-border
-                    \::befor
-                  %span 11
+                    
+                  %span 
         %section.user-items__box
           = link_to '/products/show' do
             %figure.user-items__box__photo
@@ -181,42 +182,43 @@
         = link_to do
           美容機器 （家電・スマホ・カメラ） その他の商品
       .user-items__content.crearfix
-        %section.user-items__box
-          = link_to '/products/show' do
-            %figure.user-items__box__photo
-              = image_tag @images[0][0], class:"item-image"
-            .user-items__box__body
-              %h3.user-items__box--name
-                = @name
-              .user-items__box__num
-                .user-items__box__price.font-5
-                  ¥#{generate_three_digits_separator(@price)}
-                .font-2
-                  %i.icon-like-border
-        %section.user-items__box
-          = link_to '/products/show' do
-            %figure.user-items__box__photo
-              = image_tag @images[0][0], class:"item-image"
-            .user-items__box__body
-              %h3.user-items__box--name
-                = @name
-              .user-items__box__num
-                .user-items__box__price.font-5
-                  ¥#{generate_three_digits_separator(@price)}
-                .font2
-                  %i.icon-like-border
-        %section.user-items__box
-          = link_to '/products/show' do
-            %figure.user-items__box__photo
-              = image_tag @images[0][0], class:"item-image"
-            .user-items__box__body
-              %h3.user-items__box--name
-                = @name
-              .user-items__box__num
-                .user-items__box__price.font-5
-                  ¥#{generate_three_digits_separator(@price)}
-                .font2
-                  %i.icon-like-border
+        - @related_products.each do |p|
+          %section.user-items__box
+            = link_to '/products/show' do
+              %figure.user-items__box__photo
+                = image_tag p.images[0].image[0], class:"item-image"
+              .user-items__box__body
+                %h3.user-items__box--name
+                  = p.name
+                .user-items__box__num
+                  .user-items__box__price.font-5
+                    ¥#{generate_three_digits_separator(p.price)}
+                  .font-2
+                    %i.icon-like-border
+          -# %section.user-items__box
+          -#   = link_to '/products/show' do
+          -#     %figure.user-items__box__photo
+          -#       = image_tag @images[0][0], class:"item-image"
+          -#     .user-items__box__body
+          -#       %h3.user-items__box--name
+          -#         = @name
+          -#       .user-items__box__num
+          -#         .user-items__box__price.font-5
+          -#           ¥#{generate_three_digits_separator(@price)}
+          -#         .font2
+          -#           %i.icon-like-border
+          -# %section.user-items__box
+          -#   = link_to '/products/show' do
+          -#     %figure.user-items__box__photo
+          -#       = image_tag @images[0][0], class:"item-image"
+          -#     .user-items__box__body
+          -#       %h3.user-items__box--name
+          -#         = @name
+          -#       .user-items__box__num
+          -#         .user-items__box__price.font-5
+          -#           ¥#{generate_three_digits_separator(@price)}
+          -#         .font2
+          -#           %i.icon-like-border
   %nav#pos-bottom
     %ul
       %li

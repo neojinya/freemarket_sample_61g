@@ -31,14 +31,16 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    # # @product = Product.where(id: params[:id])
+    # @product = Product.where(id: params[:id])
     # @same_seller = @product.buyer_id
     # @same_seller_product = Product.where(seller_id: @seller)
     # @same_bland = @product.bland_id
-    # # @same_bland_products = Product.where(bland_id: @same_bland)
-    # @same_category = @product.category_id
-    # @related_products = Product.where(bland_id: @same_bland ,category_id: @same_category)
+    # @same_bland_products = Product.where(bland_id: @same_bland)
+    @same_category = @product.category_id
+    @related_products = Product.where(category_id: @same_category).limit(6)
     @images = images(@product)
+    # @related_products_id = @related_products.product_id
+    # @image = photos_of_related_products(@related_products)
     @name = @product.name
     @price = @product.price
   end
@@ -88,5 +90,11 @@ class ProductsController < ApplicationController
     return images
   end
 
+  # def photos_of_related_products(related_products)
+  #   photos = []
+  #     related_products.images.each do |p|
+  #       photos << p.image
+  #     end
+  # end
 end
 
