@@ -99,28 +99,27 @@
           border: 1px solid #ccc;
           font-size: 16px;
           cursor: pointer;
-
-          }
-          .submit{
-            margin: 24px 0 0;
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-            border: 1px solid transparent;
-            -webkit-transition: all ease-out .3s;
-            transition: all ease-out .3s;
-            cursor: pointer;
-            text-align: center;
-          }
+        }
+        .submit{
+          margin: 24px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
         }
       }
     }
   }
 }
+
 
 
 
