@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
   def pay
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    amount: 3500,
+    amount: amount,
     card: params['payjp-token'],
     currency: 'jpy',
     )
