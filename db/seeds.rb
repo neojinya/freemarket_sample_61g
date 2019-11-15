@@ -5,28 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.new(
-  {
-    email: 'karimen@karimen.com',
-    password: 'karimen',
-    first_name: 'karimen',
-    last_name: '太郎',
-    first_name_kata: 'カリメン',
-    last_name_kata: 'タロウ',
-    nickname:  'kari',
-    num_of_exihibits: 1,
-    phone_number: '0966611111',
-    post_code: '1111111',
-    prefecture: '東京都',
-    city_village_town: '渋谷区',
-    house_number: '3丁目',
-    building: '1番地',
-    birthday: '1986-11-02'
-  }
-)
-user.save!
-
-
+# User.create!(
+#   [
+#     {
+#       email: 'karimen@karimen.com',
+#       password: 'karimen',
+#       first_name: 'karimen',
+#       last_name: '太郎',
+#       first_name_kata: 'カリメン',
+#       last_name_kata: 'タロウ',
+#       nickname:  'kari',
+#       num_of_exihibits: 1,
+#       phone_number: '0966611111',
+#       post_code: '1111111',
+#       prefecture: '東京都',
+#       city_village_town: '渋谷区',
+#       house_number: '3丁目',
+#       building: '1番地',
+#       birthday: '1986-11-02'
+#     }
+#   ]
+# )
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -368,3 +367,4 @@ if Rails.env == "development"
       )
   end
 end
+

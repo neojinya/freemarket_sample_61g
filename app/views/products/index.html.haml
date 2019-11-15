@@ -39,8 +39,7 @@
                         = generate_three_digits_separator(product.price)
                       %li
                         - if product.images.exists?
-                          - product.images.each do |image|
-                            = image_tag image.image[0], class: "item-box-img"
+                          = image_tag product.images[0].image[0], class: "item-box-img"
                           %p= product.name
                         - else
                           = image_tag "rails-logo.png", class: "item-box-img"

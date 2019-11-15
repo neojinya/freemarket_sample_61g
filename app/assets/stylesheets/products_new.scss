@@ -190,9 +190,13 @@ code, kbd, pre, samp {
             border: 1px dashed #ccc;
             font-size: 0;
             text-align: center;
+            cursor: pointer;
+            input[type=file]{
+              display: none;
+            }
             pre{
               position: absolute;
-              top: 50%;
+              top: 40%;
               left: 16px;
               right: 16px;
               text-align: center;
@@ -315,7 +319,7 @@ code, kbd, pre, samp {
               .fee-left{
                 float:left;
               }
-              .fee-right{
+              #fee-right{
                 float:right;
               }
             }
@@ -330,7 +334,7 @@ code, kbd, pre, samp {
               .profit-left{
                 float:left;
               }
-              .profit-right{
+              #profit-right{
                 float:right;
               }
             }

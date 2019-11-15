@@ -35,7 +35,7 @@
       }
       .field__input {
         width: 100%;
-        margin: 10px 0px 10px;
+        margin: 10px 0 10px;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
@@ -99,6 +99,7 @@
           border: 1px solid #ccc;
           font-size: 16px;
           cursor: pointer;
+
           }
           .submit{
             margin: 24px 0 0;
@@ -119,6 +120,9 @@
       }
     }
   }
+}
+
+
 
 
 

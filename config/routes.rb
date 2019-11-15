@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
   resources :products, only: [:index, :new, :create]
-  resources :users, only: [:index, :show, :create, :edit, :update]
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
 
   # 仮置き
   get '/sign_up/registration', to: "users#registration"
@@ -30,11 +30,13 @@ Rails.application.routes.draw do
   get '/products/buy', to: "products#buy"
 
   resources :cards, only: [:new, :show, :create] do
+
     collection do
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
   end
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
