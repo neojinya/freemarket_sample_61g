@@ -5,6 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   has_many :credits
   has_many :products
+  has_many :cards
   # validates :email, presence: true
   # validates :encrypted_password, presence: true
   #                                length: { minimum: 6}
