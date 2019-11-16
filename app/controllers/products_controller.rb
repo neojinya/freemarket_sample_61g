@@ -32,8 +32,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     # @product = Product.where(id: params[:id])
-    # @same_seller = @product.buyer_id
-    # @same_seller_product = Product.where(seller_id: @seller)
+    @same_seller = @product.seller_id
+    @same_seller_product = Product.where(seller_id: @same_seller).limit(6)
     # @same_bland = @product.bland_id
     # @same_bland_products = Product.where(bland_id: @same_bland)
     @same_category = @product.category_id
@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []})
+    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []}).merge(seller_id: current_user.id)
   end
 
   def images(product)
