@@ -3,10 +3,11 @@ class SignupController < ApplicationController
 
   def step1
     @user = User.new
-
   end
 
-  # TODO: Date.new〜以降はuserモデルに記述する必要あり 伊藤 20191116
+  # 伊藤 20191116
+  # TODO: Date.new〜以降はuserモデルに記述する必要あり 
+  # TODO: :password_confirmationの保存方法 現状はDBに保存していない
   def step2
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
@@ -34,12 +35,37 @@ class SignupController < ApplicationController
     @credit = Credit.new
   end
 
+  def create
+    @user = User.new(
+      nickname:          session[:nickname],
+      email:             session[:email],
+      password:          session[:password],
+      last_name:         session[:last_name],
+      first_name:        session[:first_name],
+      last_name_kata:    session[:last_name_kata],
+      first_name_kata:   session[:first_name_kata],
+      phone_number:      session[:phone_number],
+      post_code:         session[:post_code],
+      prefecture:        session[:prefecture],
+      city_village_town: session[:city_village_town],
+      house_number:      session[:house_number],
+      building:          session[:building],
+      birthday:          session[:birthday]
+    )
+    binding.pry
+    if @user.save
+      session[:id] = @user.id
+      redirect_to done_signup_index_path
+    else
+      render 'signup/step1'
+    end
+  end
+
+  def done
+    sign_in User.find(session[:id]) unless user_signed_in?
+  end
+
 private
-
-def flatten_date_array hash
-  %w(1 2 3).map { |e| hash["date(#{e}i)"].to_i }
-end
-
 
   def user_params
     params.require(:user).permit(

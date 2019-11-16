@@ -1,6 +1,6 @@
 -# TODO:ヘッダー未実装  伊藤  20191115
 %main#registration-new
-  = form_for(@credit, url: done_signup_index_path, method: :get) do |f|
+  = form_for(@credit, url: signup_index_path, method: :post) do |f|
     .signup-panel
       %p.signup-panel__title 支払い方法
       .form-content
