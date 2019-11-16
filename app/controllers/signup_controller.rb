@@ -7,15 +7,12 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  # 伊藤 20191116
-  # TODO: Date.new〜以降はuserモデルに記述する必要あり 
-  # TODO: :password_confirmationの保存方法 現状はDBに保存していない
+  
   def step2
     @user = User.new
   end
 
   def step3
-    session[:phone_number] = user_params[:phone_number]
     @user = User.new
   end
 
@@ -61,6 +58,9 @@ class SignupController < ApplicationController
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
+  # 伊藤 20191116
+  # TODO: Date.new〜以降はuserモデルに記述する必要あり 
+  # TODO: :password_confirmationの保存方法 現状はDBに保存していない
   def validates_step1
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
@@ -72,11 +72,11 @@ class SignupController < ApplicationController
       password:          session[:password],
       birthday:          session[:birthday],
 
+      phone_number:      "01234567891",
       last_name:         "山田",
       first_name:        "太郎",
       last_name_kata:    "ヤマダ",
       first_name_kata:   "タロウ",
-      phone_number:      "01234567891",
       post_code:         "0123456",
       prefecture:        "東京都",
       city_village_town: "渋谷区",
@@ -86,7 +86,30 @@ class SignupController < ApplicationController
     render '/signup/step1' unless @user.valid?
   end
 
-private
+  def validates_step2
+    session[:phone_number] = user_params[:phone_number]
+    @user = User.new(
+      nickname:          session[:nickname],
+      email:             session[:email],
+      password:          session[:password],
+      birthday:          session[:birthday],
+      phone_number:      session[:phone_number],
+
+      last_name:         "山田",
+      first_name:        "太郎",
+      last_name_kata:    "ヤマダ",
+      first_name_kata:   "タロウ",
+      post_code:         "0123456",
+      prefecture:        "東京都",
+      city_village_town: "渋谷区",
+      house_number:      "青山1-1-1",
+      )
+      
+    render '/signup/step2' unless @user.valid?
+  end
+
+  private
+
   def user_params
     params.require(:user).permit(
       :nickname,
@@ -106,6 +129,8 @@ private
       )
   end
 
+  # 伊藤 20191116
+  # TODO: 未利用。クレジットカード登録機能実装時に利用する。
   def credit_params
     params.require(:credit).permit(
       :number,        

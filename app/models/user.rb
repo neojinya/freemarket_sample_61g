@@ -12,6 +12,7 @@ class User < ApplicationRecord
   # validates :reset_password_token, presence: true
   # validates :reset_password_sent_at, presence: true
   # validates :remember_created_at, presence: true
+  validates :phone_number, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :first_name_kata, presence: true
@@ -20,7 +21,7 @@ class User < ApplicationRecord
   validates :post_code, presence: true
   validates :prefecture, presence: true
   validates :city_village_town, presence: true
-  # validates :house_number, presence: true
+  validates :house_number, presence: true
 
 end
 
