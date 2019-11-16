@@ -22,8 +22,9 @@
             - @images.length.times do |i|
               .product-show__image-content
                 = image_tag @images[i][0], class: "item-image"
-        #product-show__sold-out
-          -# %div SOLD
+        - unless @product.buyer_id.nil?
+          #product-show__sold-out
+            %div SOLD
       %table#product-show__table
         %tbody
           %tr
@@ -86,8 +87,12 @@
         - else
           着払い
     .product-show__link-to
-      = link_to products_buy_path(id: @product.id),id: "product-show__btn" do
-        購入画面に進む
+      - if @product.buyer_id.nil?
+        = link_to products_buy_path(id: @product.id),id: "product-show__btn" do
+          購入画面に進む
+      - else
+        %a#product-show__btn--sold
+          SOLD
     #product-show__description
       %p
         = @product.explanation
