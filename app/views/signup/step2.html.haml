@@ -1,0 +1,19 @@
+-# TODO:ヘッダー未実装  伊藤  20191115
+%main#registration-new
+  = form_for(@user, url: step3_signup_index_path, method: :get) do |f|
+    .signup-panel
+      %p.signup-panel__title 電話番号の確認
+      .form-content
+        .form-group
+          %label 携帯電話の番号
+          %span.form-require 必須
+        = f.text_field :phone_number, class: "field__input", autocomplete: "phone_number", placeholder: "携帯電話の番号を入力"
+
+        %p.form-info--tell
+          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+
+        .signup-btn
+          = f.submit "次へ進む", class: "submit", id: "token_submit"
+        %p.form-info
+          ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+= render 'layouts/simple-footer'

@@ -21,5 +21,6 @@ class User < ApplicationRecord
   # validates :prefecture, presence: true
   # validates :city_village_town, presence: true
   # validates :house_number, presence: true
+
 end
 

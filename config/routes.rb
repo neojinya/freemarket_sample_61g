@@ -10,12 +10,21 @@ Rails.application.routes.draw do
     get "sign_in", :to => "users/sessions#new"
     get "sign_out", :to => "users/sessions#destroy" 
   end
-  root 'products#index'
+  
 
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' 
+      get 'done'
+    end
+  end
 
   resources :products, only: [:index, :new, :create]
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
-
+  root 'products#index'
   # 仮置き
   get '/sign_up/registration', to: "users#registration"
   get '/sign_up/registration', to: "users#registration"
