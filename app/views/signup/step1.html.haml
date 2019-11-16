@@ -25,44 +25,33 @@
           %h3 本人確認
           %p 安心・安全にご利用いただくために、お客様の本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .form-group
-          %div
-            %label お名前(全角)
-            %span.form-require 必須
-          = f.text_field :last_name, class: "field__input--left", autocomplete: "last_name", placeholder: "例) 山田"
-          = f.text_field :first_name, class: "field__input--right", autocomplete: "first_name", placeholder: "例) 綾"
-        .form-group
-          %div
-            %label お名前カナ(全角)
-            %span.form-require 必須
-          = f.text_field :last_name, class: "field__input--left", autocomplete: "last_name", placeholder: "例) ヤマダ"
-          = f.text_field :first_name, class: "field__input--right", autocomplete: "last_name", placeholder: "例) アヤ"
-        .form-group
           %label 生年月日
           %span.form-require 必須
           .select-wrap
-            %select
-              %option --
-              = (1900..2019). each do |i|
-                = year = "#{i}"
-                %option{value: i}
-                  = year
-            %span 年
+            != sprintf(f.date_select(:birthday, use_month_numbers: true,date_separator: '%s'),'年 ', '月 ') + '日'
+            -# %select
+            -#   %option --
+            -#   = (1900..2019). each do |i|
+            -#     = year = "#{i}"
+            -#     %option{value: i}
+            -#       = year
+            -# %span 年
 
-            %select
-              %option --
-              = (1..12). each do |i|
-                = month = "#{i}"
-                %option{value: i}
-                  = month
-            %span 月
+            -# %select
+            -#   %option --
+            -#   = (1..12). each do |i|
+            -#     = month = "#{i}"
+            -#     %option{value: i}
+            -#       = month
+            -# %span 月
 
-            %select
-              %option --
-              = (1..31). each do |i|
-                = day = "#{i}"
-                %option{value: i}
-                  = day
-            %span 日
+            -# %select
+            -#   %option --
+            -#   = (1..31). each do |i|
+            -#     = day = "#{i}"
+            -#     %option{value: i}
+            -#       = day
+            -# %span 日
 
             %p.form-info
               * 本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
