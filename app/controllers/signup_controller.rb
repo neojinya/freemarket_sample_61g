@@ -14,14 +14,23 @@ class SignupController < ApplicationController
     session[:password_confirmation] = user_params[:password_confirmation]
     session[:birthday] = Date.new(params[:user]["birthday(1i)"].to_i,params[:user]["birthday(2i)"].to_i,params[:user]["birthday(3i)"].to_i)
     @user = User.new
-    binding.pry
   end
 
   def step3
+    session[:phone_number] = user_params[:phone_number]
     @user = User.new
   end
 
   def step4
+    session[:last_name] = user_params[:last_name]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name_kata] = user_params[:last_name_kata]
+    session[:first_name_kata] = user_params[:first_name_kata]
+    session[:post_code] = user_params[:post_code]
+    session[:prefecture] = user_params[:prefecture]
+    session[:city_village_town] = user_params[:city_village_town]
+    session[:house_number] = user_params[:house_number]
+    session[:building] = user_params[:building]
     @credit = Credit.new
   end
 
