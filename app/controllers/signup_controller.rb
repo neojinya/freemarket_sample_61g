@@ -2,6 +2,7 @@
 class SignupController < ApplicationController
   before_action :validates_step1, only: :step2
   before_action :validates_step2, only: :step3
+  before_action :validates_step3, only: :step4
 
   def step1
     @user = User.new
@@ -17,15 +18,6 @@ class SignupController < ApplicationController
   end
 
   def step4
-    session[:last_name] = user_params[:last_name]
-    session[:first_name] = user_params[:first_name]
-    session[:last_name_kata] = user_params[:last_name_kata]
-    session[:first_name_kata] = user_params[:first_name_kata]
-    session[:post_code] = user_params[:post_code]
-    session[:prefecture] = user_params[:prefecture]
-    session[:city_village_town] = user_params[:city_village_town]
-    session[:house_number] = user_params[:house_number]
-    session[:building] = user_params[:building]
     @credit = Credit.new
   end
 
@@ -106,6 +98,37 @@ class SignupController < ApplicationController
       )
       
     render '/signup/step2' unless @user.valid?
+  end
+
+  def validates_step3
+    session[:last_name] = user_params[:last_name]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name_kata] = user_params[:last_name_kata]
+    session[:first_name_kata] = user_params[:first_name_kata]
+    session[:post_code] = user_params[:post_code]
+    session[:prefecture] = user_params[:prefecture]
+    session[:city_village_town] = user_params[:city_village_town]
+    session[:house_number] = user_params[:house_number]
+    session[:building] = user_params[:building]
+
+    @user = User.new(
+      nickname:          session[:nickname],
+      email:             session[:email],
+      password:          session[:password],
+      birthday:          session[:birthday],
+      phone_number:      session[:phone_number],
+      last_name:         session[:last_name],
+      first_name:        session[:first_name],
+      last_name_kata:    session[:last_name_kata],
+      first_name_kata:   session[:first_name_kata],
+      post_code:         session[:post_code],
+      prefecture:        session[:prefecture],
+      city_village_town: session[:city_village_town],
+      house_number:      session[:house_number],
+      building:          session[:building]
+      )
+      
+    render '/signup/step3' unless @user.valid?
   end
 
   private
