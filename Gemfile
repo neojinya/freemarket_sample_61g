@@ -57,7 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'haml-rails'
 gem "font-awesome-rails"
-gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
@@ -85,3 +84,5 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
 end
+
+gem 'dotenv-rails'

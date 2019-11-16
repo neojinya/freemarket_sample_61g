@@ -12,10 +12,19 @@
 
 ActiveRecord::Schema.define(version: 20191115061828) do
 
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "parent_id"
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
@@ -52,6 +61,8 @@ ActiveRecord::Schema.define(version: 20191115061828) do
     t.integer  "seller_id",                      null: false
     t.integer  "bland_id"
     t.integer  "buyer_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
+    t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -83,4 +94,6 @@ ActiveRecord::Schema.define(version: 20191115061828) do
 
   add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
 end

@@ -5,18 +5,26 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions =>'users/sessions'
   }
-  
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
     get "sign_out", :to => "users/sessions#destroy" 
   end
-  root 'products#index'
+  
 
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' 
+      get 'done'
+    end
+  end
 
   resources :products, only: [:index, :new, :create]
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
-
+  root 'products#index'
   # 仮置き
   get '/sign_up/registration', to: "users#registration"
   get '/sign_up/registration', to: "users#registration"
@@ -28,16 +36,14 @@ Rails.application.routes.draw do
 
   get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
+  post 'products/pay', to:'products#pay'
 
-  get '/logout', to: "users#destroy"
-
-  resources :card, only: [:new, :show] do
+  resources :cards, only: [:new, :show, :create] do
     collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
     end
   end
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
