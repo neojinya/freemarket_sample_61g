@@ -52,27 +52,28 @@ class SignupController < ApplicationController
 
   # 伊藤 20191116
   # TODO: Date.new〜以降はuserモデルに記述する必要あり 
-  # TODO: :password_confirmationの保存方法 現状はDBに保存していない
   def validates_step1
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
     session[:birthday] = Date.new(params[:user]["birthday(1i)"].to_i,params[:user]["birthday(2i)"].to_i,params[:user]["birthday(3i)"].to_i)
     @user = User.new(
-      nickname:          session[:nickname],
-      email:             session[:email],
-      password:          session[:password],
-      birthday:          session[:birthday],
+      nickname:               session[:nickname],
+      email:                  session[:email],
+      password:               session[:password],
+      birthday:               session[:birthday],
+      password_confirmation:  session[:password_confirmation],
 
-      phone_number:      "01234567891",
-      last_name:         "山田",
-      first_name:        "太郎",
-      last_name_kata:    "ヤマダ",
-      first_name_kata:   "タロウ",
-      post_code:         "0123456",
-      prefecture:        "東京都",
-      city_village_town: "渋谷区",
-      house_number:      "青山1-1-1",
+      phone_number:           "01234567891",
+      last_name:              "山田",
+      first_name:             "太郎",
+      last_name_kata:         "ヤマダ",
+      first_name_kata:        "タロウ",
+      post_code:              "0123456",
+      prefecture:             "東京都",
+      city_village_town:      "渋谷区",
+      house_number:           "青山1-1-1",
       )
 
     render '/signup/step1' unless @user.valid?
@@ -137,7 +138,8 @@ class SignupController < ApplicationController
     params.require(:user).permit(
       :nickname,
       :email,                
-      :password,   
+      :password,
+      :password_confirmation,
       :last_name,
       :first_name,           
       :last_name_kata,            
