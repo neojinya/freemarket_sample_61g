@@ -1,4 +1,4 @@
-# deviseとは別のsign_up用のコントローラー
+# deviseとは別、独自のサインアップ用コントローラー
 class SignupController < ApplicationController
   before_action :validates_step1, only: :step2
   before_action :validates_step2, only: :step3

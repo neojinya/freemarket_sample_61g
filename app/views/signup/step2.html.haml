@@ -5,6 +5,11 @@
       %p.signup-panel__title 電話番号の確認
       .form-content
         .form-group
+          - if @user.errors.present?
+            %ul.has-error-text
+              - @user.errors.full_messages.each do |message|
+                %li 
+                  = message
           %label 携帯電話の番号
           %span.form-require 必須
         = f.text_field :phone_number, class: "field__input", autocomplete: "phone_number", placeholder: "携帯電話の番号を入力"

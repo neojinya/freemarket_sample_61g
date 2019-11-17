@@ -5,6 +5,11 @@
       %p.signup-panel__title 支払い方法
       .form-content
         .form-group
+          - if @user.errors.present?
+            %ul.has-error-text
+              - @user.errors.full_messages.each do |message|
+                %li 
+                  = message
           %label カード番号
           %span.form-require 必須
           = f.text_field :number, class: "field__input", placeholder:"半角数字のみ", maxlength: "16", type: "text", id: "card_number"

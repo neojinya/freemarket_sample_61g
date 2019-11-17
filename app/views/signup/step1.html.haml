@@ -6,6 +6,11 @@
       %p.signup-panel__title 会員情報入力
       .form-content
         .form-group
+          - if @user.errors.present?
+            %ul.has-error-text
+              - @user.errors.full_messages.each do |message|
+                %li 
+                  = message
           %label ニックネーム
           %span.form-require 必須
           = f.text_field :nickname, class: "field__input", autocomplete: "nickname", placeholder: "例) メルカリ太郎"
