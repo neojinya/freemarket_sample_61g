@@ -5,6 +5,11 @@
       %p.signup-panel__title 発送元・お届け先住所入力
       .form-content
         .form-group
+          - if @user.errors.present?
+            %ul.has-error-text
+              - @user.errors.full_messages.each do |message|
+                %li 
+                  = message
           %div
             %label お名前
             %span.form-require 必須
