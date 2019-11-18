@@ -49,19 +49,6 @@ class ProductsController < ApplicationController
     @price = @product.price
   end
 
-  # -------------- 仮置き -----------------
-  def mypage
-  end
-
-  def profile
-  end
-
-  def credit
-  end
-
-  def users_info
-  end
-
   def buy
     unless user_signed_in?
       flash[:alert] = "ログインしてください"
@@ -87,6 +74,22 @@ class ProductsController < ApplicationController
       redirect_to controller: "products", action: 'show',id: @product.id
     end
   end
+
+  # -------------- 仮置き -----------------
+  def mypage
+  end
+
+  def profile
+  end
+
+  def credit
+    
+  end
+
+  def users_info
+  end
+
+  
 
 
   private
