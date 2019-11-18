@@ -1,0 +1,29 @@
+= render 'shared/header'
+= render "layouts/breadcrumbs"
+.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+  #mypage-wrapper
+    // right-content
+    = render "mypage/left-content"
+
+    // left-content
+    .right-content
+      #credit-show-wrapper
+        %h2.header
+          支払い方法
+        .credit-show-content
+          %section.section
+            %h3.section__header
+              クレジットカード一覧
+            %ul.section__cards-lists
+              - @cards.each do |card|
+                %li
+                  = form_tag(delete_cards_path, method: :post, class: "card-form") do
+                    %p
+                      = "**** **** **** " + @cards_infos[card].last4
+                    %p
+                      - exp_month = @cards_infos[card].exp_month.to_s
+                      - exp_year = @cards_infos[card].exp_year.to_s.slice(2,3)
+                      = exp_month + " / " + exp_year
+                    %button 削除する
+
+= render 'shared/footer'
