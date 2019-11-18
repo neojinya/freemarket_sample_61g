@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   require 'payjp'
 
+  # TODO:show画面作成 20191118 伊藤
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
@@ -14,7 +15,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.create(
       card: params['payjp-token'],)
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
+      if @card.save!
         redirect_to action: "show"
       else
         redirect_to action: "pay"
