@@ -3,16 +3,17 @@ class CardsController < ApplicationController
 
   # TODO:show画面作成 20191118 伊藤
   def new
+    gon.payjp_key = ENV["PAY_JP_TEST_PK"]
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
   end
 
   def create
-    Payjp.api_key = 'sk_test_919b62f881f1b980ae931d18'
+    Payjp.api_key = ENV["PAY_JP_TEST_SK"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::Customer.create(card: params['payjp-token'],)
+      customer = Payjp::Customer.create(card: params['payjp-token'])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save!
         redirect_to action: "show"
@@ -39,7 +40,7 @@ class CardsController < ApplicationController
     if @cards.empty?
       redirect_to action: "new"
     else
-      Payjp.api_key = 'sk_test_919b62f881f1b980ae931d18'
+      Payjp.api_key = ENV["PAY_JP_TEST_SK"]
       @cards_infos = {}
       @cards.each do |card|
         customer = Payjp::Customer.retrieve(card.customer_id)
