@@ -52,7 +52,7 @@
                     %div
                       .select-wrap
                         %i.icon-arrow-bottom
-                      = f.select :category_id, @category_parents
+                      = f.select :category_id, category_parents
                   .form-group
                     %label
                       商品の状態
@@ -60,7 +60,7 @@
                         必須
                     .select-wrap
                       %i.icon-arrow-bottom
-                      = f.select :condition, @condition
+                      = f.select :condition, condition
             .sell-form__content3
               %h3.sell-sub-head
                 配送について
@@ -73,7 +73,7 @@
                       必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.select :delivery_fee_pay, @delivery_fee_pay
+                    = f.select :delivery_fee_pay, delivery_fee_pay
                 .form-group
                   %label
                     発送元の地域
@@ -81,7 +81,7 @@
                       必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.select :region, @region
+                    = f.select :region, region
                 .form-group
                   %label
                     発送までの日数
@@ -89,7 +89,7 @@
                       必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.select :delivery_date, @delivery_date
+                    = f.select :delivery_date, delivery_date
             .sell-form__content4
               %h3.sell-sub-head
                 販売価格(300〜9,999,999)

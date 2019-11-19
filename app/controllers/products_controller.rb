@@ -13,11 +13,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @condition = Product.conditions.keys
-    @delivery_date = Product.delivery_dates.keys
-    @delivery_fee_pay = Product.delivery_fee_pays.keys
-    @region = Product.regions.keys
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
   end
 
   def create
@@ -47,22 +42,12 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @condition = Product.conditions.keys
-    @delivery_date = Product.delivery_dates.keys
-    @delivery_fee_pay = Product.delivery_fee_pays.keys
-    @region = Product.regions.keys
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
   end
 
   def update
     @product = Product.find(params[:id])
-    @product.update(name: product_params[:name], condition: product_params[:condition],
-                price: product_params[:price], explanation: product_params[:explanation],
-                delivery_fee_pay: product_params[:delivery_fee_pay],
-                region: product_params[:region],
-                delivery_date: product_params[:delivery_date],
-                category_id: product_params[:category_id])
-    if @product.save
+    
+    if @product.update(product_params)
       redirect_to product_path(@product)
     else
       render :edit
