@@ -1,4 +1,5 @@
 # README
+![image](https://user-images.githubusercontent.com/55571607/69129059-feb62480-0af0-11ea-928a-8b65efeb2cf9.png)
 ## usersテーブル
 |Column|Type|Options|説明|
 |------|----|-------|----|
@@ -27,8 +28,8 @@
 ## cardsテーブル
 |Column|Type|Options|説明|
 |------|----|-------|----|
-|customer_i|integer|null :false||
-|card_id|date|null :false|有効期限|
+|customer_id|integer|null :false||
+|card_id|integer|null :false|有効期限|
 |user_id|integer|foreign_key: true||
 
 ### Association
