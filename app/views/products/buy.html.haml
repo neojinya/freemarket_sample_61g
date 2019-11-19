@@ -10,7 +10,7 @@
             = image_tag @images[0][0], class:"item-image"
           %p.item-name
             = @product.name
-          = form_for @product, method: :post, url: products_pay_path ,html: {class: 'buy-form'}  do |f|
+          = form_for @product, method: :post, url: pay_cards_path ,html: {class: 'buy-form'}  do |f|
             %p.buy-form__price 
               ¥ #{generate_three_digits_separator(@product.price)}
               %span

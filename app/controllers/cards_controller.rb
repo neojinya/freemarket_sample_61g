@@ -49,4 +49,28 @@ class CardsController < ApplicationController
       end
     end
   end
+
+  def pay
+    card = current_user.cards.first
+    if card
+      product = Product.find(params[:product][:id])
+      Payjp.api_key = ENV["PAY_JP_TEST_SK"]
+      charge = Payjp::Charge.create(
+        amount: product.price,
+        customer: card.customer_id,
+        currency: 'jpy'
+        )
+      if product.update(buyer_id: current_user.id)
+        flash[:notice] = '購入しました。'
+        redirect_to controller: "products", action: 'show',id: product.id
+      else
+        flash[:alert] = '購入に失敗しました。'
+        redirect_to controller: "products", action: 'show',id: product.id
+      end
+    else
+      flash[:alert] = 'クレジットカードを登録してください。'
+      render :new
+    end
+  end
+
 end

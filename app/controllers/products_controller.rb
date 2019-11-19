@@ -53,29 +53,7 @@ class ProductsController < ApplicationController
     @images = images(@product)
   end
 
-  # TODO:card_controllerに移動 20191119 伊藤
-  def pay
-    card = current_user.cards.first
-    if card
-      product = Product.find(params[:product][:id])
-      Payjp.api_key = ENV["PAY_JP_TEST_SK"]
-      charge = Payjp::Charge.create(
-        amount: product.price,
-        customer: card.customer_id,
-        currency: 'jpy'
-        )
-      if product.update(buyer_id: current_user.id)
-        flash[:notice] = '購入しました。'
-        redirect_to controller: "products", action: 'show',id: product.id
-      else
-        flash[:alert] = '購入に失敗しました。'
-        redirect_to controller: "products", action: 'show',id: product.id
-      end
-    else
-      flash[:alert] = 'クレジットカードを登録してください。'
-      render template: 'cards/new'
-    end
-  end
+  
 
   # -------------- 仮置き -----------------
   def mypage
