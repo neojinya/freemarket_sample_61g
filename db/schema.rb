@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191115032040) do
+ActiveRecord::Schema.define(version: 20191116084258) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",     null: false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20191115032040) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "parent_id"
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
@@ -39,10 +40,10 @@ ActiveRecord::Schema.define(version: 20191115032040) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "image",      limit: 65535, null: false
     t.integer  "product_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.text     "image",      limit: 65535
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
@@ -57,6 +58,11 @@ ActiveRecord::Schema.define(version: 20191115032040) do
     t.integer  "delivery_fee_pay"
     t.integer  "region"
     t.integer  "category_id"
+    t.integer  "seller_id",                      null: false
+    t.integer  "buyer_id"
+    t.integer  "bland_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
+    t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -78,7 +84,7 @@ ActiveRecord::Schema.define(version: 20191115032040) do
     t.string   "prefecture",                                        null: false
     t.string   "city_village_town",                                 null: false
     t.string   "house_number",                                      null: false
-    t.string   "building",                                          null: false
+    t.string   "building"
     t.date     "birthday"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
@@ -88,4 +94,6 @@ ActiveRecord::Schema.define(version: 20191115032040) do
 
   add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
 end

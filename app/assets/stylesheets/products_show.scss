@@ -99,8 +99,8 @@
     font-size: 28px;
     position: absolute;
     left: 0;
-    z-index: 2;
-    color: #fff;
+    z-index: 1;
+    color:black;
     }
   }
 
@@ -183,8 +183,20 @@
   }
 
   .product-show__link-to {
-    .product-show__btn {
+
+    #product-show__btn {
       @include show-button;
+      &--sold{
+        background:gray;
+        font-size: 24px;
+        line-height: 60px;
+        display: block;
+        margin-top: 16px;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        transition: all ease-out .3s;
+      }
     }
   }
 
