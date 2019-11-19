@@ -26,6 +26,7 @@
   text-align: right;
 }
 
+
 #products-buy{
   .container{
     width: 700px;
@@ -90,6 +91,7 @@
             }
             .buy-price-cell{
               display: table-cell;
+              white-space: nowrap;
               padding: 16px 0;
               width: 100%;
               text-align: right;
@@ -106,6 +108,12 @@
             font-weight: 600;
             height: 48px;
             margin-top:8px;
+          }
+          .enabled{
+            font-weight: 600;
+            margin-top:8px;
+            background: #ea352d;
+            color: #fff;
           }
           .disabled{
             border: 1px solid #888;

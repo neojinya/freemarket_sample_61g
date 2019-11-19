@@ -80,7 +80,7 @@
           発送元・お届け先住所変更
           %i.fas.fa-chevron-right
       %li
-        = link_to mypage_credit_path, id: "payment" do
+        = link_to  new_card_path, id: "payment" do
           支払い方法
           %i.fas.fa-chevron-right
       %li
@@ -97,5 +97,6 @@
           %i.fas.fa-chevron-right
       %li
         = link_to id: "logout" do
+        = link_to sign_out_path, id: "logout" do
           ログアウト
           %i.fas.fa-chevron-right

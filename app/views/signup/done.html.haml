@@ -1,0 +1,11 @@
+%main#registration-new
+  .signup-panel
+    %p.signup-panel__title 会員登録完了
+    .form-content
+      .form-group
+        %p.form-info--tell
+          ありがとうございました。
+          %br 会員登録が完了しました。
+      .signup-btn
+        = button_to('メルカリをはじめる', root_path,class: "submit", method: :get,)
+= render 'shared/footer'

@@ -2,8 +2,12 @@ class ProductsController < ApplicationController
   # before_action :move_to_index, except: :index
 
   def index
-    @products = Product.all.limit(10)
-
+    if user_signed_in?
+      @products = Product.sale.where.not(seller_id:current_user.id).limit(10)
+    else
+      @products = Product.sale.limit(10)
+    end
+    
     # 仮実装
     # @image = Image.new(image: "", product_id: 2)
     # @image.save
@@ -26,16 +30,11 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    # @product = Product.where(id: params[:id])
-    # @same_seller = @product.buyer_id
-    # @same_seller_product = Product.where(seller_id: @seller)
-    # @same_bland = @product.bland_id
-    # @same_bland_products = Product.where(bland_id: @same_bland)
+    @same_seller = @product.seller_id
+    @same_seller_product = Product.where(seller_id: @same_seller).limit(6)
     @same_category = @product.category_id
     @related_products = Product.where(category_id: @same_category).limit(6)
     @images = images(@product)
-    # @related_products_id = @related_products.product_id
-    # @image = photos_of_related_products(@related_products)
     @name = @product.name
     @price = @product.price
   end
@@ -53,6 +52,16 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+  def buy
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
+    @product = Product.find(params[:id])
+    @images = images(@product)
+  end
+
+  
 
   # -------------- 仮置き -----------------
   def mypage
@@ -62,6 +71,7 @@ class ProductsController < ApplicationController
   end
 
   def credit
+    
   end
 
   def listing
@@ -76,23 +86,14 @@ class ProductsController < ApplicationController
   def users_info
   end
 
-  def buy
-    @product = Product.find(params[:id])
-    @images = images(@product)
-  end
+  
 
-  def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: amount,
-    card: params['payjp-token'],
-    currency: 'jpy',
-    )
-  end
 
   private
   def product_params
-    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []})
+
+    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []}).merge(seller_id: current_user.id)
+
   end
 
   def images(product)
