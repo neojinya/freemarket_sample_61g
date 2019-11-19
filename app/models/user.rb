@@ -8,21 +8,19 @@ class User < ApplicationRecord
   has_many :credits
   has_many :products
   has_many :cards
-  # validates :email, presence: true
-  # validates :encrypted_password, presence: true
-  #                                length: { minimum: 6}
-  # validates :reset_password_token, presence: true
-  # validates :reset_password_sent_at, presence: true
-  # validates :remember_created_at, presence: true
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
-  # validates :first_name_kata, presence: true
-  # validates :last_name_kata, presence: true
-  # validates :nickname, presence: true
-  # validates :post_code, presence: true
-  # validates :prefecture, presence: true
-  # validates :city_village_town, presence: true
-  # validates :house_number, presence: true
+
+  validates :nickname,           presence: true, uniqueness: true
+  validates :email,              presence: true, uniqueness: true
+  validates :encrypted_password, presence: true, length: { minimum: 7}
+  validates :phone_number,       presence: true, numericality: true
+  validates :first_name,         presence: true
+  validates :last_name,          presence: true
+  validates :first_name_kata,    presence: true
+  validates :last_name_kata,     presence: true
+  validates :post_code,          presence: true, numericality: true
+  validates :prefecture,         presence: true
+  validates :city_village_town,  presence: true
+  validates :house_number,       presence: true
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first

@@ -90,3 +90,5 @@ group :development, :test do
 end
 
 gem 'dotenv-rails'
+
+gem 'gon'

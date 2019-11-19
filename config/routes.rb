@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
     get "sign_in", :to => "users/sessions#new"
     get "sign_out", :to => "users/sessions#destroy" 
   end
-  
 
   resources :signup do
     collection do
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :new, :create]
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   root 'products#index'
+  get '/products/show', to: "products#show"
+  get '/products/buy', to: "products#buy"
+
   # 仮置き
   get '/sign_up/registration', to: "users#registration"
   get '/sign_up/registration', to: "users#registration"
@@ -35,10 +38,6 @@ Rails.application.routes.draw do
   get '/mypage/credit', to: "products#credit"
   get '/mypage/users_info', to: "products#users_info"
 
-  get '/products/show', to: "products#show"
-  get '/products/buy', to: "products#buy"
-  post 'products/pay', to:'products#pay'
-
   resources :cards, only: [:new, :show, :create] do
     collection do
       post 'show', to: 'cards#show'
@@ -46,5 +45,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
