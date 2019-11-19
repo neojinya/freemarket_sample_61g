@@ -27,8 +27,8 @@
 ## cardsテーブル
 |Column|Type|Options|説明|
 |------|----|-------|----|
-|customer_i|integer|null :false||
-|card_id|date|null :false|有効期限|
+|customer_id|integer|null :false||
+|card_id|integer|null :false|有効期限|
 |user_id|integer|foreign_key: true||
 
 ### Association
