@@ -10,7 +10,7 @@
             = image_tag @images[0][0], class:"item-image"
           %p.item-name
             = @product.name
-          %form.buy-form
+          = form_for @product, method: :post, url: products_pay_path ,html: {class: 'buy-form'}  do |f|
             %p.buy-form__price 
               ¥ #{generate_three_digits_separator(@product.price)}
               %span
@@ -28,10 +28,8 @@
                     ¥ #{generate_three_digits_separator(@product.price)}
             %p.has-error-text
               配送先と支払い方法の入力を完了してください。
-          = form_tag(products_pay_path, class: "pay-form") do
-            = hidden_field_tag "id", @product.id
-            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,
-            "data-text" => "購入する" ,"data-key" => ENV["PAY_JP_TEST_PK"]}
+            = f.hidden_field :id, value: @product.id
+            = f.submit "購入する", class: "buy-btn enabled"
       %section.buy-content2
         .buy-content-inner
           %h3

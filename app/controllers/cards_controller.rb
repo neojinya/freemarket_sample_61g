@@ -1,7 +1,6 @@
 class CardsController < ApplicationController
   require 'payjp'
 
-  # TODO:show画面作成 20191118 伊藤
   def new
     gon.payjp_key = ENV["PAY_JP_TEST_PK"]
     redirect_to action: "show" if current_user.cards.exists?
