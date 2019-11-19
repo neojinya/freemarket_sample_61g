@@ -22,7 +22,7 @@
           出品する
           %i.fas.fa-chevron-right
       %li
-        = link_to "#", id: "selling" do
+        = link_to mypage_listing_path, id: "selling" do
           出品した商品 - 出品中
           %i.fas.fa-chevron-right
       %li
@@ -96,6 +96,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right
       %li
-        = link_to logout_path, id: "logout" do
+        = link_to id: "logout" do
           ログアウト
           %i.fas.fa-chevron-right

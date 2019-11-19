@@ -1,0 +1,58 @@
+= render 'shared/header'
+= render 'layouts/breadcrumbs'
+.container-damy{style: 'width: 1020px; margin: 0 auto 0;'}
+  #mypage-wrapper
+    = render 'mypage/left-content'
+    .right-content
+      %section.tab
+        %h2.tab__heading 出品した商品
+        %ul.tab__list
+          %li.active
+            %h3
+              = link_to mypage_listing_path do
+                出品中
+          %li
+            %h3
+              = link_to do
+                取引中
+          %li
+            %h3
+              = link_to do
+                売却済み
+        .tab__contents
+          - @products.each_with_index do |product, index|
+            .tab__content
+              = link_to mypage_showing_path(id: product.id) do
+                - if index == 0
+                  .tab__item
+                    .tab__img
+                      = image_tag product.images[0].image[0], class: 'item-box-img'
+                    .tab__text
+                      %p
+                        = product.name
+                      %ul
+                        %li
+                          %i.far.fa-heart
+                          %p 0
+                        %li
+                          %i.far.fa-comment-alt
+                          %p 0
+                    .tab__arrow
+                      %i.fas.fa-chevron-right
+                - else
+                  .tab__item{style: 'border-top: solid 2px #eee'}
+                    .tab__img
+                      = image_tag product.images[0].image[0], class: 'item-box-img'
+                    .tab__text
+                      %p
+                        = product.name
+                      %ul
+                        %li
+                          %i.far.fa-heart
+                          %p 0
+                        %li
+                          %i.far.fa-comment-alt
+                          %p 0
+                    .tab__arrow
+                      %i.fas.fa-chevron-right
+= render 'shared/footer'

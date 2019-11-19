@@ -11,8 +11,19 @@
   }
 }
 
+@mixin show-button {
+  background: #ea352d;
+  font-size: 24px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-out .3s;
+}
 
-#product-show {
+.product-show {
   padding: 24px 40px 40px;
   background: #fff;
   margin: 40px auto 0;
@@ -172,16 +183,8 @@
   }
 
   .product-show__link-to {
-    #product-show__btn {
-      background: #ea352d;
-      font-size: 24px;
-      line-height: 60px;
-      display: block;
-      margin-top: 16px;
-      color: #fff;
-      text-align: center;
-      font-weight: 600;
-      transition: all ease-out .3s;
+    .product-show__btn {
+      @include show-button;
     }
   }
 
@@ -261,7 +264,7 @@
   clear: both;
 }
 
-#show-messages {
+.show-messages {
   width: 700px;
   margin: 8px auto;
 
@@ -269,6 +272,36 @@
     padding: 24px;
     background: #fff;
     display: none;
+  }
+
+  &__showing {
+    padding: 24px;
+    background: #fff;
+  }
+
+  &__text {
+    padding: 8px;
+    font-size: 14px;
+    background: #fff6de;
+  }
+
+  &__textarea {
+    textarea {
+      width: 100%;
+      height: 104px;
+      margin: 8px 0 0;
+    }
+  }
+
+  &__button {
+    @include show-button;
+    font-size: 14px;
+    line-height: 50px;
+
+    a {
+      display: block;
+      color: #fff;
+    }
   }
 
   &__items {
@@ -280,7 +313,7 @@
   }
 }
 
-#item-link {
+.item-link {
   margin: 24px auto 0;
   width: 700px;
 
@@ -324,7 +357,7 @@
   }
 }
 
-#media-box {
+.media-box {
   margin: 24px auto;
   padding: 32px 0 24px;
   width: 700px;
@@ -377,7 +410,7 @@
   }
 }
 
-#user-items {
+.user-items {
   width: 700px;
   margin: 0 auto;
 
@@ -489,7 +522,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-#pos-bottom {
+.pos-bottom {
   background: #f5f5f5;
   box-shadow: none;
   position: relative;
@@ -604,5 +637,39 @@
   }
 }
 
+.show-btn {
 
+  &__container {
+    width: 700px;
+    margin: 8px auto;
+  }
+
+  &__contents {
+    padding: 24px;
+    background: #fff;
+  }
+
+  &__edit {
+    @include show-button;
+    font-size: 14px;
+    line-height: 50px;
+
+    a {
+      color: #fff;
+      display: block;
+    }
+  }
+
+  &__destroy {
+    @include show-button;
+    font-size: 14px;
+    line-height: 50px;
+    background: #888;
+
+    a {
+      color: #fff;
+      display: block;
+    }
+  }
+}
 

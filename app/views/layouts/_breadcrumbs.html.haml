@@ -16,3 +16,8 @@
   - when ['products', 'credit']
     - breadcrumb :credit
     = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+
+  - when ['products', 'listing']
+    - breadcrumb :listing
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+
