@@ -63,6 +63,10 @@ gem 'fog-aws'
 gem 'ancestry'
 gem 'payjp'
 gem "gretel"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

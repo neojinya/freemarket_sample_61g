@@ -173,7 +173,6 @@ body {
 
 .login__menu a {
   display: block;
-  margin: 40px 0 0;
   text-decoration: none;
 }
 
@@ -199,4 +198,8 @@ body {
 
 ul {
   list-style: none;
+}
+
+#password_lost {
+  margin: 40px 0 0;
 }

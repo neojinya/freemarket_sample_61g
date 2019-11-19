@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191115061828) do
+ActiveRecord::Schema.define(version: 20191118014059) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",     null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20191115061828) do
     t.integer  "number",          null: false
     t.date     "expiration_date", null: false
     t.integer  "security_code",   null: false
-    t.integer  "user_id"
+    t.integer  "user_id",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["user_id"], name: "index_credits_on_user_id", using: :btree
@@ -59,10 +59,18 @@ ActiveRecord::Schema.define(version: 20191115061828) do
     t.integer  "region"
     t.integer  "category_id"
     t.integer  "seller_id",                      null: false
-    t.integer  "bland_id"
     t.integer  "buyer_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -96,4 +104,5 @@ ActiveRecord::Schema.define(version: 20191115061828) do
   add_foreign_key "images", "products"
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
+  add_foreign_key "sns_credentials", "users"
 end
