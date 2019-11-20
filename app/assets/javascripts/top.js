@@ -32,6 +32,8 @@ $(document).on("turbolinks:load", function(){
     else {
       $(`#${value}`).removeClass("active");
     }
-  }, paths)
+  }, paths);
+
+  
 
 });
