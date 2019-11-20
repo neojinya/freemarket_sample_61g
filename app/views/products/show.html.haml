@@ -145,7 +145,7 @@
       .user-items__content.crearfix
         - @same_seller_product.each do |s|
           %section.user-items__box
-            = link_to '/products/show' do
+            = link_to product_path(id: s.id) do
               %figure.user-items__box__photo
                 = image_tag s.images[0].image[0], class:"item-image"
               .user-items__box__body
@@ -166,7 +166,7 @@
       .user-items__content.crearfix
         - @related_products.each do |p|
           %section.user-items__box
-            = link_to '/products/show' do
+            = link_to product_path(id: p.id) do
               %figure.user-items__box__photo
                 = image_tag p.images[0].image[0], class:"item-image"
               .user-items__box__body
@@ -180,7 +180,7 @@
   %nav#pos-bottom
     %ul
       %li
-        = link_to do
+        = link_to root_path do
           %span メルカリ
           %i.fas.fa-chevron-right
       %li

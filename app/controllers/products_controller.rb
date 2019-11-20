@@ -52,6 +52,7 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+  
   def buy
     unless user_signed_in?
       flash[:alert] = "ログインしてください"
@@ -75,7 +76,7 @@ class ProductsController < ApplicationController
   end
 
   def listing
-    @products = Product.all.limit(10)
+    @products = Product.sale.limit(10)
   end
 
   def showing
