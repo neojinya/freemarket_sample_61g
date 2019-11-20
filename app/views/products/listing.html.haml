@@ -20,42 +20,39 @@
               = link_to do
                 売却済み
         .tab__contents
-          - if current_user.id == @product.seller_id
-            - @products.each_with_index do |product, index|
-              .tab__content
-                = link_to mypage_showing_path(id: product.id) do
-                  - if index == 0
-                    .tab__item
-                      .tab__img
-                        = image_tag product.images[0].image[0], class: 'item-box-img'
-                      .tab__text
-                        %p
-                          = product.name
-                        %ul
-                          %li
-                            %i.far.fa-heart
-                            %p 0
-                          %li
-                            %i.far.fa-comment-alt
-                            %p 0
-                      .tab__arrow
-                        %i.fas.fa-chevron-right
-                  - else
-                    .tab__item{style: 'border-top: solid 2px #eee'}
-                      .tab__img
-                        = image_tag product.images[0].image[0], class: 'item-box-img'
-                      .tab__text
-                        %p
-                          = product.name
-                        %ul
-                          %li
-                            %i.far.fa-heart
-                            %p 0
-                          %li
-                            %i.far.fa-comment-alt
-                            %p 0
-                      .tab__arrow
-                        %i.fas.fa-chevron-right
-          - else
+          - @products.each_with_index do |product, index|
             .tab__content
+              = link_to mypage_showing_path(id: product.id) do
+                - if index == 0
+                  .tab__item
+                    .tab__img
+                      = image_tag product.images[0].image[0], class: 'item-box-img'
+                    .tab__text
+                      %p
+                        = product.name
+                      %ul
+                        %li
+                          %i.far.fa-heart
+                          %p 0
+                        %li
+                          %i.far.fa-comment-alt
+                          %p 0
+                    .tab__arrow
+                      %i.fas.fa-chevron-right
+                - else
+                  .tab__item{style: 'border-top: solid 2px #eee'}
+                    .tab__img
+                      = image_tag product.images[0].image[0], class: 'item-box-img'
+                    .tab__text
+                      %p
+                        = product.name
+                      %ul
+                        %li
+                          %i.far.fa-heart
+                          %p 0
+                        %li
+                          %i.far.fa-comment-alt
+                          %p 0
+                    .tab__arrow
+                      %i.fas.fa-chevron-right
 = render 'shared/footer'

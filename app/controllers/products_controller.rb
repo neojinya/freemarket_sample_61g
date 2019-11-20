@@ -45,7 +45,6 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    
     if @product.update(product_params)
       redirect_to product_path(@product)
     else
@@ -62,8 +61,6 @@ class ProductsController < ApplicationController
     @images = images(@product)
   end
 
-  
-
   # -------------- 仮置き -----------------
   def mypage
   end
@@ -72,7 +69,6 @@ class ProductsController < ApplicationController
   end
 
   def credit
-    
   end
 
   def listing
@@ -87,14 +83,9 @@ class ProductsController < ApplicationController
   def users_info
   end
 
-  
-
-
   private
   def product_params
-
     params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []}).merge(seller_id: current_user.id)
-
   end
 
   def images(product)

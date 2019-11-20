@@ -20,10 +20,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:index, :new, :create, :show, :edit, :update]
+  resources :products, only: [:new, :create, :show, :edit, :update]
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   root 'products#index'
-  get '/products/show', to: "products#show"
   get '/products/buy', to: "products#buy"
 
   # 仮置き
@@ -36,9 +35,6 @@ Rails.application.routes.draw do
   get '/mypage/users_info', to: "products#users_info"
   get '/mypage/listing', to: "products#listing"
   get '/mypage/showing', to: "products#showing"
-  
-  get '/products/buy', to: "products#buy"
-
 
   resources :cards, only: [:new, :show, :create] do
     collection do
