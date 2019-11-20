@@ -94,7 +94,7 @@
         = link_to edit_product_path(id: @product.id) do
           商品の編集
       .show-btn__destroy
-        =link_to do
+        =link_to @product, method: :delete do
           この商品を削除する
   .show-messages
     .show-messages__showing

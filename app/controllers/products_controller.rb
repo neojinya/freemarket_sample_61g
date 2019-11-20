@@ -51,6 +51,14 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    product = Product.find(params[:id])
+    if product.seller_id == current_user.id
+      product.destroy
+      redirect_to root_path
+    end
+  end
   
   def buy
     unless user_signed_in?

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:new, :create, :show, :edit, :update]
+  resources :products, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   root 'products#index'
   get '/products/buy', to: "products#buy"
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   get '/mypage/credit', to: "products#credit"
   get '/mypage/users_info', to: "products#users_info"
   get '/mypage/listing', to: "products#listing"
-  get '/mypage/showing', to: "products#showing"
+  get '/mypage/:id/showing', to: "products#showing"
 
   resources :cards, only: [:new, :show, :create] do
     collection do
