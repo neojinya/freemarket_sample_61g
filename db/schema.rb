@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20191118014059) do
+ActiveRecord::Schema.define(version: 20191119064810) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",     null: false
@@ -28,16 +27,6 @@ ActiveRecord::Schema.define(version: 20191118014059) do
     t.integer  "parent_id"
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
-  end
-
-  create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "number",          null: false
-    t.date     "expiration_date", null: false
-    t.integer  "security_code",   null: false
-    t.integer  "user_id",         null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["user_id"], name: "index_credits_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -61,7 +50,6 @@ ActiveRecord::Schema.define(version: 20191118014059) do
     t.integer  "category_id"
     t.integer  "seller_id",                      null: false
     t.integer  "buyer_id"
-    t.integer  "bland_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
