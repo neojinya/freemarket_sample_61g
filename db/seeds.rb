@@ -362,7 +362,6 @@ if Rails.env == "development"
     Product.create!(
       name: "ほげほげ#{i + 1}",
       price: 8600, 
-      size: 25, 
       condition: 3, 
       category_id: 1
       )
