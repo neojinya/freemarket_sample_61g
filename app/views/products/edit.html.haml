@@ -1,0 +1,124 @@
+.products-new
+  = render "layouts/simple-header"
+  %main
+    %section.buy-item-container
+      %div
+        %div
+          %h2.sell-head
+            商品の情報を入力
+          = form_for @product, html: {class: 'sell-form'} do |f|
+            .sell-form__upload-box
+              %h3
+                出品画像
+                %span
+                  必須
+              %p
+                最大10枚までアップロードできます
+              .upload-box
+                .upload-box__items-container
+                  .upload-items
+                    %ul
+                %label.upload-box__drop-box{for: "up-file"}
+                  = f.fields_for :images do |image|
+                    = image.file_field :image, id: "up-file", type: "file", multiple: true
+                  %pre
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルを アップロード
+                  %i
+            .sell-form__content1
+              .form-group
+                %label
+                  商品名
+                  %span.form-require
+                    必須
+                %div
+                  = f.text_field :name, class: 'input-default', placeholder: '商品名（必須 40文字まで)'
+              .form-group
+                %label
+                  商品の説明
+                  %span
+                    必須
+                = f.text_area :explanation, class: 'textarea-default', rows:'5', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+            .sell-form__content2
+              %h3.sell-sub-head
+                商品詳細
+              .sell-form-box
+                %div
+                  .form-group
+                    %label
+                      カテゴリー
+                      %span.form-require
+                        必須
+                    %div
+                      .select-wrap
+                        %i.icon-arrow-bottom
+                      = f.select :category_id, category_parents
+                  .form-group
+                    %label
+                      商品の状態
+                      %span.form-require
+                        必須
+                    .select-wrap
+                      %i.icon-arrow-bottom
+                      = f.select :condition, condition
+            .sell-form__content3
+              %h3.sell-sub-head
+                配送について
+              %a.form-question
+              .sell-form-box
+                .form-group
+                  %label
+                    配送料の負担
+                    %span.form-require
+                      必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.select :delivery_fee_pay, delivery_fee_pay
+                .form-group
+                  %label
+                    発送元の地域
+                    %span.form-require
+                      必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.select :region, region
+                .form-group
+                  %label
+                    発送までの日数
+                    %span.form-require
+                      必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.select :delivery_date, delivery_date
+            .sell-form__content4
+              %h3.sell-sub-head
+                販売価格(300〜9,999,999)
+              %a.form-question
+              .sell-form-box
+                %ul.sell-price
+                  %li.sell-price__input-li
+                    %div
+                      %label
+                        価格
+                        %span.form-require
+                          必須
+                      .sell-price__input
+                        ¥
+                        = f.text_field :price, class: 'input-default', placeholder: '例）300'
+                  %li.sell-price__fee-li
+                    .fee-left
+                      販売手数料 (10%)
+                    #fee-right -
+                  %li.sell-price__profit-li
+                    .profit-left
+                      販売利益
+                    #profit-right -
+            .sell-form__content5
+              %div
+                %p 禁止されている出品、行為を必ずご確認ください。
+                %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                %p また、出品をもちまして加盟店規約に同意したことになります。
+              = f.submit '変更する', class: 'submit'
+              = link_to '/', class: 'return' do
+                もどる
+  = render "layouts/simple-footer"

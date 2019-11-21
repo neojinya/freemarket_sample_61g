@@ -1,7 +1,12 @@
-
+-# 20291116 伊藤
+-# signup/step1〜step4の利用に変更しました。
+-# このビューは利用していません。
+-#
+-# 
 -# %header.signup-header
 -#   .signup-header__container
-
+-#   = link_to do
+-#     %img(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?210491352" alt="mercari")
 -#     %nav.progress
 -#       %ul.progress-bar
 -#         %li.through#through
@@ -167,11 +172,11 @@
 
             .signup-panel
               %p.signup-panel__title 支払い方法
-            = form_tag(pay_card_index_path, method: :post, html: {id: "card_form"}) do
+            = form_tag("/", method: :post, id: 'charge-form', name: "inputForm") do
               .form-group
                 %label{for: "card_number"} カード番号
                 %span.form-require 必須
-                %input.field__input{placeholder: "半角数字のみ"}
+                = text_field_tag "number", "", class: "field__input", placeholder:"半角数字のみ", maxlength: "16", type: "text", id: "card_number"
                 %ul.signup-card-list
                   %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?465897195", width: "49", height: "20"}
                   %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?465897195", width: "34", height: "20"}
@@ -198,7 +203,7 @@
                     %option{value: "10"}10
                     %option{value: "11"}11
                     %option{value: "12"}12
-                  %span 月/
+                  %span 月
                 .select-wrap
                   %select#exp_year{name: "exp_year", type: "text"}
                     %option{value: ""} --
@@ -217,11 +222,10 @@
               .form-group
                 %label セキュリティーコード
                 %span.form-require 必須
-                %input.field__input{placeholder: "カード背面4桁もしくは3桁の番号"}
+                = text_field_tag "cvc", "", class: "field__input", placeholder:"カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
                 .signup-seqcode
                   %span.form-question 
                     ?
                   カード裏面の番号とは？
-                .signup-btn
-                  %button.btn-submit{type: "submit"}
-                    = button_to "登録"
+              #card_token
+                = submit_tag "登録する", class: "submit", id: "token_submit"

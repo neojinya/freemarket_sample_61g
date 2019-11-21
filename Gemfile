@@ -57,11 +57,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'haml-rails'
 gem "font-awesome-rails"
-gem 'pry-rails'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog-aws'
 gem 'ancestry'
 gem 'payjp'
+gem "gretel"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -83,3 +88,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
 end
+
+gem 'dotenv-rails'
+
+gem 'gon'

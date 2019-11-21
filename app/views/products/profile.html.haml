@@ -1,5 +1,6 @@
 = render 'shared/header'
-.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+= render "layouts/breadcrumbs"
+.container-damy
   #mypage-wrapper
     // right-content
     = render "mypage/left-content"
@@ -17,3 +18,4 @@
           %textarea{name: "message", placeholder: "テキスト入れてね!"}
           %button.btn-submit{type: "submit"} 変更する
 = render 'shared/exhibit-btn'
+= render 'shared/footer'

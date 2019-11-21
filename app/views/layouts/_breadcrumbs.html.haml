@@ -1,0 +1,23 @@
+.breadcrumbs__container
+  - case params.values_at :controller, :action
+
+  - when ['products', 'mypage']
+    - breadcrumb :mypage
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+
+  - when ['products', 'profile']
+    - breadcrumb :profile
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+
+  - when ['products', 'users_info']
+    - breadcrumb :users_info
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+
+  - when ['cards', 'new']
+    - breadcrumb :credit
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+
+  - when ['products', 'listing']
+    - breadcrumb :listing
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+

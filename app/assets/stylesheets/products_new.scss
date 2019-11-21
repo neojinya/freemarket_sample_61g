@@ -132,7 +132,7 @@ code, kbd, pre, samp {
 }
 
 
-#products-new {
+.products-new {
   .buy-item-container{
     width: 700px;
     margin: 0 auto;
@@ -357,7 +357,7 @@ code, kbd, pre, samp {
               .fee-left{
                 float:left;
               }
-              .fee-right{
+              #fee-right{
                 float:right;
               }
             }
@@ -372,7 +372,7 @@ code, kbd, pre, samp {
               .profit-left{
                 float:left;
               }
-              .profit-right{
+              #profit-right{
                 float:right;
               }
             }

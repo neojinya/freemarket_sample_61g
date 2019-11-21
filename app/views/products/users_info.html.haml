@@ -1,5 +1,6 @@
 = render 'shared/header'
-.container-damy{:style => "width: 1020px; margin: 0 auto 0;"}
+= render "layouts/breadcrumbs"
+.container-damy
   #mypage-wrapper
     // right-content
     = render "mypage/left-content"
@@ -23,17 +24,19 @@
             %label
               お名前
             %p
-              ほげほげ子
+              = current_user.last_name
+              = current_user.first_name
           .user-info-form__name-kana
             %label
               お名前カナ
             %p
-              ホゲホゲコ
+              = current_user.last_name_kata
+              = current_user.first_name_kata
           .user-info-form__birthday
             %label
               生年月日
             %p
-              2018/01/01
+              = current_user.birthday
           .user-info-form__post-code
             %label
               郵便番号

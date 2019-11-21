@@ -1,4 +1,4 @@
-#products-new
+.products-new
   = render "layouts/simple-header"
   %main
     %section.buy-item-container
@@ -51,7 +51,7 @@
                     %div
                       .select-wrap
                         %i.icon-arrow-bottom
-                      = f.select :category_id, @category_parents, prompt: "---"
+                      = f.select :category_id, category_parents, prompt: "---"
                   .form-group
                     %label
                       商品の状態
@@ -59,7 +59,7 @@
                         必須
                     .select-wrap
                       %i.icon-arrow-bottom
-                      = f.select :condition, @condition, prompt: '---'
+                      = f.select :condition, condition, prompt: '---'
             .sell-form__content3
               %h3.sell-sub-head
                 配送について
@@ -72,7 +72,7 @@
                       必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.select :delivery_fee_pay, @delivery_fee_pay, prompt: '---'
+                    = f.select :delivery_fee_pay, delivery_fee_pay, prompt: '---'
                 .form-group
                   %label
                     発送元の地域
@@ -80,7 +80,7 @@
                       必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.select :region, @region, prompt: '---'
+                    = f.select :region, region, prompt: '---'
                 .form-group
                   %label
                     発送までの日数
@@ -88,7 +88,7 @@
                       必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.select :delivery_date, @delivery_date, prompt: '---'
+                    = f.select :delivery_date, delivery_date, prompt: '---'
             .sell-form__content4
               %h3.sell-sub-head
                 販売価格(300〜9,999,999)
@@ -107,11 +107,11 @@
                   %li.sell-price__fee-li
                     .fee-left
                       販売手数料 (10%)
-                    .fee-right -
+                    #fee-right -
                   %li.sell-price__profit-li
                     .profit-left
                       販売利益
-                    .profit-right -
+                    #profit-right -
             .sell-form__content5
               %div
                 %p 禁止されている出品、行為を必ずご確認ください。

@@ -3,9 +3,27 @@
   border-collapse: collapse;
   border: 1px solid #f5f5f5;
 }
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
 
+@mixin show-button {
+  background: #ea352d;
+  font-size: 24px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-out .3s;
+}
 
-#product-show {
+.product-show {
   padding: 24px 40px 40px;
   background: #fff;
   margin: 40px auto 0;
@@ -79,8 +97,8 @@
     font-size: 28px;
     position: absolute;
     left: 0;
-    z-index: 2;
-    color: #fff;
+    z-index: 1;
+    color:black;
     }
   }
 
@@ -163,16 +181,20 @@
   }
 
   .product-show__link-to {
+
     #product-show__btn {
-      background: #ea352d;
-      font-size: 24px;
-      line-height: 60px;
-      display: block;
-      margin-top: 16px;
-      color: #fff;
-      text-align: center;
-      font-weight: 600;
-      transition: all ease-out .3s;
+      @include show-button;
+      &--sold{
+        background:gray;
+        font-size: 24px;
+        line-height: 60px;
+        display: block;
+        margin-top: 16px;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        transition: all ease-out .3s;
+      }
     }
   }
 
@@ -252,7 +274,7 @@
   clear: both;
 }
 
-#show-messages {
+.show-messages {
   width: 700px;
   margin: 8px auto;
 
@@ -260,6 +282,36 @@
     padding: 24px;
     background: #fff;
     display: none;
+  }
+
+  &__showing {
+    padding: 24px;
+    background: #fff;
+  }
+
+  &__text {
+    padding: 8px;
+    font-size: 14px;
+    background: #fff6de;
+  }
+
+  &__textarea {
+    textarea {
+      width: 100%;
+      height: 104px;
+      margin: 8px 0 0;
+    }
+  }
+
+  &__button {
+    @include show-button;
+    font-size: 14px;
+    line-height: 50px;
+
+    a {
+      display: block;
+      color: #fff;
+    }
   }
 
   &__items {
@@ -271,7 +323,7 @@
   }
 }
 
-#item-link {
+.item-link {
   margin: 24px auto 0;
   width: 700px;
 
@@ -315,7 +367,7 @@
   }
 }
 
-#media-box {
+.media-box {
   margin: 24px auto;
   padding: 32px 0 24px;
   width: 700px;
@@ -368,7 +420,7 @@
   }
 }
 
-#user-items {
+.user-items {
   width: 700px;
   margin: 0 auto;
 
@@ -377,26 +429,110 @@
   }
 }
 
+.search-upper-container .user-items__box, .category-brand-list .user-items__box, .related-item-column .user-items__box {
+  width: calc(33.3333% - 2.666666px);
+  margin: 0 4px 4px 0;
+}
+
 .user-items__head {
   font-size: 22px;
   margin: 24px 0 8px;
-
   a {
     color: #0099e8;
+    text-decoration: none;
   }
 }
 
-.user-items__contents {
-  width: auto;
+.user-items__content {
+  width: 92%;
   margin: 0 auto;
+  // overflow: hidden;
+  @include clearfix;
 }
 
 .user-items__box {
-  width: 220px;
-  margin: 0 20px 20px 0;
+  position: relative;
+  float: left;
+  width: 48%;
+  margin: 0 0 4% 4%;
+  background-color: #fff;
+  a {
+    display: block;
+    color: #333;
+  }
+  &__photo {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    width: 100%;
+    height: 0;
+    padding: 0 0 100%;
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+  &__body {
+    padding: 8px;
+    height: 110px;
+  }
 }
 
-#pos-bottom {
+// .item-image {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 1;
+//   width: 100%;
+// }
+
+.user-items__box--name {
+  overflow: hidden;
+  position: relative;
+  font-weight: 400;
+  height: 3em;
+  line-height: 1.5;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.user-items__box__num {
+  display: flex;
+  margin: 8px 0 0;
+  .font-2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    .icon-like-border {
+      color: #ccc;
+    }
+  }
+}
+
+.i[class^='icon-'], i[class*='icon-'] {
+  display: inline-block;
+  font-family: 'icon-font';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pos-bottom {
   background: #f5f5f5;
   box-shadow: none;
   position: relative;
@@ -431,6 +567,119 @@
     margin: 0 8px;
     font-size: 9px;
     color: #888;
+  }
+}
+.figure {
+  display: flex;
+}
+
+.font-5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+
+@media screen and (min-width: 768px) {
+  .user-items__content {
+    width: auto;
+  }
+
+  .user-items__box:nth-child(odd) {
+    margin: 0 0 20px 20px;
+  }
+
+  .related-item-column .user-items__box{
+    width: 220px;
+      margin: 0 20px 20px 0;
+  }
+  .related-item-column .user-items__box:nth-child(3n) {
+    margin-right: 0;
+  }
+  .related-item-column .user-items__box__photo{
+    width: 220px;
+    height: 220px;
+  }
+  .user-items__box {
+    width: 124px;
+    margin: 0 0 20px 20px;
+    &__body {
+      padding: 16px;
+    }
+    &__photo {
+      width: 220px;
+      height: 220px;
+    }
+    &__price {
+      font-size: 16px;
+    }
+  }
+  .items-box:nth-child(5n+1) {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width:767px) {
+  .user-items__box--name {
+    height:   0;
+  }
+  .user-items__box__num {
+    margin-top: -28px;
+  }
+  .user-items__box__price {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 0 12px 12px 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 12px 4px 8px;
+    z-index: 2;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .user-items__box__price {
+    font-size: 17px;
+  }
+  .user-items__box {
+    width: 188px;
+  }
+}
+
+.show-btn {
+
+  &__container {
+    width: 700px;
+    margin: 8px auto;
+  }
+
+  &__contents {
+    padding: 24px;
+    background: #fff;
+  }
+
+  &__edit {
+    @include show-button;
+    font-size: 14px;
+    line-height: 50px;
+
+    a {
+      color: #fff;
+      display: block;
+    }
+  }
+
+  &__destroy {
+    @include show-button;
+    font-size: 14px;
+    line-height: 50px;
+    background: #888;
+
+    a {
+      color: #fff;
+      display: block;
+    }
   }
 }
 
