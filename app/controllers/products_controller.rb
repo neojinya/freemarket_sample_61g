@@ -76,9 +76,6 @@ class ProductsController < ApplicationController
   def profile
   end
 
-  def credit
-  end
-
   def listing
     @products = Product.sale.all
   end

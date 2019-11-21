@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   
   get '/mypage', to: "products#mypage"
   get '/mypage/profile', to: "products#profile"
-  get '/mypage/credit', to: "products#credit"
   get '/mypage/users_info', to: "products#users_info"
   get '/mypage/listing', to: "products#listing"
   get '/mypage/:id/showing', to: "products#showing"
