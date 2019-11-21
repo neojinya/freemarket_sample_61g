@@ -88,7 +88,7 @@
           着払い
     .product-show__link-to
       - if @product.buyer_id.nil?
-        = link_to products_buy_path(id: @product.id),id: "product-show__btn" do
+        = link_to "/products/#{@product.id}/buy",id: "product-show__btn" do
           購入画面に進む
       - else
         %a#product-show__btn--sold

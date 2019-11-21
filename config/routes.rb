@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :products, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   root 'products#index'
-  get '/products/buy', to: "products#buy"
+  get '/products/:id/buy', to: "products#buy"
 
   # 仮置き
   get '/sign_up/registration', to: "users#registration"
