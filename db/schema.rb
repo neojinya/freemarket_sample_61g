@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20191119064810) do
     t.integer  "category_id"
     t.integer  "seller_id",                      null: false
     t.integer  "buyer_id"
+    t.integer  "bland_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
