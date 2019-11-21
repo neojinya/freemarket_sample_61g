@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = find_product_by_id
     @same_seller = @product.seller_id
     @same_seller_product = Product.where(seller_id: @same_seller).limit(6)
     @same_category = @product.category_id
@@ -40,11 +40,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = find_product_by_id
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = find_product_by_id
     if @product.update(product_params)
       redirect_to product_path(@product)
     else
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
+    product = find_product_by_id
     if product.seller_id == current_user.id
       product.destroy
       redirect_to root_path
@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
       flash[:alert] = "ログインしてください"
       redirect_to root_path
     end
-    @product = Product.find(params[:id])
+    @product = find_product_by_id
     @images = images(@product)
   end
 
@@ -80,11 +80,11 @@ class ProductsController < ApplicationController
   end
 
   def listing
-    @products = Product.sale.limit(10)
+    @products = Product.sale.all
   end
 
   def showing
-    @product = Product.find(params[:id])
+    @product = find_product_by_id
     @images = images(@product)
   end
 
@@ -94,6 +94,10 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []}).merge(seller_id: current_user.id)
+  end
+
+  def find_product_by_id
+    Product.find(params[:id])
   end
 
   def images(product)

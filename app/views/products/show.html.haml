@@ -25,7 +25,7 @@
         - unless @product.buyer_id.nil?
           #product-show__sold-out
             %div SOLD
-      %table#product-show__table
+      %table.product-show__table
         %tbody
           %tr
             %th 出品者
@@ -177,7 +177,7 @@
                     ¥#{generate_three_digits_separator(p.price)}
                   .font-2
                     %i.icon-like-border
-  %nav#pos-bottom
+  %nav.pos-bottom
     %ul
       %li
         = link_to root_path do

@@ -22,7 +22,7 @@
         .tab__contents
           - @products.each_with_index do |product, index|
             .tab__content
-              = link_to mypage_showing_path(id: product.id) do
+              = link_to "/mypage/#{product.id}/showing" do
                 - if index == 0
                   .tab__item
                     .tab__img
