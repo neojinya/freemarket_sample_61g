@@ -147,7 +147,7 @@
           %section.user-items__box
             = link_to product_path(s.id) do
               %figure.user-items__box__photo
-                -# = image_tag s.images[0].image[0], class:"item-image"
+                = image_tag s.images[0].image[0], class:"item-image"
               .user-items__box__body
                 %h3.user-items__box--name
                   = s.name
@@ -168,7 +168,7 @@
           %section.user-items__box
             = link_to product_path(id: p.id) do
               %figure.user-items__box__photo
-                -# = image_tag p.images[0].image[0], class:"item-image"
+                = image_tag p.images[0].image[0], class:"item-image"
               .user-items__box__body
                 %h3.user-items__box--name
                   = p.name
