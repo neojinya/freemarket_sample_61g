@@ -145,7 +145,7 @@
       .user-items__content.crearfix
         - @same_seller_product.each do |s|
           %section.user-items__box
-            = link_to product_path(id: s.id) do
+            = link_to product_path(s.id) do
               %figure.user-items__box__photo
                 = image_tag s.images[0].image[0], class:"item-image"
               .user-items__box__body
