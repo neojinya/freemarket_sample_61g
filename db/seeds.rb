@@ -7,29 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-users = User.create!(
-  [
-    { 
-      email: "karikari@karimen.com",
-      password: "karikar",
-      first_name: "kari",
-      last_name: "kari",
-      first_name_kata: "カリ",
-      last_name_kata: "カリ",
-      nickname: "karikari",
-      num_of_exihibits: "1",
-      phone_number: "0966611112",
-      post_code: "1111112",
-      prefecture: "東京都",
-      city_village_town: "渋谷区",
-      house_number: "3丁目",
-      building: "1番地",
-      birthday: "1986-11-02",
-        }
-        ]
-      )
-
-
 
 # レディース
 lady = Category.create(name: "レディース")

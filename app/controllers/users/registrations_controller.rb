@@ -67,6 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   new_card_path(current_user)
   # end
+
   password = Devise.friendly_token.first(7)
   if session[:provider].present? && session[:uid].present?
     @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
@@ -74,4 +75,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   else
     @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
   end
+
+  # password = Devise.friendly_token.first(7)
+  # if session[:provider].present? && session[:uid].present?
+  #   @user = User.create(nickname:session[:nickname], email: session[:email], password: "password",  first_name_kata: session[:first_name_kata],last_name_kata: session[:last_name_kata], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday], phone_number: params[:phone_number])
+  #   sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
+  # else
+  #   @user = User.create(nickname:session[:nickname], email: session[:email], password: "password",  first_name_kata: session[:first_name_kata],last_name_kata: session[:last_name_kata], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday], phone_number: params[:phone_number])
+  # end
 end

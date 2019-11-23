@@ -17,11 +17,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @condition = Product.conditions.keys
-    @delivery_date = Product.delivery_dates.keys
-    @delivery_fee_pay = Product.delivery_fee_pays.keys
-    @region = Product.regions.keys
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
   end
 
   def create
@@ -34,20 +29,45 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
-    # @product = Product.where(id: params[:id])
+    @product = find_product_by_id
     @same_seller = @product.seller_id
     @same_seller_product = Product.where(seller_id: @same_seller).limit(6)
-    # @same_bland = @product.bland_id
-    # @same_bland_products = Product.where(bland_id: @same_bland)
     @same_category = @product.category_id
     @related_products = Product.where(category_id: @same_category).limit(6)
     @images = images(@product)
-    # binding.pry
-    # @related_products_id = @related_products.product_id
-    # @image = photos_of_related_products(@related_products)
     @name = @product.name
     @price = @product.price
+  end
+
+
+  def edit
+    @product = find_product_by_id
+  end
+
+  def update
+    @product = find_product_by_id
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    product = find_product_by_id
+    if product.seller_id == current_user.id
+      product.destroy
+      redirect_to root_path
+    end
+  end
+  
+  def buy
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
+    @product = find_product_by_id
+    @images = images(@product)
   end
 
   # -------------- 仮置き -----------------
@@ -57,44 +77,26 @@ class ProductsController < ApplicationController
   def profile
   end
 
-  def credit
+
+  def listing
+    @products = Product.sale.all
+  end
+
+  def showing
+    @product = find_product_by_id
+    @images = images(@product)
   end
 
   def users_info
   end
 
-  def buy
-    unless user_signed_in?
-      flash[:alert] = "ログインしてください"
-      redirect_to root_path
-    end
-    @product = Product.find(params[:id])
-    @images = images(@product)
-  end
-
-  def pay
-    @product = Product.find(params[:id])
-    Payjp.api_key = ENV["PAY_JP_TEST_SK"]
-    charge = Payjp::Charge.create(
-      amount: @product.price,
-      card: params['payjp-token'],
-      currency: 'jpy'
-      )
-    if @product.update(buyer_id: current_user.id)
-      flash[:notice] = '購入しました。'
-      redirect_to controller: "products", action: 'show',id: @product.id
-    else
-      flash[:alert] = '購入に失敗しました。'
-      redirect_to controller: "products", action: 'show',id: @product.id
-    end
-  end
-
-
   private
   def product_params
-
     params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []}).merge(seller_id: current_user.id)
+  end
 
+  def find_product_by_id
+    Product.find(params[:id])
   end
 
   def images(product)

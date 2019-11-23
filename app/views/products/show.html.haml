@@ -1,9 +1,9 @@
-#item-details
+.item-details
   = render 'shared/header'
-  %section#product-show
-    %h1#product-show__item 
+  %section.product-show
+    %h1.product-show__item 
       = @product.name
-    %p#product-show__text
+    %p.product-show__text
       『#{@product.name}』は、18回の取引実績を持つ
       = link_to do
         なる
@@ -11,21 +11,21 @@
       = link_to do
         美容機器/家電・スマホ・カメラ
       の商品で、#{@product.region}から#{@product.delivery_date}されます。
-    #product-show__content
-      #product-show__photo
+    .product-show__content
+      .product-show__photo
         .photo_field
           - @images.length.times do |i|
             = image_tag @images.reverse[i][0], class:"item-image"
-        #product-show__images
-          #product-show__image-show
-          #product-show__image-list
+        .product-show__images
+          .product-show__image-show
+          .product-show__image-list
             - @images.length.times do |i|
               .product-show__image-content
                 = image_tag @images[i][0], class: "item-image"
         - unless @product.buyer_id.nil?
           #product-show__sold-out
             %div SOLD
-      %table#product-show__table
+      %table.product-show__table
         %tbody
           %tr
             %th 出品者
@@ -46,7 +46,7 @@
             %th カテゴリー
             %td
               = link_to do
-                %div 家電・スマホ・カメラ
+                %div= @product.category.name
               = link_to do
                 %div
                   %i.fas.fa-chevron-right 美容・健康
@@ -77,18 +77,18 @@
             %td
               = @product.delivery_date
       .product-show__clear
-    #product-show__price
-      %span#product-show__yen
+    .product-show__price
+      %span.product-show__yen
         ¥#{generate_three_digits_separator(@product.price)} 
-      %span#product-show__tax (税込)
-      %span#product-show__fee
+      %span.product-show__tax (税込)
+      %span.product-show__fee
         - if @product.delivery_fee_pay == "送料込み(出品者負担)"
           送料込み
         - else
           着払い
     .product-show__link-to
       - if @product.buyer_id.nil?
-        = link_to products_buy_path(id: @product.id),id: "product-show__btn" do
+        = link_to "/products/#{@product.id}/buy",id: "product-show__btn" do
           購入画面に進む
       - else
         %a#product-show__btn--sold
@@ -96,38 +96,38 @@
     #product-show__description
       %p
         = @product.explanation
-    #product-show__buttons
-      #product-show__left-button
-        = link_to '/', id: "product-show__like" do
+    .product-show__buttons
+      .product-show__left-button
+        = link_to '/', class: "product-show__like" do
           %i.far.fa-heart
           %span いいね！
           %span 2
-        = link_to '/', id: "product-show__report" do
+        = link_to '/', class: "product-show__report" do
           %i.far.fa-flag
           %span 不適切な商品の報告
-      #product-show__right-button
+      .product-show__right-button
         = link_to do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
       .product-show__clear
-  #show-messages
-    #show-messages__container
-      #show-messages__content
-        %ul#show-messages__items
+  .show-messages
+    .show-messages__container
+      .show-messages__content
+        %ul.show-messages__items
           %li
-  %ul#item-link
-    %li#item-link__prev
+  %ul.item-link
+    %li.item-link__prev
       = link_to do
         %i.fas.fa-chevron-left
         JUNK STORE ベスト＆パンツ90
-    %li#item-link__next
+    %li.item-link__next
       = link_to do
         %i.fas.fa-chevron-right
         土瓶
     .product-show__clear
-  #media-box
-    #media-box__text-center
-    %ul#media-box__social
+  .media-box
+    .media-box__text-center
+    %ul.media-box__social
       %li
         = link_to 'https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fshare.php%3Fu%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ja_JP' do
           %i.fab.fa-facebook-square
@@ -137,7 +137,7 @@
       %li
         = link_to 'https://www.pinterest.jp/login/?next=/pin/create/button/%3Furl%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm15270664905%252F%26media%3Dhttps%253A%252F%252Fstatic.mercdn.net%252Fitem%252Fdetail%252Forig%252Fphotos%252Fm15270664905_1.jpg%253F1568261349%26description%3D%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%25E5%2595%2586%25E5%2593%2581%253A%2520BELLISSIMA%2520%25E5%2585%2589%25E8%2584%25B1%25E6%25AF%259B%25E5%2599%25A8%2520%25E3%2583%2595%25E3%2583%25A9%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25EF%25BC%2586%25E3%2582%25B4%25E3%2583%25BC%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25B9%2520%2523%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA' do
           %i.fab.fa-pinterest-square
-  #user-items
+  .user-items
     %section.user-items__upper-container.crearfix.related-item-column
       %h2.user-items__head
         = link_to do
@@ -145,7 +145,7 @@
       .user-items__content.crearfix
         - @same_seller_product.each do |s|
           %section.user-items__box
-            = link_to '/products/show' do
+            = link_to product_path(s.id) do
               %figure.user-items__box__photo
                 = image_tag s.images[0].image[0], class:"item-image"
               .user-items__box__body
@@ -166,7 +166,7 @@
       .user-items__content.crearfix
         - @related_products.each do |p|
           %section.user-items__box
-            = link_to '/products/show' do
+            = link_to product_path(id: p.id) do
               %figure.user-items__box__photo
                 = image_tag p.images[0].image[0], class:"item-image"
               .user-items__box__body
@@ -177,12 +177,13 @@
                     ¥#{generate_three_digits_separator(p.price)}
                   .font-2
                     %i.icon-like-border
-  %nav#pos-bottom
+  %nav.pos-bottom
     %ul
       %li
-        = link_to do
+        = link_to root_path do
           %span メルカリ
           %i.fas.fa-chevron-right
       %li
-        %span  BELLISSIMA 光脱毛器 フラッシュ＆ゴープラス
+        %span
+          = @product.name
   = render 'shared/footer'
