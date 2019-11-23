@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
     @price = @product.price
   end
 
+
   def edit
     @product = find_product_by_id
   end
@@ -75,6 +76,7 @@ class ProductsController < ApplicationController
 
   def profile
   end
+
 
   def listing
     @products = Product.sale.all
