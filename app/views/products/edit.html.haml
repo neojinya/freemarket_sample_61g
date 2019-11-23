@@ -18,13 +18,12 @@
                 .upload-box__items-container
                   .upload-items
                     %ul
-                %label.upload-box__drop-box{for: "up-file"}
+                %label.upload-box__drop-box{for: "up-0"}
                   = f.fields_for :images do |image|
-                    = image.file_field :image, id: "up-file", type: "file", multiple: true
+                    = image.file_field :image, class: "upload-0", id: "up-0"
                   %pre
                     ドラッグアンドドロップ
                     またはクリックしてファイルを アップロード
-                  %i
             .sell-form__content1
               .form-group
                 %label

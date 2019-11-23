@@ -1,6 +1,6 @@
 -# TODO:ヘッダー未実装  伊藤  20191115
 %main#registration-new
-  = form_for(@user, url: step2_signup_index_path, method: :get) do |f|
+  = form_for([@user], url: step2_signup_index_path, method: :get) do |f|
     
     .signup-panel
       %p.signup-panel__title 会員情報入力
