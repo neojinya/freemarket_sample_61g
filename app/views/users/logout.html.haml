@@ -1,12 +1,11 @@
 = render 'shared/header'
+= render 'layouts/breadcrumbs'
 .container-damy
   #mypage-wrapper
     = render "mypage/left-content"
 
     .right-content
       .logout-field
-        %form.logout-form{action: "/", method: :delete}
+        %form.logout-form{action: sign_out_path, method: :delete}
           .logout-container
             %button.btn-submit{type: "submit"} ログアウト
-
-
