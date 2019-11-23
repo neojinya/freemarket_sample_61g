@@ -5,22 +5,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    super
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource
-  def create
-    if params[:user][:password] == "" #sns登録なら
-      params[:user][:password] = "Devise.friendly_token.first(6)" #deviseのパスワード自動生成機能を使用
-      super
+  # def create
+  #   if params[:user][:password] == "" #sns登録なら
+  #     params[:user][:password] = "Devise.friendly_token.first(7)" #deviseのパスワード自動生成機能を使用
+  #     super
       
-      sns = SnsCredential.update(user_id:  @user.id)
-    else #email登録なら
+  #     sns = SnsCredential.update(user_id:  @user.id)
+  #   else #email登録なら
       
-      super
-    end
-  end
+  #     super
+  #   end
+  # end
 
   # GET /resource/edit
   # def edit
@@ -69,9 +69,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   password = Devise.friendly_token.first(7)
   if session[:provider].present? && session[:uid].present?
-    @user = User.create(nickname:session[:nickname], email: session[:email], password: "password",  first_name_kata: session[:first_name_kata],last_name_kata: session[:last_name_kata], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday], phone_number: params[:phone_number])
-    sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
+    @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
+    sns = SnsCredential.create(user_id: @user.id,uid: [:uid], provider: [:provider])
   else
-    @user = User.create(nickname:session[:nickname], email: session[:email], password: "password",  first_name_kata: session[:first_name_kata],last_name_kata: session[:last_name_kata], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday], phone_number: params[:phone_number])
+    @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
   end
 end

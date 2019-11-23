@@ -35,13 +35,32 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    # @product = Product.where(id: params[:id])
     @same_seller = @product.seller_id
     @same_seller_product = Product.where(seller_id: @same_seller).limit(6)
+    # @same_bland = @product.bland_id
+    # @same_bland_products = Product.where(bland_id: @same_bland)
     @same_category = @product.category_id
     @related_products = Product.where(category_id: @same_category).limit(6)
     @images = images(@product)
+    # binding.pry
+    # @related_products_id = @related_products.product_id
+    # @image = photos_of_related_products(@related_products)
     @name = @product.name
     @price = @product.price
+  end
+
+  # -------------- 仮置き -----------------
+  def mypage
+  end
+
+  def profile
+  end
+
+  def credit
+  end
+
+  def users_info
   end
 
   def buy
@@ -53,23 +72,22 @@ class ProductsController < ApplicationController
     @images = images(@product)
   end
 
-  
-
-  # -------------- 仮置き -----------------
-  def mypage
+  def pay
+    @product = Product.find(params[:id])
+    Payjp.api_key = ENV["PAY_JP_TEST_SK"]
+    charge = Payjp::Charge.create(
+      amount: @product.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+      )
+    if @product.update(buyer_id: current_user.id)
+      flash[:notice] = '購入しました。'
+      redirect_to controller: "products", action: 'show',id: @product.id
+    else
+      flash[:alert] = '購入に失敗しました。'
+      redirect_to controller: "products", action: 'show',id: @product.id
+    end
   end
-
-  def profile
-  end
-
-  def credit
-    
-  end
-
-  def users_info
-  end
-
-  
 
 
   private
