@@ -9,7 +9,7 @@
         .login__menu__account
           %p
             アカウントをお持ちでない方はこちら
-          = link_to '新規会員登録', new_user_registration_path, id: "button--margin"
+          = link_to '新規会員登録', step1_signup_index_path, id: "button--margin"
             
         .login__menu__inner
           = link_to user_facebook_omniauth_authorize_path, class:'facebook__login btn__default btn__sns btn__sns__facebook', id: 'facebook__login' do
