@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
 
 
   def listing
-    @products = Product.sale.all
+    @products = Product.sale.where(seller_id: current_user.id).all
   end
 
   def showing

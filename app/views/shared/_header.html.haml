@@ -103,14 +103,24 @@
       .heder__contents__low__container
 
       - if user_signed_in?
-        .header__contents__low__right__login
-          %ul.header__low__right
-            %li.header__low__right__notice
-              = link_to"ログアウト", destroy_user_session_path, method: :delete
+        .header__contents__low__right__signup
+          %ul.header__contents__low__right
+            %li.header__contents__low__right__likes
+              = link_to do
+                %i.far.fa-heart.fa-2x
+                いいね！一覧
+            %li.header__contents__low__right__notice
+              = link_to do
+                %i.far.fa-bell.fa-2x
+                お知らせ
             %li.header__contents__low__right__todolist
-              = link_to"やることリスト"
+              = link_to do
+                %i.fa.fa-check.fa-2x
+                やることリスト
             %li.header__contents__low__right__mypage
-              = link_to"マイページ", mypage_path
+              = link_to mypage_path do
+                %img{src: "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
+                マイページ
       - else
         .header__contents__low__right
           .header__contents__low__right__registration
