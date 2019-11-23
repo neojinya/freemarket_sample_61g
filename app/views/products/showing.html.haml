@@ -9,7 +9,7 @@
         = @product.seller.nickname
       さんから出品されました。
       = link_to do
-        美容機器/家電・スマホ・カメラ
+        = @product.category.name
       の商品で、#{@product.region}から#{@product.delivery_date}されます。
     .product-show__content
       .product-show__photo
@@ -45,13 +45,13 @@
             %th カテゴリー
             %td
               = link_to do
-                %div 家電・スマホ・カメラ
+                %div= @product.category.name
               = link_to do
                 %div
-                  %i.fas.fa-chevron-right 美容・健康
+                  -# %i.fas.fa-chevron-right
               = link_to do
                 %div
-                  %i.fas.fa-chevron-right 美容機器
+                  -# %i.fas.fa-chevron-right
           %tr
             %th ブランド
             %td

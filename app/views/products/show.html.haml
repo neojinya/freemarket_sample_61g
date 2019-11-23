@@ -6,10 +6,10 @@
     %p.product-show__text
       『#{@product.name}』は、18回の取引実績を持つ
       = link_to do
-        なる
+        = @product.seller.nickname
       さんから出品されました。
       = link_to do
-        美容機器/家電・スマホ・カメラ
+        = @product.category.name
       の商品で、#{@product.region}から#{@product.delivery_date}されます。
     .product-show__content
       .product-show__photo
@@ -31,7 +31,7 @@
             %th 出品者
             %td
               = link_to do
-                なる
+                = @product.seller.nickname
               %div
                 .product-show__rating
                   %i.fas.fa-laugh
@@ -49,10 +49,10 @@
                 %div= @product.category.name
               = link_to do
                 %div
-                  %i.fas.fa-chevron-right 美容・健康
+                  -# %i.fas.fa-chevron-right 美容・健康
               = link_to do
                 %div
-                  %i.fas.fa-chevron-right 美容機器
+                  -# %i.fas.fa-chevron-right 美容機器
           %tr
             %th ブランド
             %td
