@@ -8,8 +8,10 @@ class CardsController < ApplicationController
 
   def create
     unless params['payjp-token']
-      edirect_to action: "create"
+      redirect_to action: "new" 
       flash[:notice] = 'カードの登録に失敗しました。'
+      
+      return
     end
     Payjp.api_key = ENV["PAY_JP_TEST_SK"]
     customer = Payjp::Customer.create(card: params['payjp-token'])
@@ -18,7 +20,7 @@ class CardsController < ApplicationController
       redirect_to action: "show"
       flash[:notice] = 'カードを登録しました。'
     else
-      redirect_to action: "create"
+      redirect_to action: "new"
       flash[:notice] = 'カードの登録に失敗しました。'
     end
   end
