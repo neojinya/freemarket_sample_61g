@@ -68,13 +68,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   new_card_path(current_user)
   # end
 
-  password = Devise.friendly_token.first(7)
-  if session[:provider].present? && session[:uid].present?
-    @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
-    sns = SnsCredential.create(user_id: @user.id,uid: [:uid], provider: [:provider])
-  else
-    @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
-  end
+  # password = Devise.friendly_token.first(7)
+  # if session[:provider].present? && session[:uid].present?
+  #   @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
+  #   sns = SnsCredential.create(user_id: @user.id,uid: [:uid], provider: [:provider])
+  # else
+  #   @user = User.create(nickname:[:nickname], email: [:email], password: "password",  first_name_kata: [:first_name_kata],last_name_kata: [:last_name_kata], first_name: [:first_name], last_name: [:last_name], birthday: [:birthday], phone_number: [:phone_number])
+  # end
 
   # password = Devise.friendly_token.first(7)
   # if session[:provider].present? && session[:uid].present?
