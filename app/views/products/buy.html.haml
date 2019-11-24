@@ -7,7 +7,7 @@
       %section.buy-content1
         .buy-content-inner
           %h3
-            = image_tag @images[0][0], class:"item-image"
+            = image_tag @images[0].url, class:"item-image"
           %p.item-name
             = @product.name
           = form_for @product, method: :post, url: pay_cards_path ,html: {class: 'buy-form'}  do |f|
