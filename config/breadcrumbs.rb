@@ -26,3 +26,8 @@ crumb :listing do
   link "出品した商品 - 出品中", mypage_listing_path
   parent :mypage
 end
+
+crumb :logout do
+  link "ログアウト", logout_path
+  parent :mypage
+end

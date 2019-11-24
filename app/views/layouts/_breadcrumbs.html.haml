@@ -20,4 +20,8 @@
   - when ['products', 'listing']
     - breadcrumb :listing
     = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
+  
+  - when ['users', 'logout']
+    - breadcrumb :logout
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fas fa-chevron-right')} "
 

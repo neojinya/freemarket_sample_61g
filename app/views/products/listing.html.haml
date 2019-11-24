@@ -26,7 +26,7 @@
                 - if index == 0
                   .tab__item
                     .tab__img
-                      = image_tag product.images[0].image[0], class: 'item-box-img'
+                      = image_tag product.images[0].image.url, class: 'item-box-img'
                     .tab__text
                       %p
                         = product.name
@@ -42,7 +42,7 @@
                 - else
                   .tab__item{style: 'border-top: solid 2px #eee'}
                     .tab__img
-                      = image_tag product.images[0].image[0], class: 'item-box-img'
+                      = image_tag product.images[0].image.url, class: 'item-box-img'
                     .tab__text
                       %p
                         = product.name

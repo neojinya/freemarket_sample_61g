@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   # 仮置き
   get '/sign_up/registration', to: "users#registration"
   get '/sign_up/registration', to: "users#registration"
+  get '/logout', to: "users#logout"
   
   get '/mypage', to: "products#mypage"
   get '/mypage/profile', to: "products#profile"

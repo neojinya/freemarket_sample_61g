@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    
     if @product.save!
       redirect_to root_path
     else
@@ -38,6 +39,7 @@ class ProductsController < ApplicationController
     @name = @product.name
     @price = @product.price
   end
+
 
   def edit
     @product = find_product_by_id
@@ -59,7 +61,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def buy
     unless user_signed_in?
       flash[:alert] = "ログインしてください"
@@ -76,8 +78,9 @@ class ProductsController < ApplicationController
   def profile
   end
 
+
   def listing
-    @products = Product.sale.all
+    @products = Product.sale.where(seller_id: current_user.id).all
   end
 
   def showing
@@ -90,7 +93,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: {image: []}).merge(seller_id: current_user.id)
+    params.require(:product).permit( :name, :explanation, :category_id, :condition, :delivery_date, :delivery_fee_pay, :region, :price, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
   def find_product_by_id
