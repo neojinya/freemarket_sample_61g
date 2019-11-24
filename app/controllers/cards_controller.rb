@@ -7,6 +7,10 @@ class CardsController < ApplicationController
   end
 
   def create
+    unless params['payjp-token']
+      edirect_to action: "create"
+      flash[:notice] = 'カードの登録に失敗しました。'
+    end
     Payjp.api_key = ENV["PAY_JP_TEST_SK"]
     customer = Payjp::Customer.create(card: params['payjp-token'])
     card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
@@ -18,18 +22,6 @@ class CardsController < ApplicationController
       flash[:notice] = 'カードの登録に失敗しました。'
     end
   end
-
-  # def delete
-  #   card = Card.where(user_id: current_user.id).first
-  #   if card.blank?
-  #   else
-  #     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #     customer = Payjp::Customer.retrieve(card.customer_id)
-  #     customer.delete
-  #     card.delete
-  #   end
-  #   redirect_to "new"
-  # end
 
   def show
     @cards = current_user.cards
