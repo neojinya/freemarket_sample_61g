@@ -44,27 +44,28 @@
                         - else
                           = image_tag "rails-logo.png", class: "item-box-img"
                           %p= product.name
-          .main__contents__new-categories__second
-            .main__contents__new-categories__second__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-categories__second__contents
-              %ul
-          .main__contents__new-categories__third
-            .main__contents__new-categories__third__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-categories__third__contents
-              %ul
-          .main__contents__new-categories__bottom
-            .main__contents__new-categories__bottom__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-categories__bottom__contents
-              %ul
+          -# lifecoarchから指摘を受け削除 2019128 伊藤
+          -# .main__contents__new-categories__second
+          -#   .main__contents__new-categories__second__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-categories__second__contents
+          -#     %ul
+          -# .main__contents__new-categories__third
+          -#   .main__contents__new-categories__third__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-categories__third__contents
+          -#     %ul
+          -# .main__contents__new-categories__bottom
+          -#   .main__contents__new-categories__bottom__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-categories__bottom__contents
+          -#     %ul
         .main__contents__brands
           %h2.main__contents__brands__top 人気のブランド
           .main__contents__brands__low
@@ -82,29 +83,30 @@
                 = link_to do
                   ナイキ
         .main__contents__new-brands
-          .main__contents__new-brands__top
-            .main__contents__new-brands__top__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-brands__top__contents
-          .main__contents__new-brands__second
-            .main__contents__new-brands__second__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-brands__second__contents
-          .main__contents__new-brands__third
-            .main__contents__new-brands__third__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-brands__third__contents
-          .main__contents__new-brands__bottom
-            .main__contents__new-brands__bottom__heading
-              %h3 新着アイテム
-              = link_to do
-                もっと見る
-            .main__contents__new-brands__bottom__contents
+          -# lifecoarchから指摘を受け削除 2019128 伊藤
+          -# .main__contents__new-brands__top
+          -#   .main__contents__new-brands__top__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-brands__top__contents
+          -# .main__contents__new-brands__second
+          -#   .main__contents__new-brands__second__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-brands__second__contents
+          -# .main__contents__new-brands__third
+          -#   .main__contents__new-brands__third__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-brands__third__contents
+          -# .main__contents__new-brands__bottom
+          -#   .main__contents__new-brands__bottom__heading
+          -#     %h3 新着アイテム
+          -#     = link_to do
+          -#       もっと見る
+          -#   .main__contents__new-brands__bottom__contents
     = render 'shared/exhibit-btn'
     = render 'shared/footer'
